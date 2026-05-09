@@ -1,8 +1,8 @@
+jest.mock('../../../../src/utils/generateToken', () => jest.fn());
+
 const loginUser = require('../../../../src/use-case/common/loginUser');
 const { PLATFORM } = require('../../../../src/constants/authConstant');
 const generateToken = require('../../../../src/utils/generateToken');
-
-jest.mock('../../../../utils/generateToken');
 
 describe('Common Use Case: loginUser', () => {
   let mockUserDb;
@@ -15,7 +15,7 @@ describe('Common Use Case: loginUser', () => {
       findOne: jest.fn(),
       updateOne: jest.fn(),
     };
-    mockUserTokensDb = { create: jest.fn(), };
+    mockUserTokensDb = { create: jest.fn() };
     mockUserRoleDb = {};
     mockRouteRoleDb = {};
 
@@ -32,7 +32,7 @@ describe('Common Use Case: loginUser', () => {
       toJSON: () => ({
         id: '123',
         username: 'testadmin',
-        userType: 2 
+        userType: 2,
       }),
     };
 

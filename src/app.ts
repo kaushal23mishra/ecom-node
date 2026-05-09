@@ -141,3 +141,4 @@ process.on('uncaughtException', (err: Error) => {
 });
 
 export default app;
+module.exports = app;

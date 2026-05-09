@@ -1,12 +1,23 @@
+jest.mock('mongoose', () => {
+  const mockMongoose = {
+    connection: {
+      readyState: 1,
+      db: { admin: () => ({ ping: jest.fn().mockResolvedValue(true) }) },
+    },
+  };
+  return {
+    __esModule: true,
+    default: mockMongoose,
+    ...mockMongoose,
+  };
+});
+
 const {
   healthCheck,
   detailedHealthCheck,
 } = require('../../../../src/controller/common/healthCheck');
 const mongoose = require('mongoose');
 const httpMocks = require('node-mocks-http');
-
-// Mock mongoose connection
-jest.mock('mongoose', () => ({ connection: { readyState: 1, }, }));
 
 describe('Health Check Controller', () => {
   let req, res;
@@ -60,7 +71,7 @@ describe('Health Check Controller', () => {
       expect(next).toHaveBeenCalled();
       const error = next.mock.calls[0][0];
       expect(error.statusCode).toBe(503);
-      expect(error.message).toBe('Database disconnected');
+      expect(error.message).toBe('Detailed health check failed: Database not reachable');
     });
   });
 });
