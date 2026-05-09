@@ -1,7 +1,6 @@
 const path = require('path');
 const packageJson = require(path.join(process.cwd(), 'package.json'));
 
-
 const options = {
   definition: {
     openapi: '3.0.0',
