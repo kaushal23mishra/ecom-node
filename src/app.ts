@@ -50,16 +50,16 @@ app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ['\'self\''],
+        defaultSrc: ["'self'"],
         styleSrc: [
-          '\'self\'',
-          '\'unsafe-inline\'',
+          "'self'",
+          "'unsafe-inline'",
           'https://fonts.googleapis.com',
           'https://cdnjs.cloudflare.com',
         ],
-        fontSrc: ['\'self\'', 'https://fonts.gstatic.com', 'https://cdnjs.cloudflare.com'],
-        imgSrc: ['\'self\'', 'data:', 'https://dxuoui1db8w1y.cloudfront.net'],
-        scriptSrc: ['\'self\'', '\'unsafe-inline\''],
+        fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://cdnjs.cloudflare.com'],
+        imgSrc: ["'self'", 'data:', 'https://dxuoui1db8w1y.cloudfront.net'],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
       },
     },
   })

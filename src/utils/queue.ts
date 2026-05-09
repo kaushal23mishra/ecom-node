@@ -7,7 +7,7 @@ const config = require('../config');
 class QueueService {
   public queues: any;
   public connection: any;
-  constructor () {
+  constructor() {
     this.queues = {};
     this.connection = null;
 
@@ -23,7 +23,7 @@ class QueueService {
    * Get or create a queue
    * @param {string} name
    */
-  getQueue (name) {
+  getQueue(name) {
     if (!this.connection) return null;
     if (!this.queues[name]) {
       this.queues[name] = new Queue(name, { connection: this.connection });
@@ -38,7 +38,7 @@ class QueueService {
    * @param {object} data
    * @param {object} options
    */
-  async addJob (queueName, jobName, data, options = {}) {
+  async addJob(queueName, jobName, data, options = {}) {
     const queue = this.getQueue(queueName);
     if (!queue) {
       logger.error(`Cannot add job: Queue ${queueName} not available`);
@@ -61,7 +61,7 @@ class QueueService {
    * @param {string} queueName
    * @param {function} processor
    */
-  createWorker (queueName, processor) {
+  createWorker(queueName, processor) {
     if (!this.connection) return null;
     const worker = new Worker(queueName, processor, { connection: this.connection });
 
