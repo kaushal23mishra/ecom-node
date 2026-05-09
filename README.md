@@ -1,10 +1,12 @@
-# node_dhi - Clean Architecture Node.js API
+# Ecom-Node - Clean Architecture Node.js API
 
-This project is a high-performance, hardened Node.js API built using **Clean Architecture** principles, Express.js, and MongoDB (Mongoose).
+This project is a high-performance, hardened Node.js API built using **Clean
+Architecture** principles, Express.js, and MongoDB (Mongoose).
 
 ---
 
 ## 🚀 Quick Start
+
 1. **Prerequisites**: Node.js >= 12, MongoDB, Redis.
 2. **Setup**:
    ```bash
@@ -16,26 +18,36 @@ This project is a high-performance, hardened Node.js API built using **Clean Arc
 ---
 
 ## 📚 Documentation Hub
-We have centralized all documentation to avoid repetition and ensure clarity. **Please refer to the following guides for all project-related information:**
+
+We have centralized all documentation to avoid repetition and ensure clarity.
+**Please refer to the following guides for all project-related information:**
 
 ### 1. [Getting Started Guide](./docs/GettingStarted.md)
-*Installation, configuration, available scripts, and automated development tools.*
+
+_Installation, configuration, available scripts, and automated development
+tools._
 
 ### 2. [Architecture & Code Guide](./docs/ArchitectureGuide.md)
-*Clean Architecture layers, SOLID principles, Project structure, and Coding standards.*
+
+_Clean Architecture layers, SOLID principles, Project structure, and Coding
+standards._
 
 ### 3. [Developer Guide](./docs/DeveloperGuide.md)
-*API documentation (Swagger), Testing strategy, and Database management.*
+
+_API documentation (Swagger), Testing strategy, and Database management._
 
 ### 4. [Operations Guide](./docs/OpsGuide.md)
-*Security hardening, Monitoring, Logging, and Deployment details.*
+
+_Security hardening, Monitoring, Logging, and Deployment details._
 
 ### 5. [Architecture Decisions (ADRs)](./docs/decisions/)
-*History and rationale for key technical choices.*
+
+_History and rationale for key technical choices._
 
 ---
 
 ## 🏆 Key Features
+
 - **Clean Architecture**: Decoupled business logic from frameworks.
 - **Hardened Security**: Protected against XSS, NoSQLi, and Brute-force.
 - **Full Observability**: Structured JSON logging and Prometheus metrics.
