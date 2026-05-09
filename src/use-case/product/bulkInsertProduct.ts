@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertProduct =
   ({ productDb }) =>
-  async (dataToCreate, req, res) => {
-    let productEntities = dataToCreate.map((item) => productEntity(item));
-    let createdProduct = await productDb.create(productEntities);
-    return response.success({ data: { count: createdProduct.length || 0 } });
-  };
+    async (dataToCreate, req, res) => {
+      let productEntities = dataToCreate.map((item) => productEntity(item));
+      let createdProduct = await productDb.create(productEntities);
+      return response.success({ data: { count: createdProduct.length || 0 } });
+    };
 module.exports = bulkInsertProduct;

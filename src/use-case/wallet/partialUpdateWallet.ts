@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateWallet =
   ({ walletDb }) =>
-  async (params, req, res) => {
-    const wallet = await walletDb.updateOne(params.query, params.dataToUpdate);
-    if (!wallet) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: wallet });
-  };
+    async (params, req, res) => {
+      const wallet = await walletDb.updateOne(params.query, params.dataToUpdate);
+      if (!wallet) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: wallet });
+    };
 module.exports = partialUpdateWallet;

@@ -15,24 +15,28 @@ const response = require('../../utils/response');
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
 const softDeleteManyCountry =
-  ({ countryDb, pincodeDb, stateDb }) =>
-  async (params, req, res) => {
-    let { query, dataToUpdate, isWarning } = params;
-    let updatedCountry = {};
-    if (isWarning) {
-      const getDependencyCount = makeGetDependencyCount({
-        countryDb,
-        pincodeDb,
-        stateDb,
-      });
-      return await getDependencyCount(query);
-    } else {
-      const softDeleteWithDependency = makeSoftDeleteWithDependency({
-        countryDb,
-        pincodeDb,
-        stateDb,
-      });
-      return await softDeleteWithDependency(query, dataToUpdate);
-    }
-  };
+  ({
+    countryDb, pincodeDb, stateDb 
+  }) =>
+    async (params, req, res) => {
+      let {
+        query, dataToUpdate, isWarning 
+      } = params;
+      let updatedCountry = {};
+      if (isWarning) {
+        const getDependencyCount = makeGetDependencyCount({
+          countryDb,
+          pincodeDb,
+          stateDb,
+        });
+        return await getDependencyCount(query);
+      } else {
+        const softDeleteWithDependency = makeSoftDeleteWithDependency({
+          countryDb,
+          pincodeDb,
+          stateDb,
+        });
+        return await softDeleteWithDependency(query, dataToUpdate);
+      }
+    };
 module.exports = softDeleteManyCountry;

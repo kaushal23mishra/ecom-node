@@ -13,16 +13,16 @@ const response = require('../../utils/response');
  * @return {Object} : response of create. {status, message, data}
  */
 const addUserRole =
-  ({ userRoleDb, createValidation }) =>
-  async (dataToCreate, req, res) => {
-    const validateRequest = await createValidation(dataToCreate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let userRole = userRoleEntity(dataToCreate);
-    userRole = await userRoleDb.create(userRole);
-    return response.success({ data: userRole });
-  };
+  ({
+    userRoleDb, createValidation 
+  }) =>
+    async (dataToCreate, req, res) => {
+      const validateRequest = await createValidation(dataToCreate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let userRole = userRoleEntity(dataToCreate);
+      userRole = await userRoleDb.create(userRole);
+      return response.success({ data: userRole });
+    };
 module.exports = addUserRole;

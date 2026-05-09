@@ -111,7 +111,9 @@ schema.methods.isPasswordMatch = async function (password) {
   return bcrypt.compare(password, user.password);
 };
 schema.method('toJSON', function () {
-  const { _id, __v, ...object } = this.toObject({ virtuals: true });
+  const {
+    _id, __v, ...object 
+  } = this.toObject({ virtuals: true });
   object.id = _id;
   delete object.password;
   return object;

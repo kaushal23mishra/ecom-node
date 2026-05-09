@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyShipping =
   ({ shippingDb }) =>
-  async (query, req, res) => {
-    let deletedShipping = await shippingDb.deleteMany(query);
-    return response.success({ data: { count: deletedShipping } });
-  };
+    async (query, req, res) => {
+      let deletedShipping = await shippingDb.deleteMany(query);
+      return response.success({ data: { count: deletedShipping } });
+    };
 module.exports = deleteManyShipping;

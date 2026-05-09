@@ -1,7 +1,9 @@
 import express from 'express';
 const router = express.Router();
 const userController = require('../../controller/admin/user');
-const { auth, checkRolePermission } = require('../../middleware');
+const {
+  auth, checkRolePermission 
+} = require('../../middleware');
 const { PLATFORM } = require('../../constants/authConstant');
 
 router.route('/admin/user/me').get(auth(PLATFORM.ADMIN), userController.getLoggedInUserInfo);

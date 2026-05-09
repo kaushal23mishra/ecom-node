@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyProduct =
   ({ productDb }) =>
-  async (query, req, res) => {
-    let deletedProduct = await productDb.deleteMany(query);
-    return response.success({ data: { count: deletedProduct } });
-  };
+    async (query, req, res) => {
+      let deletedProduct = await productDb.deleteMany(query);
+      return response.success({ data: { count: deletedProduct } });
+    };
 module.exports = deleteManyProduct;

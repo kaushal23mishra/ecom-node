@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertCategory =
   ({ categoryDb }) =>
-  async (dataToCreate, req, res) => {
-    let categoryEntities = dataToCreate.map((item) => categoryEntity(item));
-    let createdCategory = await categoryDb.create(categoryEntities);
-    return response.success({ data: { count: createdCategory.length || 0 } });
-  };
+    async (dataToCreate, req, res) => {
+      let categoryEntities = dataToCreate.map((item) => categoryEntity(item));
+      let createdCategory = await categoryDb.create(categoryEntities);
+      return response.success({ data: { count: createdCategory.length || 0 } });
+    };
 module.exports = bulkInsertCategory;

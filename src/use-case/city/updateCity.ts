@@ -14,20 +14,22 @@ const response = require('../../utils/response');
  * @return {Object} : updated City. {status, message, data}
  */
 const updateCity =
-  ({ cityDb, updateValidation }) =>
-  async (params, req, res) => {
-    let { dataToUpdate, query } = params;
-    const validateRequest = await updateValidation(dataToUpdate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let city = cityEntity(dataToUpdate);
-    city = await cityDb.updateOne(query, city);
-    if (!city) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: city });
-  };
+  ({
+    cityDb, updateValidation 
+  }) =>
+    async (params, req, res) => {
+      let {
+        dataToUpdate, query 
+      } = params;
+      const validateRequest = await updateValidation(dataToUpdate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let city = cityEntity(dataToUpdate);
+      city = await cityDb.updateOne(query, city);
+      if (!city) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: city });
+    };
 module.exports = updateCity;

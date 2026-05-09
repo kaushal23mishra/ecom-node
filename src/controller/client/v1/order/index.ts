@@ -25,13 +25,9 @@ const updateOrderUsecase = require('../../../../use-case/order/updateOrder')({
   orderDb,
   updateValidation,
 });
-const partialUpdateOrderUsecase = require('../../../../use-case/order/partialUpdateOrder')({
-  orderDb,
-});
+const partialUpdateOrderUsecase = require('../../../../use-case/order/partialUpdateOrder')({ orderDb, });
 const softDeleteOrderUsecase = require('../../../../use-case/order/softDeleteOrder')({ orderDb });
-const softDeleteManyOrderUsecase = require('../../../../use-case/order/softDeleteManyOrder')({
-  orderDb,
-});
+const softDeleteManyOrderUsecase = require('../../../../use-case/order/softDeleteManyOrder')({ orderDb, });
 const bulkInsertOrderUsecase = require('../../../../use-case/order/bulkInsertOrder')({ orderDb });
 const bulkUpdateOrderUsecase = require('../../../../use-case/order/bulkUpdateOrder')({ orderDb });
 const deleteOrderUsecase = require('../../../../use-case/order/deleteOrder')({ orderDb });

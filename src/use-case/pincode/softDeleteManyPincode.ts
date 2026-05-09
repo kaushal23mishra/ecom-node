@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteManyPincode =
   ({ pincodeDb }) =>
-  async (params, req, res) => {
-    let updatedPincode = await pincodeDb.updateMany(params.query, params.dataToUpdate);
-    if (!updatedPincode) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: { count: updatedPincode } });
-  };
+    async (params, req, res) => {
+      let updatedPincode = await pincodeDb.updateMany(params.query, params.dataToUpdate);
+      if (!updatedPincode) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: { count: updatedPincode } });
+    };
 module.exports = softDeleteManyPincode;

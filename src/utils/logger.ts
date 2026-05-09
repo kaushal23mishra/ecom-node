@@ -4,7 +4,9 @@ import { AsyncLocalStorage } from 'async_hooks';
 
 const context = new AsyncLocalStorage<Map<string, string>>();
 
-const logFormat = winston.format.printf(({ timestamp, level, message, ...metadata }) => {
+const logFormat = winston.format.printf(({
+  timestamp, level, message, ...metadata 
+}) => {
   const store = context.getStore();
   const requestId = store ? store.get('requestId') : null;
   let msg = `${timestamp} [${level}]: ${message} `;
@@ -29,9 +31,7 @@ const logger = winston.createLogger({
     environment: process.env.NODE_ENV,
   },
   transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(winston.format.colorize(), logFormat),
-    }),
+    new winston.transports.Console({ format: winston.format.combine(winston.format.colorize(), logFormat), }),
     new winston.transports.DailyRotateFile({
       filename: 'logs/application-%DATE%.log',
       datePattern: 'YYYY-MM-DD',

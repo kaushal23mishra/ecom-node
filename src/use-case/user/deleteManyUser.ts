@@ -35,53 +35,55 @@ const deleteManyUser =
     routeRoleDb,
     userRoleDb,
   }) =>
-  async (params, req, res) => {
-    let { query, isWarning } = params;
-    let deletedUser;
-    if (isWarning) {
-      const getDependencyCount = makeGetDependencyCount({
-        userDb,
-        productDb,
-        categoryDb,
-        orderDb,
-        bannerDb,
-        cartDb,
-        countryDb,
-        cityDb,
-        pincodeDb,
-        stateDb,
-        walletDb,
-        walletTransactionDb,
-        shippingDb,
-        userTokensDb,
-        roleDb,
-        projectRouteDb,
-        routeRoleDb,
-        userRoleDb,
-      });
-      return await getDependencyCount(query);
-    } else {
-      const deleteWithDependency = makeDeleteWithDependency({
-        userDb,
-        productDb,
-        categoryDb,
-        orderDb,
-        bannerDb,
-        cartDb,
-        countryDb,
-        cityDb,
-        pincodeDb,
-        stateDb,
-        walletDb,
-        walletTransactionDb,
-        shippingDb,
-        userTokensDb,
-        roleDb,
-        projectRouteDb,
-        routeRoleDb,
-        userRoleDb,
-      });
-      return await deleteWithDependency(query);
-    }
-  };
+    async (params, req, res) => {
+      let {
+        query, isWarning 
+      } = params;
+      let deletedUser;
+      if (isWarning) {
+        const getDependencyCount = makeGetDependencyCount({
+          userDb,
+          productDb,
+          categoryDb,
+          orderDb,
+          bannerDb,
+          cartDb,
+          countryDb,
+          cityDb,
+          pincodeDb,
+          stateDb,
+          walletDb,
+          walletTransactionDb,
+          shippingDb,
+          userTokensDb,
+          roleDb,
+          projectRouteDb,
+          routeRoleDb,
+          userRoleDb,
+        });
+        return await getDependencyCount(query);
+      } else {
+        const deleteWithDependency = makeDeleteWithDependency({
+          userDb,
+          productDb,
+          categoryDb,
+          orderDb,
+          bannerDb,
+          cartDb,
+          countryDb,
+          cityDb,
+          pincodeDb,
+          stateDb,
+          walletDb,
+          walletTransactionDb,
+          shippingDb,
+          userTokensDb,
+          roleDb,
+          projectRouteDb,
+          routeRoleDb,
+          userRoleDb,
+        });
+        return await deleteWithDependency(query);
+      }
+    };
 module.exports = deleteManyUser;

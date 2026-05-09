@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateCart =
   ({ cartDb }) =>
-  async (params, req, res) => {
-    const updatedCart = await cartDb.updateMany(params.query, params.dataToUpdate);
-    return response.success({ data: { count: updatedCart } });
-  };
+    async (params, req, res) => {
+      const updatedCart = await cartDb.updateMany(params.query, params.dataToUpdate);
+      return response.success({ data: { count: updatedCart } });
+    };
 module.exports = bulkUpdateCart;

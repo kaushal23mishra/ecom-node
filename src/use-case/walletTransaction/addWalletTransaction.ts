@@ -13,16 +13,16 @@ const response = require('../../utils/response');
  * @return {Object} : response of create. {status, message, data}
  */
 const addWalletTransaction =
-  ({ walletTransactionDb, createValidation }) =>
-  async (dataToCreate, req, res) => {
-    const validateRequest = await createValidation(dataToCreate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let walletTransaction = walletTransactionEntity(dataToCreate);
-    walletTransaction = await walletTransactionDb.create(walletTransaction);
-    return response.success({ data: walletTransaction });
-  };
+  ({
+    walletTransactionDb, createValidation 
+  }) =>
+    async (dataToCreate, req, res) => {
+      const validateRequest = await createValidation(dataToCreate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let walletTransaction = walletTransactionEntity(dataToCreate);
+      walletTransaction = await walletTransactionDb.create(walletTransaction);
+      return response.success({ data: walletTransaction });
+    };
 module.exports = addWalletTransaction;

@@ -1,4 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
+import {
+  Request, Response, NextFunction 
+} from 'express';
 import logger from '../utils/logger';
 import { AppError } from '../utils/AppError';
 import ERROR_CODES from '../constants/errorCodes';

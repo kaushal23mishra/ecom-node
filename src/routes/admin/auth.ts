@@ -2,7 +2,9 @@ import express from 'express';
 const router = express.Router();
 import { auth } from '../../middleware';
 import { validate } from '../../middleware/validate';
-import { loginSchema, registerSchema } from '../../validation/schema/auth.schema';
+import {
+  loginSchema, registerSchema 
+} from '../../validation/schema/auth.schema';
 import authController from '../../controller/admin/authentication';
 import { PLATFORM } from '../../constants/authConstant';
 

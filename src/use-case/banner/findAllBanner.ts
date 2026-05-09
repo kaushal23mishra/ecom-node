@@ -13,24 +13,26 @@ const response = require('../../utils/response');
  * @return {Object} : found Banner(s). {status, message, data}
  */
 const findAllBanner =
-  ({ bannerDb, filterValidation }) =>
-  async (params, req, res) => {
-    const validateRequest = await filterValidation(params);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let { query, options, isCountOnly } = params;
-    if (isCountOnly) {
-      let totalRecords = await bannerDb.count(query);
-      return response.success({ data: { totalRecords } });
-    } else {
-      let foundBanner = await bannerDb.paginate(query, options);
-      if (!foundBanner) {
-        return response.recordNotFound();
+  ({
+    bannerDb, filterValidation 
+  }) =>
+    async (params, req, res) => {
+      const validateRequest = await filterValidation(params);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
       }
-      return response.success({ data: foundBanner });
-    }
-  };
+      let {
+        query, options, isCountOnly 
+      } = params;
+      if (isCountOnly) {
+        let totalRecords = await bannerDb.count(query);
+        return response.success({ data: { totalRecords } });
+      } else {
+        let foundBanner = await bannerDb.paginate(query, options);
+        if (!foundBanner) {
+          return response.recordNotFound();
+        }
+        return response.success({ data: foundBanner });
+      }
+    };
 module.exports = findAllBanner;

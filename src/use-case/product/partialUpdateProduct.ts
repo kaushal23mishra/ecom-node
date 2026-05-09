@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateProduct =
   ({ productDb }) =>
-  async (params, req, res) => {
-    const product = await productDb.updateOne(params.query, params.dataToUpdate);
-    if (!product) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: product });
-  };
+    async (params, req, res) => {
+      const product = await productDb.updateOne(params.query, params.dataToUpdate);
+      if (!product) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: product });
+    };
 module.exports = partialUpdateProduct;

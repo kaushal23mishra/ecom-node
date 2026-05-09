@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdatePincode =
   ({ pincodeDb }) =>
-  async (params, req, res) => {
-    const updatedPincode = await pincodeDb.updateMany(params.query, params.dataToUpdate);
-    return response.success({ data: { count: updatedPincode } });
-  };
+    async (params, req, res) => {
+      const updatedPincode = await pincodeDb.updateMany(params.query, params.dataToUpdate);
+      return response.success({ data: { count: updatedPincode } });
+    };
 module.exports = bulkUpdatePincode;

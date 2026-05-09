@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyWalletTransaction =
   ({ walletTransactionDb }) =>
-  async (query, req, res) => {
-    let deletedWalletTransaction = await walletTransactionDb.deleteMany(query);
-    return response.success({ data: { count: deletedWalletTransaction } });
-  };
+    async (query, req, res) => {
+      let deletedWalletTransaction = await walletTransactionDb.deleteMany(query);
+      return response.success({ data: { count: deletedWalletTransaction } });
+    };
 module.exports = deleteManyWalletTransaction;

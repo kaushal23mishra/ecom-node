@@ -12,16 +12,16 @@ const response = require('../../utils/response');
  * @return {Object} : response of count. {status, message, data}
  */
 const getShippingCount =
-  ({ shippingDb, filterValidation }) =>
-  async (params, req, res) => {
-    let { where } = params;
-    const validateRequest = await filterValidation(where);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let count = await shippingDb.count(where);
-    return response.success({ data: { count } });
-  };
+  ({
+    shippingDb, filterValidation 
+  }) =>
+    async (params, req, res) => {
+      let { where } = params;
+      const validateRequest = await filterValidation(where);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let count = await shippingDb.count(where);
+      return response.success({ data: { count } });
+    };
 module.exports = getShippingCount;

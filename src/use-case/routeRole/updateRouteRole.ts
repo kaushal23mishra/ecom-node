@@ -14,20 +14,22 @@ const response = require('../../utils/response');
  * @return {Object} : updated RouteRole. {status, message, data}
  */
 const updateRouteRole =
-  ({ routeRoleDb, updateValidation }) =>
-  async (params, req, res) => {
-    let { dataToUpdate, query } = params;
-    const validateRequest = await updateValidation(dataToUpdate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let routerole = routeRoleEntity(dataToUpdate);
-    routerole = await routeRoleDb.updateOne(query, routerole);
-    if (!routerole) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: routerole });
-  };
+  ({
+    routeRoleDb, updateValidation 
+  }) =>
+    async (params, req, res) => {
+      let {
+        dataToUpdate, query 
+      } = params;
+      const validateRequest = await updateValidation(dataToUpdate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let routerole = routeRoleEntity(dataToUpdate);
+      routerole = await routeRoleDb.updateOne(query, routerole);
+      if (!routerole) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: routerole });
+    };
 module.exports = updateRouteRole;

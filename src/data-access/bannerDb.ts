@@ -1,6 +1,8 @@
 export {};
 let Banner = require('../db/mongoDB/models/banner');
-let { create, updateOne, updateMany, deleteOne, deleteMany, findOne, findMany, count, paginate } =
+let {
+  create, updateOne, updateMany, deleteOne, deleteMany, findOne, findMany, count, paginate 
+} =
   require('../db/mongoDB/dbService')(Banner);
 
 module.exports = {

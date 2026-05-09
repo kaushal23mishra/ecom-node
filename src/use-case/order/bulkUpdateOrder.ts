@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateOrder =
   ({ orderDb }) =>
-  async (params, req, res) => {
-    const updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
-    return response.success({ data: { count: updatedOrder } });
-  };
+    async (params, req, res) => {
+      const updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
+      return response.success({ data: { count: updatedOrder } });
+    };
 module.exports = bulkUpdateOrder;

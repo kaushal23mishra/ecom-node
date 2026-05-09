@@ -14,14 +14,14 @@ const response = require('../../utils/response');
  */
 const softDeleteWalletTransaction =
   ({ walletTransactionDb }) =>
-  async (params, req, res) => {
-    let updatedWalletTransaction = await walletTransactionDb.updateOne(
-      params.query,
-      params.dataToUpdate
-    );
-    if (!updatedWalletTransaction) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: updatedWalletTransaction });
-  };
+    async (params, req, res) => {
+      let updatedWalletTransaction = await walletTransactionDb.updateOne(
+        params.query,
+        params.dataToUpdate
+      );
+      if (!updatedWalletTransaction) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: updatedWalletTransaction });
+    };
 module.exports = softDeleteWalletTransaction;

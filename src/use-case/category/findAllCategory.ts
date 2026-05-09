@@ -13,24 +13,26 @@ const response = require('../../utils/response');
  * @return {Object} : found Category(s). {status, message, data}
  */
 const findAllCategory =
-  ({ categoryDb, filterValidation }) =>
-  async (params, req, res) => {
-    const validateRequest = await filterValidation(params);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let { query, options, isCountOnly } = params;
-    if (isCountOnly) {
-      let totalRecords = await categoryDb.count(query);
-      return response.success({ data: { totalRecords } });
-    } else {
-      let foundCategory = await categoryDb.paginate(query, options);
-      if (!foundCategory) {
-        return response.recordNotFound();
+  ({
+    categoryDb, filterValidation 
+  }) =>
+    async (params, req, res) => {
+      const validateRequest = await filterValidation(params);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
       }
-      return response.success({ data: foundCategory });
-    }
-  };
+      let {
+        query, options, isCountOnly 
+      } = params;
+      if (isCountOnly) {
+        let totalRecords = await categoryDb.count(query);
+        return response.success({ data: { totalRecords } });
+      } else {
+        let foundCategory = await categoryDb.paginate(query, options);
+        if (!foundCategory) {
+          return response.recordNotFound();
+        }
+        return response.success({ data: foundCategory });
+      }
+    };
 module.exports = findAllCategory;

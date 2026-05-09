@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteManyBanner =
   ({ bannerDb }) =>
-  async (params, req, res) => {
-    let updatedBanner = await bannerDb.updateMany(params.query, params.dataToUpdate);
-    if (!updatedBanner) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: { count: updatedBanner } });
-  };
+    async (params, req, res) => {
+      let updatedBanner = await bannerDb.updateMany(params.query, params.dataToUpdate);
+      if (!updatedBanner) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: { count: updatedBanner } });
+    };
 module.exports = softDeleteManyBanner;

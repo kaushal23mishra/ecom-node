@@ -22,7 +22,9 @@ const envSchema = Joi.object({
   SMS_PASSWORD: Joi.string(),
 }).unknown();
 
-const { error, value: envVars } = envSchema.validate(process.env);
+const {
+  error, value: envVars 
+} = envSchema.validate(process.env);
 if (error) {
   logger.error(`Environment validation error: ${error.message}`);
 }

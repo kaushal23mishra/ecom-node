@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteBanner =
   ({ bannerDb }) =>
-  async (params, req, res) => {
-    let updatedBanner = await bannerDb.updateOne(params.query, params.dataToUpdate);
-    if (!updatedBanner) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: updatedBanner });
-  };
+    async (params, req, res) => {
+      let updatedBanner = await bannerDb.updateOne(params.query, params.dataToUpdate);
+      if (!updatedBanner) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: updatedBanner });
+    };
 module.exports = softDeleteBanner;

@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteShipping =
   ({ shippingDb }) =>
-  async (params, req, res) => {
-    let updatedShipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
-    if (!updatedShipping) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: updatedShipping });
-  };
+    async (params, req, res) => {
+      let updatedShipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
+      if (!updatedShipping) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: updatedShipping });
+    };
 module.exports = softDeleteShipping;

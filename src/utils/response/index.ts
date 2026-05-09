@@ -65,29 +65,29 @@ export const responseHandler = (res: Response, body: any = {}) => {
   let statusCode: number;
 
   switch (body.status) {
-    case RESPONSE_STATUS.SUCCESS:
-      statusCode = body.statusCode || RESPONSE_CODE.success;
-      break;
-    case RESPONSE_STATUS.FAILURE:
-      statusCode = body.statusCode || RESPONSE_CODE.success;
-      break;
-    case RESPONSE_STATUS.SERVER_ERROR:
-      statusCode = body.statusCode || RESPONSE_CODE.internalServerError;
-      break;
-    case RESPONSE_STATUS.BAD_REQUEST:
-      statusCode = body.statusCode || RESPONSE_CODE.badRequest;
-      break;
-    case RESPONSE_STATUS.RECORD_NOT_FOUND:
-      statusCode = body.statusCode || RESPONSE_CODE.notFound;
-      break;
-    case RESPONSE_STATUS.VALIDATION_ERROR:
-      statusCode = body.statusCode || RESPONSE_CODE.validationError;
-      break;
-    case RESPONSE_STATUS.UNAUTHORIZED:
-      statusCode = body.statusCode || RESPONSE_CODE.unAuthorized;
-      break;
-    default:
-      statusCode = body.statusCode || RESPONSE_CODE.internalServerError;
+  case RESPONSE_STATUS.SUCCESS:
+    statusCode = body.statusCode || RESPONSE_CODE.success;
+    break;
+  case RESPONSE_STATUS.FAILURE:
+    statusCode = body.statusCode || RESPONSE_CODE.success;
+    break;
+  case RESPONSE_STATUS.SERVER_ERROR:
+    statusCode = body.statusCode || RESPONSE_CODE.internalServerError;
+    break;
+  case RESPONSE_STATUS.BAD_REQUEST:
+    statusCode = body.statusCode || RESPONSE_CODE.badRequest;
+    break;
+  case RESPONSE_STATUS.RECORD_NOT_FOUND:
+    statusCode = body.statusCode || RESPONSE_CODE.notFound;
+    break;
+  case RESPONSE_STATUS.VALIDATION_ERROR:
+    statusCode = body.statusCode || RESPONSE_CODE.validationError;
+    break;
+  case RESPONSE_STATUS.UNAUTHORIZED:
+    statusCode = body.statusCode || RESPONSE_CODE.unAuthorized;
+    break;
+  default:
+    statusCode = body.statusCode || RESPONSE_CODE.internalServerError;
   }
 
   if ((res.req as any)?.id) body.requestId = (res.req as any).id;

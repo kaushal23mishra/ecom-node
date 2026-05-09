@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteManyOrder =
   ({ orderDb }) =>
-  async (params, req, res) => {
-    let updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
-    if (!updatedOrder) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: { count: updatedOrder } });
-  };
+    async (params, req, res) => {
+      let updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
+      if (!updatedOrder) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: { count: updatedOrder } });
+    };
 module.exports = softDeleteManyOrder;

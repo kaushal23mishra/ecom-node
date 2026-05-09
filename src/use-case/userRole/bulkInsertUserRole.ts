@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertUserRole =
   ({ userRoleDb }) =>
-  async (dataToCreate, req, res) => {
-    let userroleEntities = dataToCreate.map((item) => userRoleEntity(item));
-    let createdUserRole = await userRoleDb.create(userroleEntities);
-    return response.success({ data: { count: createdUserRole.length || 0 } });
-  };
+    async (dataToCreate, req, res) => {
+      let userroleEntities = dataToCreate.map((item) => userRoleEntity(item));
+      let createdUserRole = await userRoleDb.create(userroleEntities);
+      return response.success({ data: { count: createdUserRole.length || 0 } });
+    };
 module.exports = bulkInsertUserRole;

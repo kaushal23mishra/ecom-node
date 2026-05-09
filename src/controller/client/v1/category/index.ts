@@ -38,12 +38,8 @@ const softDeleteManyCategoryUsecase =
     categoryDb,
     productDb,
   });
-const bulkInsertCategoryUsecase = require('../../../../use-case/category/bulkInsertCategory')({
-  categoryDb,
-});
-const bulkUpdateCategoryUsecase = require('../../../../use-case/category/bulkUpdateCategory')({
-  categoryDb,
-});
+const bulkInsertCategoryUsecase = require('../../../../use-case/category/bulkInsertCategory')({ categoryDb, });
+const bulkUpdateCategoryUsecase = require('../../../../use-case/category/bulkUpdateCategory')({ categoryDb, });
 const deleteCategoryUsecase = require('../../../../use-case/category/deleteCategory')({
   categoryDb,
   productDb,

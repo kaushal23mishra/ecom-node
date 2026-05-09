@@ -14,20 +14,22 @@ const response = require('../../utils/response');
  * @return {Object} : updated User. {status, message, data}
  */
 const updateUser =
-  ({ userDb, updateValidation }) =>
-  async (params, req, res) => {
-    let { dataToUpdate, query } = params;
-    const validateRequest = await updateValidation(dataToUpdate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let user = userEntity(dataToUpdate);
-    user = await userDb.updateOne(query, user);
-    if (!user) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: user });
-  };
+  ({
+    userDb, updateValidation 
+  }) =>
+    async (params, req, res) => {
+      let {
+        dataToUpdate, query 
+      } = params;
+      const validateRequest = await updateValidation(dataToUpdate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let user = userEntity(dataToUpdate);
+      user = await userDb.updateOne(query, user);
+      if (!user) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: user });
+    };
 module.exports = updateUser;

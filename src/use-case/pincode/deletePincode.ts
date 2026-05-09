@@ -14,12 +14,12 @@ const response = require('../../utils/response');
  */
 const deletePincode =
   ({ pincodeDb }) =>
-  async (query, req, res) => {
-    let deletedPincode = await pincodeDb.deleteOne(query);
-    if (!deletedPincode) {
-      return response.recordNotFound({});
-    }
-    return response.success({ data: deletedPincode });
-  };
+    async (query, req, res) => {
+      let deletedPincode = await pincodeDb.deleteOne(query);
+      if (!deletedPincode) {
+        return response.recordNotFound({});
+      }
+      return response.success({ data: deletedPincode });
+    };
 
 module.exports = deletePincode;

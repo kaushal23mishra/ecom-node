@@ -15,22 +15,26 @@ const response = require('../../utils/response');
  * @return {Object} : no of documents deleted. {status, message, data}
  */
 const deleteManyProjectRoute =
-  ({ projectRouteDb, routeRoleDb }) =>
-  async (params, req, res) => {
-    let { query, isWarning } = params;
-    let deletedProjectRoute;
-    if (isWarning) {
-      const getDependencyCount = makeGetDependencyCount({
-        projectRouteDb,
-        routeRoleDb,
-      });
-      return await getDependencyCount(query);
-    } else {
-      const deleteWithDependency = makeDeleteWithDependency({
-        projectRouteDb,
-        routeRoleDb,
-      });
-      return await deleteWithDependency(query);
-    }
-  };
+  ({
+    projectRouteDb, routeRoleDb 
+  }) =>
+    async (params, req, res) => {
+      let {
+        query, isWarning 
+      } = params;
+      let deletedProjectRoute;
+      if (isWarning) {
+        const getDependencyCount = makeGetDependencyCount({
+          projectRouteDb,
+          routeRoleDb,
+        });
+        return await getDependencyCount(query);
+      } else {
+        const deleteWithDependency = makeDeleteWithDependency({
+          projectRouteDb,
+          routeRoleDb,
+        });
+        return await deleteWithDependency(query);
+      }
+    };
 module.exports = deleteManyProjectRoute;

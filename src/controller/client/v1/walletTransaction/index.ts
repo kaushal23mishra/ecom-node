@@ -33,33 +33,19 @@ const updateWalletTransactionUsecase =
     updateValidation,
   });
 const partialUpdateWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/partialUpdateWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/partialUpdateWalletTransaction')({ walletTransactionDb, });
 const softDeleteWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/softDeleteWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/softDeleteWalletTransaction')({ walletTransactionDb, });
 const softDeleteManyWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/softDeleteManyWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/softDeleteManyWalletTransaction')({ walletTransactionDb, });
 const bulkInsertWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/bulkInsertWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/bulkInsertWalletTransaction')({ walletTransactionDb, });
 const bulkUpdateWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/bulkUpdateWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/bulkUpdateWalletTransaction')({ walletTransactionDb, });
 const deleteWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/deleteWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/deleteWalletTransaction')({ walletTransactionDb, });
 const deleteManyWalletTransactionUsecase =
-  require('../../../../use-case/walletTransaction/deleteManyWalletTransaction')({
-    walletTransactionDb,
-  });
+  require('../../../../use-case/walletTransaction/deleteManyWalletTransaction')({ walletTransactionDb, });
 
 const walletTransactionController = require('./walletTransaction');
 

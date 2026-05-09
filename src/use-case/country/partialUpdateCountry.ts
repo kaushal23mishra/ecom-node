@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateCountry =
   ({ countryDb }) =>
-  async (params, req, res) => {
-    const country = await countryDb.updateOne(params.query, params.dataToUpdate);
-    if (!country) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: country });
-  };
+    async (params, req, res) => {
+      const country = await countryDb.updateOne(params.query, params.dataToUpdate);
+      if (!country) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: country });
+    };
 module.exports = partialUpdateCountry;

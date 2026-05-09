@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyBanner =
   ({ bannerDb }) =>
-  async (query, req, res) => {
-    let deletedBanner = await bannerDb.deleteMany(query);
-    return response.success({ data: { count: deletedBanner } });
-  };
+    async (query, req, res) => {
+      let deletedBanner = await bannerDb.deleteMany(query);
+      return response.success({ data: { count: deletedBanner } });
+    };
 module.exports = deleteManyBanner;

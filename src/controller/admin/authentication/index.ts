@@ -13,9 +13,7 @@ const registerUsecase = require('../../../use-case/authentication/register')({
   userDb,
   createValidation,
 });
-const forgotPasswordUsecase = require('../../../use-case/authentication/forgotPassword')({
-  userDb,
-});
+const forgotPasswordUsecase = require('../../../use-case/authentication/forgotPassword')({ userDb, });
 const resetPasswordUsecase = require('../../../use-case/authentication/resetPassword')({ userDb });
 const validateResetPasswordOtpUsecase =
   require('../../../use-case/authentication/validateResetPasswordOtp')({ userDb });

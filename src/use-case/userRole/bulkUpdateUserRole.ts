@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateUserRole =
   ({ userRoleDb }) =>
-  async (params, req, res) => {
-    const updatedUserRole = await userRoleDb.updateMany(params.query, params.dataToUpdate);
-    return response.success({ data: { count: updatedUserRole } });
-  };
+    async (params, req, res) => {
+      const updatedUserRole = await userRoleDb.updateMany(params.query, params.dataToUpdate);
+      return response.success({ data: { count: updatedUserRole } });
+    };
 module.exports = bulkUpdateUserRole;

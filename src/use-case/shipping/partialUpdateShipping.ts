@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateShipping =
   ({ shippingDb }) =>
-  async (params, req, res) => {
-    const shipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
-    if (!shipping) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: shipping });
-  };
+    async (params, req, res) => {
+      const shipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
+      if (!shipping) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: shipping });
+    };
 module.exports = partialUpdateShipping;

@@ -16,23 +16,27 @@ const response = require('../../utils/response');
  * @return {Object} : deleted City. {status, message, data}
  */
 const deleteCity =
-  ({ cityDb, pincodeDb }) =>
-  async (params, req, res) => {
-    let { query, isWarning } = params;
-    let deletedCity = {};
-    if (isWarning) {
-      const getDependencyCount = makeGetDependencyCount({
-        cityDb,
-        pincodeDb,
-      });
-      return await getDependencyCount(query);
-    } else {
-      const deleteWithDependency = makeDeleteWithDependency({
-        cityDb,
-        pincodeDb,
-      });
-      return await deleteWithDependency(query);
-    }
-  };
+  ({
+    cityDb, pincodeDb 
+  }) =>
+    async (params, req, res) => {
+      let {
+        query, isWarning 
+      } = params;
+      let deletedCity = {};
+      if (isWarning) {
+        const getDependencyCount = makeGetDependencyCount({
+          cityDb,
+          pincodeDb,
+        });
+        return await getDependencyCount(query);
+      } else {
+        const deleteWithDependency = makeDeleteWithDependency({
+          cityDb,
+          pincodeDb,
+        });
+        return await deleteWithDependency(query);
+      }
+    };
 
 module.exports = deleteCity;

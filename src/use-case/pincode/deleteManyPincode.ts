@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyPincode =
   ({ pincodeDb }) =>
-  async (query, req, res) => {
-    let deletedPincode = await pincodeDb.deleteMany(query);
-    return response.success({ data: { count: deletedPincode } });
-  };
+    async (query, req, res) => {
+      let deletedPincode = await pincodeDb.deleteMany(query);
+      return response.success({ data: { count: deletedPincode } });
+    };
 module.exports = deleteManyPincode;

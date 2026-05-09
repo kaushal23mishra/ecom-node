@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateState =
   ({ stateDb }) =>
-  async (params, req, res) => {
-    const state = await stateDb.updateOne(params.query, params.dataToUpdate);
-    if (!state) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: state });
-  };
+    async (params, req, res) => {
+      const state = await stateDb.updateOne(params.query, params.dataToUpdate);
+      if (!state) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: state });
+    };
 module.exports = partialUpdateState;

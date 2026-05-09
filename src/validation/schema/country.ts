@@ -1,6 +1,8 @@
 export {};
 const joi = require('joi');
-const { options, isCountOnly, populate, select } = require('../commonFilterValidation');
+const {
+  options, isCountOnly, populate, select 
+} = require('../commonFilterValidation');
 
 const createSchema = joi
   .object({

@@ -13,16 +13,16 @@ const response = require('../../utils/response');
  * @return {Object} : response of create. {status, message, data}
  */
 const addShipping =
-  ({ shippingDb, createValidation }) =>
-  async (dataToCreate, req, res) => {
-    const validateRequest = await createValidation(dataToCreate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let shipping = shippingEntity(dataToCreate);
-    shipping = await shippingDb.create(shipping);
-    return response.success({ data: shipping });
-  };
+  ({
+    shippingDb, createValidation 
+  }) =>
+    async (dataToCreate, req, res) => {
+      const validateRequest = await createValidation(dataToCreate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let shipping = shippingEntity(dataToCreate);
+      shipping = await shippingDb.create(shipping);
+      return response.success({ data: shipping });
+    };
 module.exports = addShipping;

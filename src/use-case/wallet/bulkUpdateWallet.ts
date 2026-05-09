@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateWallet =
   ({ walletDb }) =>
-  async (params, req, res) => {
-    const updatedWallet = await walletDb.updateMany(params.query, params.dataToUpdate);
-    return response.success({ data: { count: updatedWallet } });
-  };
+    async (params, req, res) => {
+      const updatedWallet = await walletDb.updateMany(params.query, params.dataToUpdate);
+      return response.success({ data: { count: updatedWallet } });
+    };
 module.exports = bulkUpdateWallet;

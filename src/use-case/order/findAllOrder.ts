@@ -13,24 +13,26 @@ const response = require('../../utils/response');
  * @return {Object} : found Order(s). {status, message, data}
  */
 const findAllOrder =
-  ({ orderDb, filterValidation }) =>
-  async (params, req, res) => {
-    const validateRequest = await filterValidation(params);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let { query, options, isCountOnly } = params;
-    if (isCountOnly) {
-      let totalRecords = await orderDb.count(query);
-      return response.success({ data: { totalRecords } });
-    } else {
-      let foundOrder = await orderDb.paginate(query, options);
-      if (!foundOrder) {
-        return response.recordNotFound();
+  ({
+    orderDb, filterValidation 
+  }) =>
+    async (params, req, res) => {
+      const validateRequest = await filterValidation(params);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
       }
-      return response.success({ data: foundOrder });
-    }
-  };
+      let {
+        query, options, isCountOnly 
+      } = params;
+      if (isCountOnly) {
+        let totalRecords = await orderDb.count(query);
+        return response.success({ data: { totalRecords } });
+      } else {
+        let foundOrder = await orderDb.paginate(query, options);
+        if (!foundOrder) {
+          return response.recordNotFound();
+        }
+        return response.success({ data: foundOrder });
+      }
+    };
 module.exports = findAllOrder;

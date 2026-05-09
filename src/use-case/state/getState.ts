@@ -13,19 +13,21 @@ const response = require('../../utils/response');
  * @return {Object} : found State. {status, message, data}
  */
 const getState =
-  ({ stateDb, filterValidation }) =>
-  async (params, req, res) => {
-    let { query, options } = params;
-    const validateRequest = await filterValidation(options);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let foundState = await stateDb.findOne(query, options);
-    if (!foundState) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: foundState });
-  };
+  ({
+    stateDb, filterValidation 
+  }) =>
+    async (params, req, res) => {
+      let {
+        query, options 
+      } = params;
+      const validateRequest = await filterValidation(options);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let foundState = await stateDb.findOne(query, options);
+      if (!foundState) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: foundState });
+    };
 module.exports = getState;

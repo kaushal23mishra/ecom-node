@@ -16,23 +16,27 @@ const response = require('../../utils/response');
  * @return {Object} : deleted Wallet. {status, message, data}
  */
 const deleteWallet =
-  ({ walletDb, walletTransactionDb }) =>
-  async (params, req, res) => {
-    let { query, isWarning } = params;
-    let deletedWallet = {};
-    if (isWarning) {
-      const getDependencyCount = makeGetDependencyCount({
-        walletDb,
-        walletTransactionDb,
-      });
-      return await getDependencyCount(query);
-    } else {
-      const deleteWithDependency = makeDeleteWithDependency({
-        walletDb,
-        walletTransactionDb,
-      });
-      return await deleteWithDependency(query);
-    }
-  };
+  ({
+    walletDb, walletTransactionDb 
+  }) =>
+    async (params, req, res) => {
+      let {
+        query, isWarning 
+      } = params;
+      let deletedWallet = {};
+      if (isWarning) {
+        const getDependencyCount = makeGetDependencyCount({
+          walletDb,
+          walletTransactionDb,
+        });
+        return await getDependencyCount(query);
+      } else {
+        const deleteWithDependency = makeDeleteWithDependency({
+          walletDb,
+          walletTransactionDb,
+        });
+        return await deleteWithDependency(query);
+      }
+    };
 
 module.exports = deleteWallet;

@@ -25,25 +25,13 @@ const updateBannerUsecase = require('../../../../use-case/banner/updateBanner')(
   bannerDb,
   updateValidation,
 });
-const partialUpdateBannerUsecase = require('../../../../use-case/banner/partialUpdateBanner')({
-  bannerDb,
-});
-const softDeleteBannerUsecase = require('../../../../use-case/banner/softDeleteBanner')({
-  bannerDb,
-});
-const softDeleteManyBannerUsecase = require('../../../../use-case/banner/softDeleteManyBanner')({
-  bannerDb,
-});
-const bulkInsertBannerUsecase = require('../../../../use-case/banner/bulkInsertBanner')({
-  bannerDb,
-});
-const bulkUpdateBannerUsecase = require('../../../../use-case/banner/bulkUpdateBanner')({
-  bannerDb,
-});
+const partialUpdateBannerUsecase = require('../../../../use-case/banner/partialUpdateBanner')({ bannerDb, });
+const softDeleteBannerUsecase = require('../../../../use-case/banner/softDeleteBanner')({ bannerDb, });
+const softDeleteManyBannerUsecase = require('../../../../use-case/banner/softDeleteManyBanner')({ bannerDb, });
+const bulkInsertBannerUsecase = require('../../../../use-case/banner/bulkInsertBanner')({ bannerDb, });
+const bulkUpdateBannerUsecase = require('../../../../use-case/banner/bulkUpdateBanner')({ bannerDb, });
 const deleteBannerUsecase = require('../../../../use-case/banner/deleteBanner')({ bannerDb });
-const deleteManyBannerUsecase = require('../../../../use-case/banner/deleteManyBanner')({
-  bannerDb,
-});
+const deleteManyBannerUsecase = require('../../../../use-case/banner/deleteManyBanner')({ bannerDb, });
 
 const bannerController = require('./banner');
 

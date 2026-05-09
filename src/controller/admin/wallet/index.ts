@@ -26,9 +26,7 @@ const updateWalletUsecase = require('../../../use-case/wallet/updateWallet')({
   walletDb,
   updateValidation,
 });
-const partialUpdateWalletUsecase = require('../../../use-case/wallet/partialUpdateWallet')({
-  walletDb,
-});
+const partialUpdateWalletUsecase = require('../../../use-case/wallet/partialUpdateWallet')({ walletDb, });
 const softDeleteWalletUsecase = require('../../../use-case/wallet/softDeleteWallet')({
   walletDb,
   walletTransactionDb,

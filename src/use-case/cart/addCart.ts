@@ -13,16 +13,16 @@ const response = require('../../utils/response');
  * @return {Object} : response of create. {status, message, data}
  */
 const addCart =
-  ({ cartDb, createValidation }) =>
-  async (dataToCreate, req, res) => {
-    const validateRequest = await createValidation(dataToCreate);
-    if (!validateRequest.isValid) {
-      return response.validationError({
-        message: `Invalid values in parameters, ${validateRequest.message}`,
-      });
-    }
-    let cart = cartEntity(dataToCreate);
-    cart = await cartDb.create(cart);
-    return response.success({ data: cart });
-  };
+  ({
+    cartDb, createValidation 
+  }) =>
+    async (dataToCreate, req, res) => {
+      const validateRequest = await createValidation(dataToCreate);
+      if (!validateRequest.isValid) {
+        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+      }
+      let cart = cartEntity(dataToCreate);
+      cart = await cartDb.create(cart);
+      return response.success({ data: cart });
+    };
 module.exports = addCart;

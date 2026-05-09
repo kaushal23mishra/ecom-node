@@ -49,7 +49,9 @@
  *       500: { description: Server Error }
  */
 import * as authConstant from '../../../constants/authConstant';
-import { response, responseHandler, logger } from '../../../utils';
+import {
+  response, responseHandler, logger 
+} from '../../../utils';
 
 const register = (registerUsecase) => async (req: any, res: any) => {
   try {

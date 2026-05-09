@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateCart =
   ({ cartDb }) =>
-  async (params, req, res) => {
-    const cart = await cartDb.updateOne(params.query, params.dataToUpdate);
-    if (!cart) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: cart });
-  };
+    async (params, req, res) => {
+      const cart = await cartDb.updateOne(params.query, params.dataToUpdate);
+      if (!cart) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: cart });
+    };
 module.exports = partialUpdateCart;

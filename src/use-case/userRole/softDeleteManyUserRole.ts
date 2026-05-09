@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteManyUserRole =
   ({ userRoleDb }) =>
-  async (params, req, res) => {
-    let updatedUserRole = await userRoleDb.updateMany(params.query, params.dataToUpdate);
-    if (!updatedUserRole) {
-      return response.recordNotFound();
-    }
-    return response.success({ data: { count: updatedUserRole } });
-  };
+    async (params, req, res) => {
+      let updatedUserRole = await userRoleDb.updateMany(params.query, params.dataToUpdate);
+      if (!updatedUserRole) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: { count: updatedUserRole } });
+    };
 module.exports = softDeleteManyUserRole;

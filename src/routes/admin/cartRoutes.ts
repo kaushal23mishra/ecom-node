@@ -1,7 +1,9 @@
 import express from 'express';
 const router = express.Router();
 const cartController = require('../../controller/admin/cart');
-const { auth, checkRolePermission } = require('../../middleware');
+const {
+  auth, checkRolePermission 
+} = require('../../middleware');
 const { PLATFORM } = require('../../constants/authConstant');
 
 router
