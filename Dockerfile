@@ -10,6 +10,9 @@ RUN npm ci
 # Copy source
 COPY . .
 
+# Build application
+RUN npm run build
+
 # Prune dev dependencies
 RUN npm prune --production
 
