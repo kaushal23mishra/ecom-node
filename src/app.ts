@@ -1,4 +1,6 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, {
+  Request, Response, NextFunction 
+} from 'express';
 import cors from 'cors';
 import path from 'path';
 import dotenv from 'dotenv';
@@ -17,7 +19,9 @@ import mongoose from './db/mongoDB/connection';
 dotenv.config();
 
 import logger from './utils/logger';
-import { adminPassportStrategy, errorHandler, apiVersion } from './middleware';
+import {
+  adminPassportStrategy, errorHandler, apiVersion 
+} from './middleware';
 import { devicePassportStrategy } from './middleware';
 import { clientPassportStrategy } from './middleware';
 import requestLogger from './middleware/requestLogger';
@@ -49,11 +53,11 @@ app.use(compression());
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
-      fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
-      imgSrc: ["'self'", "data:", "https://dxuoui1db8w1y.cloudfront.net"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
+      defaultSrc: ['\'self\''],
+      styleSrc: ['\'self\'', '\'unsafe-inline\'', 'https://fonts.googleapis.com', 'https://cdnjs.cloudflare.com'],
+      fontSrc: ['\'self\'', 'https://fonts.gstatic.com', 'https://cdnjs.cloudflare.com'],
+      imgSrc: ['\'self\'', 'data:', 'https://dxuoui1db8w1y.cloudfront.net'],
+      scriptSrc: ['\'self\'', '\'unsafe-inline\''],
     },
   },
 }));
@@ -91,7 +95,10 @@ clientPassportStrategy(passport);
 
 app.use(morgan('combined', { stream: (logger as any).stream }));
 app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: false, limit: '10mb' }));
+app.use(express.urlencoded({
+  extended: false,
+  limit: '10mb' 
+}));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(routes);
 
@@ -126,7 +133,10 @@ process.on('unhandledRejection', (reason: any) => {
 });
 
 process.on('uncaughtException', (err: Error) => {
-  logger.error('Uncaught Exception thrown', { error: err.message, stack: err.stack });
+  logger.error('Uncaught Exception thrown', {
+    error: err.message,
+    stack: err.stack 
+  });
   process.exit(1);
 });
 

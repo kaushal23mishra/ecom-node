@@ -2,12 +2,8 @@ import { z } from 'zod';
 
 export const loginSchema = z.object({
   body: z.object({
-    username: z.string({
-      required_error: 'Username is required',
-    }).min(1, 'Username cannot be empty'),
-    password: z.string({
-      required_error: 'Password is required',
-    }).min(6, 'Password must be at least 6 characters long'),
+    username: z.string({ required_error: 'Username is required', }).min(1, 'Username cannot be empty'),
+    password: z.string({ required_error: 'Password is required', }).min(6, 'Password must be at least 6 characters long'),
   }),
 });
 

@@ -32,7 +32,10 @@ const sendSMS = async (obj) => {
 
   if (!userid || !password) {
     logger.warn('SMS service requested but credentials missing in config');
-    return { status: 'FAILURE', message: 'SMS credentials missing' };
+    return {
+      status: 'FAILURE',
+      message: 'SMS credentials missing' 
+    };
   }
 
   try {
@@ -50,7 +53,10 @@ const sendSMS = async (obj) => {
     logger.info('SMS sent successfully', { to: mobiles });
     return response;
   } catch (error: any) {
-    logger.error('SMS sending failed', { error: error.message, to: mobiles });
+    logger.error('SMS sending failed', {
+      error: error.message,
+      to: mobiles 
+    });
     throw error;
   }
 };

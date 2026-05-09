@@ -14,10 +14,15 @@ const upload = ({}) => async (req: any, res: any) => {
     form.multiples = true;
     form.maxFileSize = 50 * 1024 * 1024; // 50MB
     
-    const { fields, files }: any = await new Promise((resolve, reject) => {
+    const {
+      fields, files 
+    }: any = await new Promise((resolve, reject) => {
       form.parse(req, (err: any, fields: any, files: any) => {
         if (err) reject(err);
-        resolve({ fields, files });
+        resolve({
+          fields,
+          files 
+        });
       });
     });
 
@@ -33,8 +38,10 @@ const upload = ({}) => async (req: any, res: any) => {
     let uploadSuccess: any[] = [];
     let uploadFailed: any[] = [];
 
-    // For now, let's just simulate or use local storage if S3 is not configured
-    // This is for the "Ultra-Premium" experience
+    /*
+     * For now, let's just simulate or use local storage if S3 is not configured
+     * This is for the "Ultra-Premium" experience
+     */
     for (const file of fileArr) {
       try {
         // Logic for upload

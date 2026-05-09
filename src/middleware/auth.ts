@@ -1,6 +1,12 @@
-import { Request, Response, NextFunction } from 'express';
-import { LOGIN_ACCESS, PLATFORM } from '../constants/authConstant';
-import { responseHandler, response } from '../utils';
+import {
+  Request, Response, NextFunction 
+} from 'express';
+import {
+  LOGIN_ACCESS, PLATFORM 
+} from '../constants/authConstant';
+import {
+  responseHandler, response 
+} from '../utils';
 const { unAuthorized } = response;
 
 const verifyCallback = (userTokensDb: any, req: any, resolve: any, reject: any, platform: any) => async (error: any, user: any, info: any) => {

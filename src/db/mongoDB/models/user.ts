@@ -75,12 +75,12 @@ const schema = new Schema({
   },
   loginReactiveTime: { type: Date }
 }
-  , {
-    timestamps: {
-      createdAt: 'createdAt',
-      updatedAt: 'updatedAt'
-    }
+, {
+  timestamps: {
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   }
+}
 );
 schema.pre('save', async function (next) {
   this.isDeleted = false;

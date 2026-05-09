@@ -3,8 +3,9 @@
     "rootDir": "src",
     "outDir": "dist",
     "module": "commonjs",
-    "target": "es6",
-    "lib": ["es6", "dom"],
+    "target": "es2020",
+    "moduleResolution": "node16",
+    "lib": ["es2020"],
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -15,13 +16,13 @@
     "noImplicitAny": false,
     "noImplicitThis": false,
     "skipLibCheck": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "ignoreDeprecations": "6.0"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "__test__/**/*"],
   "exclude": [
     "node_modules",
     "dist",
-    "__test__",
     "coverage",
     "public",
     "scripts",

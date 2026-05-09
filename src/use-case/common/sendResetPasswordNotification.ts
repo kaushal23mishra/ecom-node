@@ -21,11 +21,11 @@ const sendResetPasswordNotification = ({ userDb }: any) => async (user: any) => 
       isActive: true,
       isDeleted: false,
     }, {
-    resetPasswordLink: {
-      code: token,
-      expireTime: expires
-    }
-  });
+      resetPasswordLink: {
+        code: token,
+        expireTime: expires
+      }
+    });
   if (FORGOT_PASSWORD_WITH.LINK.email) {
 
     let mailObj: any = {
@@ -43,7 +43,10 @@ const sendResetPasswordNotification = ({ userDb }: any) => async (user: any) => 
       await sendMail(mailObj);
       resultOfEmail = true;
     } catch (error: any) {
-      logger.error('Error sending reset password email', { error: error.message, userId: user.id });
+      logger.error('Error sending reset password email', {
+        error: error.message,
+        userId: user.id 
+      });
     }
   }
   if (FORGOT_PASSWORD_WITH.LINK.sms) {
@@ -58,7 +61,10 @@ const sendResetPasswordNotification = ({ userDb }: any) => async (user: any) => 
       await sendSMS(smsObj);
       resultOfSMS = true;
     } catch (error: any) {
-      logger.error('Error sending reset password SMS', { error: error.message, userId: user.id });
+      logger.error('Error sending reset password SMS', {
+        error: error.message,
+        userId: user.id 
+      });
     }
   }
   return response.success({
