@@ -53,7 +53,7 @@ const checkRolePermission =
     }
   };
 
-function replaceAll(string, search, replace) {
+function replaceAll (string, search, replace) {
   return string.split(search).join(replace);
 }
 

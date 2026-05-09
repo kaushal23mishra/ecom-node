@@ -11,7 +11,7 @@ module.exports = {
   },
   rules: {
     semi: ['error', 'always'],
-    indent: ['error', 2],
+    indent: 'off',
     'no-irregular-whitespace': [
       'error',
       {
@@ -22,20 +22,8 @@ module.exports = {
       },
     ],
     'multiline-comment-style': ['error', 'starred-block'],
-    'object-property-newline': [
-      'error',
-      {
-        allowAllPropertiesOnSameLine: false,
-        allowMultiplePropertiesPerLine: false,
-      },
-    ],
-    'object-curly-newline': [
-      'error',
-      {
-        minProperties: 2,
-        multiline: true,
-      },
-    ],
+    'object-property-newline': 'off',
+    'object-curly-newline': 'off',
     'no-multiple-empty-lines': [
       'error',
       {

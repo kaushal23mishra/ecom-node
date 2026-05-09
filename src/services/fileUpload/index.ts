@@ -16,7 +16,7 @@ const makeDirectory = require('../../utils/makeDirectory');
  * @returns {object}    { status, message, data}
  *
  */
-async function uploadFilesOnLocalServer(
+async function uploadFilesOnLocalServer (
   file,
   fields,
   fileCount,

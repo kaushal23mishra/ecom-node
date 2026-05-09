@@ -9,7 +9,7 @@ const routeRoleDb = require('../data-access/routeRoleDb');
 const userRoleDb = require('../data-access/userRoleDb');
 const replaceAll = require('../utils/replaceAll');
 
-async function seedUser() {
+async function seedUser () {
   try {
     let userToBeInserted: any = {};
     userToBeInserted = {
@@ -43,7 +43,7 @@ async function seedUser() {
     console.log('User seeder failed due to ', error.message);
   }
 }
-async function seedRole() {
+async function seedRole () {
   try {
     const roles = ['Customer', 'Admin', 'Seller', 'System_User'];
     const insertedRoles = await roleDb.findMany({
@@ -71,7 +71,7 @@ async function seedRole() {
   }
 }
 
-async function seedProjectRoutes(routes) {
+async function seedProjectRoutes (routes) {
   try {
     if (routes && routes.length) {
       let routeName = '';
@@ -106,7 +106,7 @@ async function seedProjectRoutes(routes) {
   }
 }
 
-async function seedRouteRole() {
+async function seedRouteRole () {
   try {
     const routeRoles = [
       {
@@ -7640,7 +7640,7 @@ async function seedRouteRole() {
   }
 }
 
-async function seedUserRole() {
+async function seedUserRole () {
   try {
     const userRoles = [
       {
