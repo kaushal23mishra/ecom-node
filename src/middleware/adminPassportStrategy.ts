@@ -1,0 +1,25 @@
+const { Strategy, ExtractJwt } = require('passport-jwt');
+const { JWT } = require('../constants/authConstant');
+
+const adminPassportStrategy =
+  ({ userDb }) =>
+  async (passport) => {
+    const options: any = {};
+    options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+    options.secretOrKey = JWT.ADMIN_SECRET;
+    passport.use(
+      'admin-rule',
+      new Strategy(options, async (payload, done) => {
+        try {
+          const user = await userDb.findOne({ _id: payload.id });
+          if (user) {
+            return done(null, user.toJSON());
+          }
+          return done('No User Found', {});
+        } catch (error: any) {
+          return done(error, {});
+        }
+      })
+    );
+  };
+export = adminPassportStrategy;

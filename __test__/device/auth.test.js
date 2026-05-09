@@ -9,19 +9,17 @@ process.env.NODE_ENV = 'test';
 const db = require('mongoose');
 const request = require('supertest');
 const { MongoClient } = require('mongodb');
-const app = require('../../app');
-const authConstant = require('../../constants/authConstant');
-const uri = 'mongodb://127.0.0.1:27017';
-
-const client = new MongoClient(uri, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-});
-
+const app = require('../../src/app');
+const authConstant = require('../../src/constants/authConstant');
+let client;
 let insertedUser = {};
 
-beforeAll(async function (){
+beforeAll(async function () {
   try {
+    client = new MongoClient(process.env.DB_URL, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    });
     await client.connect();
     const dbInstance = client.db('EcomDb_test');
     const user = dbInstance.collection('users');
@@ -42,26 +40,26 @@ beforeAll(async function (){
           state: 'Cheese',
           addressType: 'open-source',
           fullName: 'payment',
-          mobile: 200,
-          addressNo: 172
-        }
+          mobile: 10,
+          addressNo: 172,
+        },
       ],
-      wishlist: [ {
-        _id: false,
-        productId: 'Tuna' 
-      } ],
+      wishlist: [
+        {
+          _id: false,
+          productId: 'Tuna',
+        },
+      ],
       userType: 580,
       mobileNo: '(875) 394-9932',
       resetPasswordLink: {},
       loginRetryLimit: 600,
       loginReactiveTime: '2023-10-19T12:03:21.514Z',
-      id: '6461da565466f52fbf93f590'
+      id: '6461da565466f52fbf93f590',
     });
-  }
-  catch (error) {
+  } catch (error) {
     console.error(`we encountered ${error}`);
-  }
-  finally {
+  } finally {
     client.close();
   }
 });
@@ -73,34 +71,38 @@ describe('POST /register -> if email and username is given', () => {
     let registeredUser = await request(app)
       .post('/device/auth/register')
       .send({
-        'username':'Elroy.Turner79',
-        'password':'iCkg1oxjNhzHaXC',
-        'email':'Gianni_Ankunding@gmail.com',
-        'name':'Lynn Medhurst',
-        'shippingAddress':[{
-          '_id':false,
-          'pincode':'Rustic',
-          'address1':'Dale',
-          'address2':'online',
-          'landmark':'Administrator',
-          'city':'synthesize',
-          'isDefault':false,
-          'state':'Soft',
-          'addressType':'calculating',
-          'fullName':'Pennsylvania',
-          'mobile':200,
-          'addressNo':306
-        }],
-        'wishlist':[{
-          '_id':false,
-          'productId':'Louisiana'
-        }],
-        'userType':authConstant.USER_TYPES.User,
-        'mobileNo':'(194) 676-0168',
-        'addedBy':insertedUser.insertedId,
-        'updatedBy':insertedUser.insertedId
+        username: 'Elroy.Turner79',
+        password: 'iCkg1oxjNhzHaXC',
+        email: 'Gianni_Ankunding@gmail.com',
+        name: 'Lynn Medhurst',
+        shippingAddress: [
+          {
+            _id: false,
+            pincode: 'Rustic',
+            address1: 'Dale',
+            address2: 'online',
+            landmark: 'Administrator',
+            city: 'synthesize',
+            isDefault: false,
+            state: 'Soft',
+            addressType: 'calculating',
+            fullName: 'Pennsylvania',
+            mobile: 10,
+            addressNo: 306,
+          },
+        ],
+        wishlist: [
+          {
+            _id: false,
+            productId: 'Louisiana',
+          },
+        ],
+        userType: authConstant.USER_TYPES.User,
+        mobileNo: '(194) 676-0168',
+        addedBy: insertedUser.insertedId,
+        updatedBy: insertedUser.insertedId,
       });
-    
+
     expect(registeredUser.statusCode).toBe(200);
     expect(registeredUser.body.status).toBe('SUCCESS');
     expect(registeredUser.body.data).toMatchObject({ id: expect.any(String) });
@@ -109,34 +111,26 @@ describe('POST /register -> if email and username is given', () => {
 
 describe('POST /login -> if username and password is correct', () => {
   test('should return user with authentication token', async () => {
-    let user = await request(app)
-      .post('/device/auth/login')
-      .send(
-        {
-          username: 'Elroy.Turner79',
-          password: 'iCkg1oxjNhzHaXC'
-        }
-      );
-      
+    let user = await request(app).post('/device/auth/login').send({
+      username: 'Elroy.Turner79',
+      password: 'iCkg1oxjNhzHaXC',
+    });
+
     expect(user.statusCode).toBe(200);
     expect(user.body.status).toBe('SUCCESS');
     expect(user.body.data).toMatchObject({
       id: expect.any(String),
-      token: expect.any(String)
-    }); 
+      token: expect.any(String),
+    });
   });
 });
 
 describe('POST /login -> if username is incorrect', () => {
   test('should return unauthorized status and user not exists', async () => {
-    let user = await request(app)
-      .post('/device/auth/login')
-      .send(
-        {
-          username: 'wrong.username',
-          password: 'iCkg1oxjNhzHaXC'
-        }
-      );
+    let user = await request(app).post('/device/auth/login').send({
+      username: 'wrong.username',
+      password: 'iCkg1oxjNhzHaXC',
+    });
 
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');
@@ -145,14 +139,10 @@ describe('POST /login -> if username is incorrect', () => {
 
 describe('POST /login -> if password is incorrect', () => {
   test('should return unauthorized status and incorrect password', async () => {
-    let user = await request(app)
-      .post('/device/auth/login')
-      .send(
-        {
-          username: 'Elroy.Turner79',
-          password: 'wrong@password'
-        }
-      );
+    let user = await request(app).post('/device/auth/login').send({
+      username: 'Elroy.Turner79',
+      password: 'wrong@password',
+    });
 
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');
@@ -161,9 +151,7 @@ describe('POST /login -> if password is incorrect', () => {
 
 describe('POST /login -> if username or password is empty string or has not passed in body', () => {
   test('should return bad request status and insufficient parameters', async () => {
-    let user = await request(app)
-      .post('/device/auth/login')
-      .send({});
+    let user = await request(app).post('/device/auth/login').send({});
 
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');
@@ -172,12 +160,10 @@ describe('POST /login -> if username or password is empty string or has not pass
 
 describe('POST /forgot-password -> if email has not passed from request body', () => {
   test('should return bad request status and insufficient parameters', async () => {
-    let user = await request(app)
-      .post('/device/auth/forgot-password')
-      .send({ email: '' });
+    let user = await request(app).post('/device/auth/forgot-password').send({ email: '' });
 
-    expect(user.statusCode).toBe(422);
-    expect(user.body.status).toBe('VALIDATION_ERROR');
+    expect(user.statusCode).toBe(400);
+    expect(user.body.status).toBe('BAD_REQUEST');
   });
 });
 
@@ -185,9 +171,9 @@ describe('POST /forgot-password -> if email passed from request body is not avai
   test('should return record not found status', async () => {
     let user = await request(app)
       .post('/device/auth/forgot-password')
-      .send({ 'email': 'unavailable.email@hotmail.com', });
+      .send({ email: 'unavailable.email@hotmail.com' });
 
-    expect(user.statusCode).toBe(200);
+    expect(user.statusCode).toBe(404);
     expect(user.body.status).toBe('RECORD_NOT_FOUND');
   });
 });
@@ -196,7 +182,7 @@ describe('POST /forgot-password -> if email passed from request body is valid an
   test('should return success message', async () => {
     let user = await request(app)
       .post('/device/auth/forgot-password')
-      .send({ 'email':'Gianni_Ankunding@gmail.com', });
+      .send({ email: 'Gianni_Ankunding@gmail.com' });
 
     expect(user.statusCode).toBe(200);
     expect(user.body.status).toBe('SUCCESS');
@@ -207,20 +193,22 @@ describe('POST /validate-otp -> OTP is sent in request body and OTP is correct',
   test('should return success', () => {
     return request(app)
       .post('/device/auth/login')
-      .send(
-        {
-          username: 'Elroy.Turner79',
-          password: 'iCkg1oxjNhzHaXC'
-        }).then(login => () => {
+      .send({
+        username: 'Elroy.Turner79',
+        password: 'iCkg1oxjNhzHaXC',
+      })
+      .then((login) => () => {
         return request(app)
           .get(`/device/api/v1/user/${login.body.data.id}`)
           .set({
             Accept: 'application/json',
-            Authorization: `Bearer ${login.body.data.token}`
-          }).then(foundUser => {
+            Authorization: `Bearer ${login.body.data.token}`,
+          })
+          .then((foundUser) => {
             return request(app)
               .post('/device/auth/validate-otp')
-              .send({ 'otp': foundUser.body.data.resetPasswordLink.code, }).then(user => {
+              .send({ otp: foundUser.body.data.resetPasswordLink.code })
+              .then((user) => {
                 expect(user.statusCode).toBe(200);
                 expect(user.body.status).toBe('SUCCESS');
               });
@@ -231,9 +219,7 @@ describe('POST /validate-otp -> OTP is sent in request body and OTP is correct',
 
 describe('POST /validate-otp -> if OTP is incorrect or OTP has expired', () => {
   test('should return invalid OTP', async () => {
-    let user = await request(app)
-      .post('/device/auth/validate-otp')
-      .send({ 'otp': '12334' });
+    let user = await request(app).post('/device/auth/validate-otp').send({ otp: '12334' });
     expect(user.headers['content-type']).toEqual('application/json; charset=utf-8');
     expect(user.body.status).toBe('BAD_REQUEST');
     expect(user.statusCode).toBe(400);
@@ -242,9 +228,7 @@ describe('POST /validate-otp -> if OTP is incorrect or OTP has expired', () => {
 
 describe('POST /validate-otp -> if request body is empty or OTP has not been sent in body', () => {
   test('should return insufficient parameter', async () => {
-    let user = await request(app)
-      .post('/device/auth/validate-otp')
-      .send({});
+    let user = await request(app).post('/device/auth/validate-otp').send({});
 
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');
@@ -255,24 +239,25 @@ describe('PUT /reset-password -> code is sent in request body and code is correc
   test('should return success', () => {
     return request(app)
       .post('/device/auth/login')
-      .send(
-        {
-          username: 'Elroy.Turner79',
-          password: 'iCkg1oxjNhzHaXC'
-        }).then(login => () => {
+      .send({
+        username: 'Elroy.Turner79',
+        password: 'iCkg1oxjNhzHaXC',
+      })
+      .then((login) => () => {
         return request(app)
           .get(`/device/api/v1/user/${login.body.data.id}`)
           .set({
             Accept: 'application/json',
-            Authorization: `Bearer ${login.body.data.token}`
-          }).then(foundUser => {
+            Authorization: `Bearer ${login.body.data.token}`,
+          })
+          .then((foundUser) => {
             return request(app)
               .put('/device/auth/validate-otp')
               .send({
-                'code': foundUser.body.data.resetPasswordLink.code,
-                'newPassword':'newPassword'
-              }).then(user => {
-                  
+                code: foundUser.body.data.resetPasswordLink.code,
+                newPassword: 'newPassword',
+              })
+              .then((user) => {
                 expect(user.statusCode).toBe(200);
                 expect(user.body.status).toBe('SUCCESS');
               });
@@ -283,10 +268,8 @@ describe('PUT /reset-password -> code is sent in request body and code is correc
 
 describe('PUT /reset-password -> if request body is empty or code/newPassword is not given', () => {
   test('should return insufficient parameter', async () => {
-    let user = await request(app)
-      .put('/device/auth/reset-password')
-      .send({});
-  
+    let user = await request(app).put('/device/auth/reset-password').send({});
+
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');
   });
@@ -294,12 +277,10 @@ describe('PUT /reset-password -> if request body is empty or code/newPassword is
 
 describe('PUT /reset-password -> if code is invalid', () => {
   test('should return invalid code', async () => {
-    let user = await request(app)
-      .put('/device/auth/reset-password')
-      .send({
-        'code': '123',
-        'newPassword': 'testPassword'
-      });
+    let user = await request(app).put('/device/auth/reset-password').send({
+      code: '123',
+      newPassword: 'testPassword',
+    });
 
     expect(user.statusCode).toBe(400);
     expect(user.body.status).toBe('BAD_REQUEST');

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node DHI | Enterprise API Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #030408;
+      --primary: #6366f1;
+      --accent: #ec4899;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient Background */
+    .ambient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(236, 72, 153, 0.15), transparent 40%);
+    }
+
+    .container {
+      max-width: 1200px;
+      padding: 2rem;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .badge {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      display: inline-block;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+      background: linear-gradient(to bottom, #fff 40%, rgba(255,255,255,0.4));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+      animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards;
+      opacity: 0;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      padding: 1.25rem 2.5rem;
+      border-radius: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      color: #fff;
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: #fff;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 6rem;
+      width: 100%;
+      max-width: 1000px;
+      animation: fadeIn 1.5s ease 0.4s forwards;
+      opacity: 0;
+    }
+
+    .feature-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      padding: 2.5rem;
+      border-radius: 32px;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--primary);
+    }
+
+    .feature-card i {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      margin: 0;
+      text-align: left;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 3rem; }
+      .features { grid-template-columns: 1fr; }
+      .cta-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient"></div>
+  
+  <div class="container">
+    <div class="badge">Version 2.0 Early Access</div>
+    <h1>Enterprise Grade<br>API Engine</h1>
+    <p>The ultimate Node.js foundation for high-performance applications. Built with Clean Architecture and hardened security.</p>
+    
+    <div class="cta-group">
+      <a href="/admin" class="btn btn-primary">
+        Launch Console <i data-lucide="arrow-right"></i>
+      </a>
+      <a href="/api-docs" class="btn btn-secondary">
+        Documentation <i data-lucide="book-open"></i>
+      </a>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <i data-lucide="shield-check"></i>
+        <h3>Hardened Security</h3>
+        <p>XSS, NoSQL Injection, and Rate Limiting built-in by default.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="zap"></i>
+        <h3>High Performance</h3>
+        <p>Ultra-low latency response times with Redis caching integration.</p>
+      </div>
+      <div class="feature-card">
+        <i data-lucide="layers"></i>
+        <h3>Clean Architecture</h3>
+        <p>Maintainable, scalable, and fully decoupled business logic.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

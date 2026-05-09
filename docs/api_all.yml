@@ -1,0 +1,6742 @@
+openapi: 3.0.0
+info:
+  title: Node DHI Auto-Generated API
+  version: 1.0.0
+paths:
+  /admin/routerole/create:
+    post:
+      tags:
+      - Routerole
+      summary: POST /admin/routerole/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/addBulk:
+    post:
+      tags:
+      - Routerole
+      summary: POST /admin/routerole/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/list:
+    post:
+      tags:
+      - Routerole
+      summary: POST /admin/routerole/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/count:
+    post:
+      tags:
+      - Routerole
+      summary: POST /admin/routerole/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/updateBulk:
+    put:
+      tags:
+      - Routerole
+      summary: PUT /admin/routerole/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/softDeleteMany:
+    put:
+      tags:
+      - Routerole
+      summary: PUT /admin/routerole/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/deleteMany:
+    post:
+      tags:
+      - Routerole
+      summary: POST /admin/routerole/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/routerole/softDelete/:id: {}
+  /admin/routerole/softDelete/{id}:
+    put:
+      tags:
+      - Routerole
+      summary: PUT /admin/routerole/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/routerole/partial-update/:id: {}
+  /admin/routerole/partial-update/{id}:
+    put:
+      tags:
+      - Routerole
+      summary: PUT /admin/routerole/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/routerole/update/:id: {}
+  /admin/routerole/update/{id}:
+    put:
+      tags:
+      - Routerole
+      summary: PUT /admin/routerole/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/routerole/:id: {}
+  /admin/routerole/{id}:
+    get:
+      tags:
+      - Routerole
+      summary: GET /admin/routerole/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/routerole/delete/:id: {}
+  /admin/routerole/delete/{id}:
+    delete:
+      tags:
+      - Routerole
+      summary: DELETE /admin/routerole/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/create:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /admin/wallettransaction/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/list:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /admin/wallettransaction/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/count:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /admin/wallettransaction/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/:id: {}
+  /admin/wallettransaction/{id}:
+    get:
+      tags:
+      - Wallettransaction
+      summary: GET /admin/wallettransaction/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/update/:id: {}
+  /admin/wallettransaction/update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /admin/wallettransaction/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/partial-update/:id: {}
+  /admin/wallettransaction/partial-update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /admin/wallettransaction/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/softDelete/:id: {}
+  /admin/wallettransaction/softDelete/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /admin/wallettransaction/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/softDeleteMany:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /admin/wallettransaction/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/addBulk:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /admin/wallettransaction/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/updateBulk:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /admin/wallettransaction/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallettransaction/delete/:id: {}
+  /admin/wallettransaction/delete/{id}:
+    delete:
+      tags:
+      - Wallettransaction
+      summary: DELETE /admin/wallettransaction/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallettransaction/deleteMany:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /admin/wallettransaction/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/create:
+    post:
+      tags:
+      - Product
+      summary: POST /admin/product/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/list:
+    post:
+      tags:
+      - Product
+      summary: POST /admin/product/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/count:
+    post:
+      tags:
+      - Product
+      summary: POST /admin/product/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/:id: {}
+  /admin/product/{id}:
+    get:
+      tags:
+      - Product
+      summary: GET /admin/product/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/product/update/:id: {}
+  /admin/product/update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /admin/product/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/product/partial-update/:id: {}
+  /admin/product/partial-update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /admin/product/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/product/softDelete/:id: {}
+  /admin/product/softDelete/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /admin/product/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/product/softDeleteMany:
+    put:
+      tags:
+      - Product
+      summary: PUT /admin/product/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/addBulk:
+    post:
+      tags:
+      - Product
+      summary: POST /admin/product/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/updateBulk:
+    put:
+      tags:
+      - Product
+      summary: PUT /admin/product/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/product/delete/:id: {}
+  /admin/product/delete/{id}:
+    delete:
+      tags:
+      - Product
+      summary: DELETE /admin/product/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/product/deleteMany:
+    post:
+      tags:
+      - Product
+      summary: POST /admin/product/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/create:
+    post:
+      tags:
+      - Projectroute
+      summary: POST /admin/projectroute/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/addBulk:
+    post:
+      tags:
+      - Projectroute
+      summary: POST /admin/projectroute/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/list:
+    post:
+      tags:
+      - Projectroute
+      summary: POST /admin/projectroute/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/count:
+    post:
+      tags:
+      - Projectroute
+      summary: POST /admin/projectroute/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/updateBulk:
+    put:
+      tags:
+      - Projectroute
+      summary: PUT /admin/projectroute/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/softDeleteMany:
+    put:
+      tags:
+      - Projectroute
+      summary: PUT /admin/projectroute/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/deleteMany:
+    post:
+      tags:
+      - Projectroute
+      summary: POST /admin/projectroute/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/projectroute/softDelete/:id: {}
+  /admin/projectroute/softDelete/{id}:
+    put:
+      tags:
+      - Projectroute
+      summary: PUT /admin/projectroute/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/projectroute/partial-update/:id: {}
+  /admin/projectroute/partial-update/{id}:
+    put:
+      tags:
+      - Projectroute
+      summary: PUT /admin/projectroute/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/projectroute/update/:id: {}
+  /admin/projectroute/update/{id}:
+    put:
+      tags:
+      - Projectroute
+      summary: PUT /admin/projectroute/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/projectroute/:id: {}
+  /admin/projectroute/{id}:
+    get:
+      tags:
+      - Projectroute
+      summary: GET /admin/projectroute/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/projectroute/delete/:id: {}
+  /admin/projectroute/delete/{id}:
+    delete:
+      tags:
+      - Projectroute
+      summary: DELETE /admin/projectroute/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/create:
+    post:
+      tags:
+      - Shipping
+      summary: POST /admin/shipping/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/list:
+    post:
+      tags:
+      - Shipping
+      summary: POST /admin/shipping/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/count:
+    post:
+      tags:
+      - Shipping
+      summary: POST /admin/shipping/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/:id: {}
+  /admin/shipping/{id}:
+    get:
+      tags:
+      - Shipping
+      summary: GET /admin/shipping/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/update/:id: {}
+  /admin/shipping/update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /admin/shipping/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/partial-update/:id: {}
+  /admin/shipping/partial-update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /admin/shipping/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/softDelete/:id: {}
+  /admin/shipping/softDelete/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /admin/shipping/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/softDeleteMany:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /admin/shipping/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/addBulk:
+    post:
+      tags:
+      - Shipping
+      summary: POST /admin/shipping/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/updateBulk:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /admin/shipping/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/shipping/delete/:id: {}
+  /admin/shipping/delete/{id}:
+    delete:
+      tags:
+      - Shipping
+      summary: DELETE /admin/shipping/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/shipping/deleteMany:
+    post:
+      tags:
+      - Shipping
+      summary: POST /admin/shipping/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/create:
+    post:
+      tags:
+      - Cart
+      summary: POST /admin/cart/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/list:
+    post:
+      tags:
+      - Cart
+      summary: POST /admin/cart/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/count:
+    post:
+      tags:
+      - Cart
+      summary: POST /admin/cart/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/:id: {}
+  /admin/cart/{id}:
+    get:
+      tags:
+      - Cart
+      summary: GET /admin/cart/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/cart/update/:id: {}
+  /admin/cart/update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /admin/cart/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/cart/partial-update/:id: {}
+  /admin/cart/partial-update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /admin/cart/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/cart/softDelete/:id: {}
+  /admin/cart/softDelete/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /admin/cart/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/cart/softDeleteMany:
+    put:
+      tags:
+      - Cart
+      summary: PUT /admin/cart/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/addBulk:
+    post:
+      tags:
+      - Cart
+      summary: POST /admin/cart/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/updateBulk:
+    put:
+      tags:
+      - Cart
+      summary: PUT /admin/cart/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/cart/delete/:id: {}
+  /admin/cart/delete/{id}:
+    delete:
+      tags:
+      - Cart
+      summary: DELETE /admin/cart/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/cart/deleteMany:
+    post:
+      tags:
+      - Cart
+      summary: POST /admin/cart/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/create:
+    post:
+      tags:
+      - Order
+      summary: POST /admin/order/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/list:
+    post:
+      tags:
+      - Order
+      summary: POST /admin/order/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/count:
+    post:
+      tags:
+      - Order
+      summary: POST /admin/order/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/:id: {}
+  /admin/order/{id}:
+    get:
+      tags:
+      - Order
+      summary: GET /admin/order/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/order/update/:id: {}
+  /admin/order/update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /admin/order/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/order/partial-update/:id: {}
+  /admin/order/partial-update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /admin/order/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/order/softDelete/:id: {}
+  /admin/order/softDelete/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /admin/order/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/order/softDeleteMany:
+    put:
+      tags:
+      - Order
+      summary: PUT /admin/order/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/addBulk:
+    post:
+      tags:
+      - Order
+      summary: POST /admin/order/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/updateBulk:
+    put:
+      tags:
+      - Order
+      summary: PUT /admin/order/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/order/delete/:id: {}
+  /admin/order/delete/{id}:
+    delete:
+      tags:
+      - Order
+      summary: DELETE /admin/order/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/order/deleteMany:
+    post:
+      tags:
+      - Order
+      summary: POST /admin/order/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/create:
+    post:
+      tags:
+      - Wallet
+      summary: POST /admin/wallet/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/list:
+    post:
+      tags:
+      - Wallet
+      summary: POST /admin/wallet/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/count:
+    post:
+      tags:
+      - Wallet
+      summary: POST /admin/wallet/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/:id: {}
+  /admin/wallet/{id}:
+    get:
+      tags:
+      - Wallet
+      summary: GET /admin/wallet/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallet/update/:id: {}
+  /admin/wallet/update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /admin/wallet/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallet/partial-update/:id: {}
+  /admin/wallet/partial-update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /admin/wallet/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallet/softDelete/:id: {}
+  /admin/wallet/softDelete/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /admin/wallet/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallet/softDeleteMany:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /admin/wallet/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/addBulk:
+    post:
+      tags:
+      - Wallet
+      summary: POST /admin/wallet/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/updateBulk:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /admin/wallet/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/wallet/delete/:id: {}
+  /admin/wallet/delete/{id}:
+    delete:
+      tags:
+      - Wallet
+      summary: DELETE /admin/wallet/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/wallet/deleteMany:
+    post:
+      tags:
+      - Wallet
+      summary: POST /admin/wallet/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/create:
+    post:
+      tags:
+      - City
+      summary: POST /admin/city/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/list:
+    post:
+      tags:
+      - City
+      summary: POST /admin/city/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/count:
+    post:
+      tags:
+      - City
+      summary: POST /admin/city/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/:id: {}
+  /admin/city/{id}:
+    get:
+      tags:
+      - City
+      summary: GET /admin/city/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/city/update/:id: {}
+  /admin/city/update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /admin/city/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/city/partial-update/:id: {}
+  /admin/city/partial-update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /admin/city/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/city/softDelete/:id: {}
+  /admin/city/softDelete/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /admin/city/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/city/softDeleteMany:
+    put:
+      tags:
+      - City
+      summary: PUT /admin/city/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/addBulk:
+    post:
+      tags:
+      - City
+      summary: POST /admin/city/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/updateBulk:
+    put:
+      tags:
+      - City
+      summary: PUT /admin/city/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/city/delete/:id: {}
+  /admin/city/delete/{id}:
+    delete:
+      tags:
+      - City
+      summary: DELETE /admin/city/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/city/deleteMany:
+    post:
+      tags:
+      - City
+      summary: POST /admin/city/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /register:
+    post:
+      tags:
+      - Auth
+      summary: POST /register
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /login:
+    post:
+      tags:
+      - Auth
+      summary: POST /login
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /forgot-password:
+    post:
+      tags:
+      - Auth
+      summary: POST /forgot-password
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /validate-otp:
+    post:
+      tags:
+      - Auth
+      summary: POST /validate-otp
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /reset-password:
+    put:
+      tags:
+      - Auth
+      summary: PUT /reset-password
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /logout:
+    post:
+      tags:
+      - Auth
+      summary: POST /logout
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/me:
+    get:
+      tags:
+      - User
+      summary: GET /admin/user/me
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/create:
+    post:
+      tags:
+      - User
+      summary: POST /admin/user/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/list:
+    post:
+      tags:
+      - User
+      summary: POST /admin/user/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/count:
+    post:
+      tags:
+      - User
+      summary: POST /admin/user/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/:id: {}
+  /admin/user/{id}:
+    get:
+      tags:
+      - User
+      summary: GET /admin/user/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/user/update/:id: {}
+  /admin/user/update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/user/partial-update/:id: {}
+  /admin/user/partial-update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/user/softDelete/:id: {}
+  /admin/user/softDelete/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/user/softDeleteMany:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/addBulk:
+    post:
+      tags:
+      - User
+      summary: POST /admin/user/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/updateBulk:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/delete/:id: {}
+  /admin/user/delete/{id}:
+    delete:
+      tags:
+      - User
+      summary: DELETE /admin/user/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/user/deleteMany:
+    post:
+      tags:
+      - User
+      summary: POST /admin/user/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/change-password:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/change-password
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/user/update-profile:
+    put:
+      tags:
+      - User
+      summary: PUT /admin/user/update-profile
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/upload:
+    post:
+      tags:
+      - Upload
+      summary: POST /admin/upload
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/create:
+    post:
+      tags:
+      - Country
+      summary: POST /admin/country/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/list:
+    post:
+      tags:
+      - Country
+      summary: POST /admin/country/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/count:
+    post:
+      tags:
+      - Country
+      summary: POST /admin/country/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/:id: {}
+  /admin/country/{id}:
+    get:
+      tags:
+      - Country
+      summary: GET /admin/country/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/country/update/:id: {}
+  /admin/country/update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /admin/country/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/country/partial-update/:id: {}
+  /admin/country/partial-update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /admin/country/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/country/softDelete/:id: {}
+  /admin/country/softDelete/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /admin/country/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/country/softDeleteMany:
+    put:
+      tags:
+      - Country
+      summary: PUT /admin/country/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/addBulk:
+    post:
+      tags:
+      - Country
+      summary: POST /admin/country/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/updateBulk:
+    put:
+      tags:
+      - Country
+      summary: PUT /admin/country/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/country/delete/:id: {}
+  /admin/country/delete/{id}:
+    delete:
+      tags:
+      - Country
+      summary: DELETE /admin/country/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/country/deleteMany:
+    post:
+      tags:
+      - Country
+      summary: POST /admin/country/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/create:
+    post:
+      tags:
+      - Pincode
+      summary: POST /admin/pincode/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/list:
+    post:
+      tags:
+      - Pincode
+      summary: POST /admin/pincode/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/count:
+    post:
+      tags:
+      - Pincode
+      summary: POST /admin/pincode/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/:id: {}
+  /admin/pincode/{id}:
+    get:
+      tags:
+      - Pincode
+      summary: GET /admin/pincode/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/pincode/update/:id: {}
+  /admin/pincode/update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /admin/pincode/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/pincode/partial-update/:id: {}
+  /admin/pincode/partial-update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /admin/pincode/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/pincode/softDelete/:id: {}
+  /admin/pincode/softDelete/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /admin/pincode/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/pincode/softDeleteMany:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /admin/pincode/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/addBulk:
+    post:
+      tags:
+      - Pincode
+      summary: POST /admin/pincode/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/updateBulk:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /admin/pincode/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/pincode/delete/:id: {}
+  /admin/pincode/delete/{id}:
+    delete:
+      tags:
+      - Pincode
+      summary: DELETE /admin/pincode/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/pincode/deleteMany:
+    post:
+      tags:
+      - Pincode
+      summary: POST /admin/pincode/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/create:
+    post:
+      tags:
+      - Banner
+      summary: POST /admin/banner/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/list:
+    post:
+      tags:
+      - Banner
+      summary: POST /admin/banner/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/count:
+    post:
+      tags:
+      - Banner
+      summary: POST /admin/banner/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/:id: {}
+  /admin/banner/{id}:
+    get:
+      tags:
+      - Banner
+      summary: GET /admin/banner/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/banner/update/:id: {}
+  /admin/banner/update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /admin/banner/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/banner/partial-update/:id: {}
+  /admin/banner/partial-update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /admin/banner/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/banner/softDelete/:id: {}
+  /admin/banner/softDelete/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /admin/banner/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/banner/softDeleteMany:
+    put:
+      tags:
+      - Banner
+      summary: PUT /admin/banner/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/addBulk:
+    post:
+      tags:
+      - Banner
+      summary: POST /admin/banner/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/updateBulk:
+    put:
+      tags:
+      - Banner
+      summary: PUT /admin/banner/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/banner/delete/:id: {}
+  /admin/banner/delete/{id}:
+    delete:
+      tags:
+      - Banner
+      summary: DELETE /admin/banner/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/banner/deleteMany:
+    post:
+      tags:
+      - Banner
+      summary: POST /admin/banner/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/create:
+    post:
+      tags:
+      - State
+      summary: POST /admin/state/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/list:
+    post:
+      tags:
+      - State
+      summary: POST /admin/state/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/count:
+    post:
+      tags:
+      - State
+      summary: POST /admin/state/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/:id: {}
+  /admin/state/{id}:
+    get:
+      tags:
+      - State
+      summary: GET /admin/state/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/state/update/:id: {}
+  /admin/state/update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /admin/state/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/state/partial-update/:id: {}
+  /admin/state/partial-update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /admin/state/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/state/softDelete/:id: {}
+  /admin/state/softDelete/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /admin/state/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/state/softDeleteMany:
+    put:
+      tags:
+      - State
+      summary: PUT /admin/state/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/addBulk:
+    post:
+      tags:
+      - State
+      summary: POST /admin/state/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/updateBulk:
+    put:
+      tags:
+      - State
+      summary: PUT /admin/state/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/state/delete/:id: {}
+  /admin/state/delete/{id}:
+    delete:
+      tags:
+      - State
+      summary: DELETE /admin/state/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/state/deleteMany:
+    post:
+      tags:
+      - State
+      summary: POST /admin/state/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/create:
+    post:
+      tags:
+      - Category
+      summary: POST /admin/category/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/list:
+    post:
+      tags:
+      - Category
+      summary: POST /admin/category/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/count:
+    post:
+      tags:
+      - Category
+      summary: POST /admin/category/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/:id: {}
+  /admin/category/{id}:
+    get:
+      tags:
+      - Category
+      summary: GET /admin/category/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/category/update/:id: {}
+  /admin/category/update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /admin/category/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/category/partial-update/:id: {}
+  /admin/category/partial-update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /admin/category/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/category/softDelete/:id: {}
+  /admin/category/softDelete/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /admin/category/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/category/softDeleteMany:
+    put:
+      tags:
+      - Category
+      summary: PUT /admin/category/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/addBulk:
+    post:
+      tags:
+      - Category
+      summary: POST /admin/category/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/updateBulk:
+    put:
+      tags:
+      - Category
+      summary: PUT /admin/category/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/category/delete/:id: {}
+  /admin/category/delete/{id}:
+    delete:
+      tags:
+      - Category
+      summary: DELETE /admin/category/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/category/deleteMany:
+    post:
+      tags:
+      - Category
+      summary: POST /admin/category/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/create:
+    post:
+      tags:
+      - Userrole
+      summary: POST /admin/userrole/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/addBulk:
+    post:
+      tags:
+      - Userrole
+      summary: POST /admin/userrole/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/list:
+    post:
+      tags:
+      - Userrole
+      summary: POST /admin/userrole/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/count:
+    post:
+      tags:
+      - Userrole
+      summary: POST /admin/userrole/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/updateBulk:
+    put:
+      tags:
+      - Userrole
+      summary: PUT /admin/userrole/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/softDeleteMany:
+    put:
+      tags:
+      - Userrole
+      summary: PUT /admin/userrole/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/deleteMany:
+    post:
+      tags:
+      - Userrole
+      summary: POST /admin/userrole/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/userrole/softDelete/:id: {}
+  /admin/userrole/softDelete/{id}:
+    put:
+      tags:
+      - Userrole
+      summary: PUT /admin/userrole/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/userrole/partial-update/:id: {}
+  /admin/userrole/partial-update/{id}:
+    put:
+      tags:
+      - Userrole
+      summary: PUT /admin/userrole/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/userrole/update/:id: {}
+  /admin/userrole/update/{id}:
+    put:
+      tags:
+      - Userrole
+      summary: PUT /admin/userrole/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/userrole/:id: {}
+  /admin/userrole/{id}:
+    get:
+      tags:
+      - Userrole
+      summary: GET /admin/userrole/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/userrole/delete/:id: {}
+  /admin/userrole/delete/{id}:
+    delete:
+      tags:
+      - Userrole
+      summary: DELETE /admin/userrole/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/role/create:
+    post:
+      tags:
+      - Role
+      summary: POST /admin/role/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/addBulk:
+    post:
+      tags:
+      - Role
+      summary: POST /admin/role/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/list:
+    post:
+      tags:
+      - Role
+      summary: POST /admin/role/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/count:
+    post:
+      tags:
+      - Role
+      summary: POST /admin/role/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/updateBulk:
+    put:
+      tags:
+      - Role
+      summary: PUT /admin/role/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/softDeleteMany:
+    put:
+      tags:
+      - Role
+      summary: PUT /admin/role/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/deleteMany:
+    post:
+      tags:
+      - Role
+      summary: POST /admin/role/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /admin/role/softDelete/:id: {}
+  /admin/role/softDelete/{id}:
+    put:
+      tags:
+      - Role
+      summary: PUT /admin/role/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/role/partial-update/:id: {}
+  /admin/role/partial-update/{id}:
+    put:
+      tags:
+      - Role
+      summary: PUT /admin/role/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/role/update/:id: {}
+  /admin/role/update/{id}:
+    put:
+      tags:
+      - Role
+      summary: PUT /admin/role/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/role/:id: {}
+  /admin/role/{id}:
+    get:
+      tags:
+      - Role
+      summary: GET /admin/role/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /admin/role/delete/:id: {}
+  /admin/role/delete/{id}:
+    delete:
+      tags:
+      - Role
+      summary: DELETE /admin/role/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/create:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /device/api/v1/wallettransaction/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/list:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /device/api/v1/wallettransaction/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/count:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /device/api/v1/wallettransaction/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/:id: {}
+  /device/api/v1/wallettransaction/{id}:
+    get:
+      tags:
+      - Wallettransaction
+      summary: GET /device/api/v1/wallettransaction/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/update/:id: {}
+  /device/api/v1/wallettransaction/update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /device/api/v1/wallettransaction/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/partial-update/:id: {}
+  /device/api/v1/wallettransaction/partial-update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /device/api/v1/wallettransaction/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/softDelete/:id: {}
+  /device/api/v1/wallettransaction/softDelete/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /device/api/v1/wallettransaction/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/softDeleteMany:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /device/api/v1/wallettransaction/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/addBulk:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /device/api/v1/wallettransaction/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/updateBulk:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /device/api/v1/wallettransaction/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallettransaction/delete/:id: {}
+  /device/api/v1/wallettransaction/delete/{id}:
+    delete:
+      tags:
+      - Wallettransaction
+      summary: DELETE /device/api/v1/wallettransaction/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallettransaction/deleteMany:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /device/api/v1/wallettransaction/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/create:
+    post:
+      tags:
+      - Product
+      summary: POST /device/api/v1/product/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/list:
+    post:
+      tags:
+      - Product
+      summary: POST /device/api/v1/product/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/count:
+    post:
+      tags:
+      - Product
+      summary: POST /device/api/v1/product/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/:id: {}
+  /device/api/v1/product/{id}:
+    get:
+      tags:
+      - Product
+      summary: GET /device/api/v1/product/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/product/update/:id: {}
+  /device/api/v1/product/update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /device/api/v1/product/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/product/partial-update/:id: {}
+  /device/api/v1/product/partial-update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /device/api/v1/product/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/product/softDelete/:id: {}
+  /device/api/v1/product/softDelete/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /device/api/v1/product/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/product/softDeleteMany:
+    put:
+      tags:
+      - Product
+      summary: PUT /device/api/v1/product/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/addBulk:
+    post:
+      tags:
+      - Product
+      summary: POST /device/api/v1/product/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/updateBulk:
+    put:
+      tags:
+      - Product
+      summary: PUT /device/api/v1/product/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/product/delete/:id: {}
+  /device/api/v1/product/delete/{id}:
+    delete:
+      tags:
+      - Product
+      summary: DELETE /device/api/v1/product/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/product/deleteMany:
+    post:
+      tags:
+      - Product
+      summary: POST /device/api/v1/product/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/create:
+    post:
+      tags:
+      - Shipping
+      summary: POST /device/api/v1/shipping/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/list:
+    post:
+      tags:
+      - Shipping
+      summary: POST /device/api/v1/shipping/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/count:
+    post:
+      tags:
+      - Shipping
+      summary: POST /device/api/v1/shipping/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/:id: {}
+  /device/api/v1/shipping/{id}:
+    get:
+      tags:
+      - Shipping
+      summary: GET /device/api/v1/shipping/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/shipping/update/:id: {}
+  /device/api/v1/shipping/update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /device/api/v1/shipping/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/shipping/partial-update/:id: {}
+  /device/api/v1/shipping/partial-update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /device/api/v1/shipping/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/shipping/softDelete/:id: {}
+  /device/api/v1/shipping/softDelete/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /device/api/v1/shipping/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/shipping/softDeleteMany:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /device/api/v1/shipping/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/addBulk:
+    post:
+      tags:
+      - Shipping
+      summary: POST /device/api/v1/shipping/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/updateBulk:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /device/api/v1/shipping/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/shipping/delete/:id: {}
+  /device/api/v1/shipping/delete/{id}:
+    delete:
+      tags:
+      - Shipping
+      summary: DELETE /device/api/v1/shipping/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/shipping/deleteMany:
+    post:
+      tags:
+      - Shipping
+      summary: POST /device/api/v1/shipping/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/create:
+    post:
+      tags:
+      - Cart
+      summary: POST /device/api/v1/cart/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/list:
+    post:
+      tags:
+      - Cart
+      summary: POST /device/api/v1/cart/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/count:
+    post:
+      tags:
+      - Cart
+      summary: POST /device/api/v1/cart/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/:id: {}
+  /device/api/v1/cart/{id}:
+    get:
+      tags:
+      - Cart
+      summary: GET /device/api/v1/cart/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/cart/update/:id: {}
+  /device/api/v1/cart/update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /device/api/v1/cart/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/cart/partial-update/:id: {}
+  /device/api/v1/cart/partial-update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /device/api/v1/cart/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/cart/softDelete/:id: {}
+  /device/api/v1/cart/softDelete/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /device/api/v1/cart/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/cart/softDeleteMany:
+    put:
+      tags:
+      - Cart
+      summary: PUT /device/api/v1/cart/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/addBulk:
+    post:
+      tags:
+      - Cart
+      summary: POST /device/api/v1/cart/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/updateBulk:
+    put:
+      tags:
+      - Cart
+      summary: PUT /device/api/v1/cart/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/cart/delete/:id: {}
+  /device/api/v1/cart/delete/{id}:
+    delete:
+      tags:
+      - Cart
+      summary: DELETE /device/api/v1/cart/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/cart/deleteMany:
+    post:
+      tags:
+      - Cart
+      summary: POST /device/api/v1/cart/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/create:
+    post:
+      tags:
+      - Order
+      summary: POST /device/api/v1/order/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/list:
+    post:
+      tags:
+      - Order
+      summary: POST /device/api/v1/order/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/count:
+    post:
+      tags:
+      - Order
+      summary: POST /device/api/v1/order/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/:id: {}
+  /device/api/v1/order/{id}:
+    get:
+      tags:
+      - Order
+      summary: GET /device/api/v1/order/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/order/update/:id: {}
+  /device/api/v1/order/update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /device/api/v1/order/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/order/partial-update/:id: {}
+  /device/api/v1/order/partial-update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /device/api/v1/order/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/order/softDelete/:id: {}
+  /device/api/v1/order/softDelete/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /device/api/v1/order/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/order/softDeleteMany:
+    put:
+      tags:
+      - Order
+      summary: PUT /device/api/v1/order/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/addBulk:
+    post:
+      tags:
+      - Order
+      summary: POST /device/api/v1/order/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/updateBulk:
+    put:
+      tags:
+      - Order
+      summary: PUT /device/api/v1/order/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/order/delete/:id: {}
+  /device/api/v1/order/delete/{id}:
+    delete:
+      tags:
+      - Order
+      summary: DELETE /device/api/v1/order/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/order/deleteMany:
+    post:
+      tags:
+      - Order
+      summary: POST /device/api/v1/order/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/create:
+    post:
+      tags:
+      - Wallet
+      summary: POST /device/api/v1/wallet/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/list:
+    post:
+      tags:
+      - Wallet
+      summary: POST /device/api/v1/wallet/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/count:
+    post:
+      tags:
+      - Wallet
+      summary: POST /device/api/v1/wallet/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/:id: {}
+  /device/api/v1/wallet/{id}:
+    get:
+      tags:
+      - Wallet
+      summary: GET /device/api/v1/wallet/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallet/update/:id: {}
+  /device/api/v1/wallet/update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /device/api/v1/wallet/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallet/partial-update/:id: {}
+  /device/api/v1/wallet/partial-update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /device/api/v1/wallet/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallet/softDelete/:id: {}
+  /device/api/v1/wallet/softDelete/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /device/api/v1/wallet/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallet/softDeleteMany:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /device/api/v1/wallet/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/addBulk:
+    post:
+      tags:
+      - Wallet
+      summary: POST /device/api/v1/wallet/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/updateBulk:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /device/api/v1/wallet/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/wallet/delete/:id: {}
+  /device/api/v1/wallet/delete/{id}:
+    delete:
+      tags:
+      - Wallet
+      summary: DELETE /device/api/v1/wallet/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/wallet/deleteMany:
+    post:
+      tags:
+      - Wallet
+      summary: POST /device/api/v1/wallet/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/create:
+    post:
+      tags:
+      - City
+      summary: POST /device/api/v1/city/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/list:
+    post:
+      tags:
+      - City
+      summary: POST /device/api/v1/city/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/count:
+    post:
+      tags:
+      - City
+      summary: POST /device/api/v1/city/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/:id: {}
+  /device/api/v1/city/{id}:
+    get:
+      tags:
+      - City
+      summary: GET /device/api/v1/city/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/city/update/:id: {}
+  /device/api/v1/city/update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /device/api/v1/city/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/city/partial-update/:id: {}
+  /device/api/v1/city/partial-update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /device/api/v1/city/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/city/softDelete/:id: {}
+  /device/api/v1/city/softDelete/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /device/api/v1/city/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/city/softDeleteMany:
+    put:
+      tags:
+      - City
+      summary: PUT /device/api/v1/city/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/addBulk:
+    post:
+      tags:
+      - City
+      summary: POST /device/api/v1/city/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/updateBulk:
+    put:
+      tags:
+      - City
+      summary: PUT /device/api/v1/city/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/city/delete/:id: {}
+  /device/api/v1/city/delete/{id}:
+    delete:
+      tags:
+      - City
+      summary: DELETE /device/api/v1/city/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/city/deleteMany:
+    post:
+      tags:
+      - City
+      summary: POST /device/api/v1/city/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/me:
+    get:
+      tags:
+      - User
+      summary: GET /device/api/v1/user/me
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/create:
+    post:
+      tags:
+      - User
+      summary: POST /device/api/v1/user/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/list:
+    post:
+      tags:
+      - User
+      summary: POST /device/api/v1/user/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/count:
+    post:
+      tags:
+      - User
+      summary: POST /device/api/v1/user/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/:id: {}
+  /device/api/v1/user/{id}:
+    get:
+      tags:
+      - User
+      summary: GET /device/api/v1/user/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/user/update/:id: {}
+  /device/api/v1/user/update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /device/api/v1/user/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/user/partial-update/:id: {}
+  /device/api/v1/user/partial-update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /device/api/v1/user/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/user/addBulk:
+    post:
+      tags:
+      - User
+      summary: POST /device/api/v1/user/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/updateBulk:
+    put:
+      tags:
+      - User
+      summary: PUT /device/api/v1/user/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/change-password:
+    put:
+      tags:
+      - User
+      summary: PUT /device/api/v1/user/change-password
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/user/update-profile:
+    put:
+      tags:
+      - User
+      summary: PUT /device/api/v1/user/update-profile
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/upload:
+    post:
+      tags:
+      - Upload
+      summary: POST /device/api/v1/upload
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/create:
+    post:
+      tags:
+      - Country
+      summary: POST /device/api/v1/country/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/list:
+    post:
+      tags:
+      - Country
+      summary: POST /device/api/v1/country/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/count:
+    post:
+      tags:
+      - Country
+      summary: POST /device/api/v1/country/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/:id: {}
+  /device/api/v1/country/{id}:
+    get:
+      tags:
+      - Country
+      summary: GET /device/api/v1/country/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/country/update/:id: {}
+  /device/api/v1/country/update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /device/api/v1/country/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/country/partial-update/:id: {}
+  /device/api/v1/country/partial-update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /device/api/v1/country/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/country/softDelete/:id: {}
+  /device/api/v1/country/softDelete/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /device/api/v1/country/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/country/softDeleteMany:
+    put:
+      tags:
+      - Country
+      summary: PUT /device/api/v1/country/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/addBulk:
+    post:
+      tags:
+      - Country
+      summary: POST /device/api/v1/country/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/updateBulk:
+    put:
+      tags:
+      - Country
+      summary: PUT /device/api/v1/country/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/country/delete/:id: {}
+  /device/api/v1/country/delete/{id}:
+    delete:
+      tags:
+      - Country
+      summary: DELETE /device/api/v1/country/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/country/deleteMany:
+    post:
+      tags:
+      - Country
+      summary: POST /device/api/v1/country/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/create:
+    post:
+      tags:
+      - Pincode
+      summary: POST /device/api/v1/pincode/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/list:
+    post:
+      tags:
+      - Pincode
+      summary: POST /device/api/v1/pincode/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/count:
+    post:
+      tags:
+      - Pincode
+      summary: POST /device/api/v1/pincode/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/:id: {}
+  /device/api/v1/pincode/{id}:
+    get:
+      tags:
+      - Pincode
+      summary: GET /device/api/v1/pincode/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/pincode/update/:id: {}
+  /device/api/v1/pincode/update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /device/api/v1/pincode/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/pincode/partial-update/:id: {}
+  /device/api/v1/pincode/partial-update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /device/api/v1/pincode/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/pincode/softDelete/:id: {}
+  /device/api/v1/pincode/softDelete/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /device/api/v1/pincode/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/pincode/softDeleteMany:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /device/api/v1/pincode/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/addBulk:
+    post:
+      tags:
+      - Pincode
+      summary: POST /device/api/v1/pincode/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/updateBulk:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /device/api/v1/pincode/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/pincode/delete/:id: {}
+  /device/api/v1/pincode/delete/{id}:
+    delete:
+      tags:
+      - Pincode
+      summary: DELETE /device/api/v1/pincode/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/pincode/deleteMany:
+    post:
+      tags:
+      - Pincode
+      summary: POST /device/api/v1/pincode/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/create:
+    post:
+      tags:
+      - Banner
+      summary: POST /device/api/v1/banner/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/list:
+    post:
+      tags:
+      - Banner
+      summary: POST /device/api/v1/banner/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/count:
+    post:
+      tags:
+      - Banner
+      summary: POST /device/api/v1/banner/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/:id: {}
+  /device/api/v1/banner/{id}:
+    get:
+      tags:
+      - Banner
+      summary: GET /device/api/v1/banner/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/banner/update/:id: {}
+  /device/api/v1/banner/update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /device/api/v1/banner/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/banner/partial-update/:id: {}
+  /device/api/v1/banner/partial-update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /device/api/v1/banner/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/banner/softDelete/:id: {}
+  /device/api/v1/banner/softDelete/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /device/api/v1/banner/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/banner/softDeleteMany:
+    put:
+      tags:
+      - Banner
+      summary: PUT /device/api/v1/banner/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/addBulk:
+    post:
+      tags:
+      - Banner
+      summary: POST /device/api/v1/banner/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/updateBulk:
+    put:
+      tags:
+      - Banner
+      summary: PUT /device/api/v1/banner/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/banner/delete/:id: {}
+  /device/api/v1/banner/delete/{id}:
+    delete:
+      tags:
+      - Banner
+      summary: DELETE /device/api/v1/banner/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/banner/deleteMany:
+    post:
+      tags:
+      - Banner
+      summary: POST /device/api/v1/banner/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/create:
+    post:
+      tags:
+      - State
+      summary: POST /device/api/v1/state/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/list:
+    post:
+      tags:
+      - State
+      summary: POST /device/api/v1/state/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/count:
+    post:
+      tags:
+      - State
+      summary: POST /device/api/v1/state/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/:id: {}
+  /device/api/v1/state/{id}:
+    get:
+      tags:
+      - State
+      summary: GET /device/api/v1/state/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/state/update/:id: {}
+  /device/api/v1/state/update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /device/api/v1/state/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/state/partial-update/:id: {}
+  /device/api/v1/state/partial-update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /device/api/v1/state/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/state/softDelete/:id: {}
+  /device/api/v1/state/softDelete/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /device/api/v1/state/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/state/softDeleteMany:
+    put:
+      tags:
+      - State
+      summary: PUT /device/api/v1/state/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/addBulk:
+    post:
+      tags:
+      - State
+      summary: POST /device/api/v1/state/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/updateBulk:
+    put:
+      tags:
+      - State
+      summary: PUT /device/api/v1/state/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/state/delete/:id: {}
+  /device/api/v1/state/delete/{id}:
+    delete:
+      tags:
+      - State
+      summary: DELETE /device/api/v1/state/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/state/deleteMany:
+    post:
+      tags:
+      - State
+      summary: POST /device/api/v1/state/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/create:
+    post:
+      tags:
+      - Category
+      summary: POST /device/api/v1/category/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/list:
+    post:
+      tags:
+      - Category
+      summary: POST /device/api/v1/category/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/count:
+    post:
+      tags:
+      - Category
+      summary: POST /device/api/v1/category/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/:id: {}
+  /device/api/v1/category/{id}:
+    get:
+      tags:
+      - Category
+      summary: GET /device/api/v1/category/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/category/update/:id: {}
+  /device/api/v1/category/update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /device/api/v1/category/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/category/partial-update/:id: {}
+  /device/api/v1/category/partial-update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /device/api/v1/category/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/category/softDelete/:id: {}
+  /device/api/v1/category/softDelete/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /device/api/v1/category/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/category/softDeleteMany:
+    put:
+      tags:
+      - Category
+      summary: PUT /device/api/v1/category/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/addBulk:
+    post:
+      tags:
+      - Category
+      summary: POST /device/api/v1/category/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/updateBulk:
+    put:
+      tags:
+      - Category
+      summary: PUT /device/api/v1/category/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /device/api/v1/category/delete/:id: {}
+  /device/api/v1/category/delete/{id}:
+    delete:
+      tags:
+      - Category
+      summary: DELETE /device/api/v1/category/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /device/api/v1/category/deleteMany:
+    post:
+      tags:
+      - Category
+      summary: POST /device/api/v1/category/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/create:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /client/api/v1/wallettransaction/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/list:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /client/api/v1/wallettransaction/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/count:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /client/api/v1/wallettransaction/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/:id: {}
+  /client/api/v1/wallettransaction/{id}:
+    get:
+      tags:
+      - Wallettransaction
+      summary: GET /client/api/v1/wallettransaction/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallettransaction/update/:id: {}
+  /client/api/v1/wallettransaction/update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /client/api/v1/wallettransaction/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallettransaction/partial-update/:id: {}
+  /client/api/v1/wallettransaction/partial-update/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /client/api/v1/wallettransaction/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallettransaction/softDelete/:id: {}
+  /client/api/v1/wallettransaction/softDelete/{id}:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /client/api/v1/wallettransaction/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallettransaction/softDeleteMany:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /client/api/v1/wallettransaction/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/addBulk:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /client/api/v1/wallettransaction/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/updateBulk:
+    put:
+      tags:
+      - Wallettransaction
+      summary: PUT /client/api/v1/wallettransaction/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallettransaction/delete/:id: {}
+  /client/api/v1/wallettransaction/delete/{id}:
+    delete:
+      tags:
+      - Wallettransaction
+      summary: DELETE /client/api/v1/wallettransaction/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallettransaction/deleteMany:
+    post:
+      tags:
+      - Wallettransaction
+      summary: POST /client/api/v1/wallettransaction/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/create:
+    post:
+      tags:
+      - Product
+      summary: POST /client/api/v1/product/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/list:
+    post:
+      tags:
+      - Product
+      summary: POST /client/api/v1/product/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/count:
+    post:
+      tags:
+      - Product
+      summary: POST /client/api/v1/product/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/:id: {}
+  /client/api/v1/product/{id}:
+    get:
+      tags:
+      - Product
+      summary: GET /client/api/v1/product/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/product/update/:id: {}
+  /client/api/v1/product/update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /client/api/v1/product/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/product/partial-update/:id: {}
+  /client/api/v1/product/partial-update/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /client/api/v1/product/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/product/softDelete/:id: {}
+  /client/api/v1/product/softDelete/{id}:
+    put:
+      tags:
+      - Product
+      summary: PUT /client/api/v1/product/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/product/softDeleteMany:
+    put:
+      tags:
+      - Product
+      summary: PUT /client/api/v1/product/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/addBulk:
+    post:
+      tags:
+      - Product
+      summary: POST /client/api/v1/product/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/updateBulk:
+    put:
+      tags:
+      - Product
+      summary: PUT /client/api/v1/product/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/product/delete/:id: {}
+  /client/api/v1/product/delete/{id}:
+    delete:
+      tags:
+      - Product
+      summary: DELETE /client/api/v1/product/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/product/deleteMany:
+    post:
+      tags:
+      - Product
+      summary: POST /client/api/v1/product/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/create:
+    post:
+      tags:
+      - Shipping
+      summary: POST /client/api/v1/shipping/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/list:
+    post:
+      tags:
+      - Shipping
+      summary: POST /client/api/v1/shipping/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/count:
+    post:
+      tags:
+      - Shipping
+      summary: POST /client/api/v1/shipping/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/:id: {}
+  /client/api/v1/shipping/{id}:
+    get:
+      tags:
+      - Shipping
+      summary: GET /client/api/v1/shipping/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/shipping/update/:id: {}
+  /client/api/v1/shipping/update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /client/api/v1/shipping/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/shipping/partial-update/:id: {}
+  /client/api/v1/shipping/partial-update/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /client/api/v1/shipping/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/shipping/softDelete/:id: {}
+  /client/api/v1/shipping/softDelete/{id}:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /client/api/v1/shipping/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/shipping/softDeleteMany:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /client/api/v1/shipping/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/addBulk:
+    post:
+      tags:
+      - Shipping
+      summary: POST /client/api/v1/shipping/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/updateBulk:
+    put:
+      tags:
+      - Shipping
+      summary: PUT /client/api/v1/shipping/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/shipping/delete/:id: {}
+  /client/api/v1/shipping/delete/{id}:
+    delete:
+      tags:
+      - Shipping
+      summary: DELETE /client/api/v1/shipping/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/shipping/deleteMany:
+    post:
+      tags:
+      - Shipping
+      summary: POST /client/api/v1/shipping/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/create:
+    post:
+      tags:
+      - Cart
+      summary: POST /client/api/v1/cart/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/list:
+    post:
+      tags:
+      - Cart
+      summary: POST /client/api/v1/cart/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/count:
+    post:
+      tags:
+      - Cart
+      summary: POST /client/api/v1/cart/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/:id: {}
+  /client/api/v1/cart/{id}:
+    get:
+      tags:
+      - Cart
+      summary: GET /client/api/v1/cart/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/cart/update/:id: {}
+  /client/api/v1/cart/update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /client/api/v1/cart/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/cart/partial-update/:id: {}
+  /client/api/v1/cart/partial-update/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /client/api/v1/cart/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/cart/softDelete/:id: {}
+  /client/api/v1/cart/softDelete/{id}:
+    put:
+      tags:
+      - Cart
+      summary: PUT /client/api/v1/cart/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/cart/softDeleteMany:
+    put:
+      tags:
+      - Cart
+      summary: PUT /client/api/v1/cart/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/addBulk:
+    post:
+      tags:
+      - Cart
+      summary: POST /client/api/v1/cart/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/updateBulk:
+    put:
+      tags:
+      - Cart
+      summary: PUT /client/api/v1/cart/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/cart/delete/:id: {}
+  /client/api/v1/cart/delete/{id}:
+    delete:
+      tags:
+      - Cart
+      summary: DELETE /client/api/v1/cart/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/cart/deleteMany:
+    post:
+      tags:
+      - Cart
+      summary: POST /client/api/v1/cart/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/create:
+    post:
+      tags:
+      - Order
+      summary: POST /client/api/v1/order/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/list:
+    post:
+      tags:
+      - Order
+      summary: POST /client/api/v1/order/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/count:
+    post:
+      tags:
+      - Order
+      summary: POST /client/api/v1/order/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/:id: {}
+  /client/api/v1/order/{id}:
+    get:
+      tags:
+      - Order
+      summary: GET /client/api/v1/order/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/order/update/:id: {}
+  /client/api/v1/order/update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /client/api/v1/order/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/order/partial-update/:id: {}
+  /client/api/v1/order/partial-update/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /client/api/v1/order/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/order/softDelete/:id: {}
+  /client/api/v1/order/softDelete/{id}:
+    put:
+      tags:
+      - Order
+      summary: PUT /client/api/v1/order/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/order/softDeleteMany:
+    put:
+      tags:
+      - Order
+      summary: PUT /client/api/v1/order/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/addBulk:
+    post:
+      tags:
+      - Order
+      summary: POST /client/api/v1/order/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/updateBulk:
+    put:
+      tags:
+      - Order
+      summary: PUT /client/api/v1/order/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/order/delete/:id: {}
+  /client/api/v1/order/delete/{id}:
+    delete:
+      tags:
+      - Order
+      summary: DELETE /client/api/v1/order/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/order/deleteMany:
+    post:
+      tags:
+      - Order
+      summary: POST /client/api/v1/order/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/create:
+    post:
+      tags:
+      - Wallet
+      summary: POST /client/api/v1/wallet/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/list:
+    post:
+      tags:
+      - Wallet
+      summary: POST /client/api/v1/wallet/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/count:
+    post:
+      tags:
+      - Wallet
+      summary: POST /client/api/v1/wallet/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/:id: {}
+  /client/api/v1/wallet/{id}:
+    get:
+      tags:
+      - Wallet
+      summary: GET /client/api/v1/wallet/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallet/update/:id: {}
+  /client/api/v1/wallet/update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /client/api/v1/wallet/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallet/partial-update/:id: {}
+  /client/api/v1/wallet/partial-update/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /client/api/v1/wallet/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallet/softDelete/:id: {}
+  /client/api/v1/wallet/softDelete/{id}:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /client/api/v1/wallet/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallet/softDeleteMany:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /client/api/v1/wallet/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/addBulk:
+    post:
+      tags:
+      - Wallet
+      summary: POST /client/api/v1/wallet/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/updateBulk:
+    put:
+      tags:
+      - Wallet
+      summary: PUT /client/api/v1/wallet/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/wallet/delete/:id: {}
+  /client/api/v1/wallet/delete/{id}:
+    delete:
+      tags:
+      - Wallet
+      summary: DELETE /client/api/v1/wallet/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/wallet/deleteMany:
+    post:
+      tags:
+      - Wallet
+      summary: POST /client/api/v1/wallet/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/create:
+    post:
+      tags:
+      - City
+      summary: POST /client/api/v1/city/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/list:
+    post:
+      tags:
+      - City
+      summary: POST /client/api/v1/city/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/count:
+    post:
+      tags:
+      - City
+      summary: POST /client/api/v1/city/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/:id: {}
+  /client/api/v1/city/{id}:
+    get:
+      tags:
+      - City
+      summary: GET /client/api/v1/city/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/city/update/:id: {}
+  /client/api/v1/city/update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /client/api/v1/city/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/city/partial-update/:id: {}
+  /client/api/v1/city/partial-update/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /client/api/v1/city/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/city/softDelete/:id: {}
+  /client/api/v1/city/softDelete/{id}:
+    put:
+      tags:
+      - City
+      summary: PUT /client/api/v1/city/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/city/softDeleteMany:
+    put:
+      tags:
+      - City
+      summary: PUT /client/api/v1/city/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/addBulk:
+    post:
+      tags:
+      - City
+      summary: POST /client/api/v1/city/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/updateBulk:
+    put:
+      tags:
+      - City
+      summary: PUT /client/api/v1/city/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/city/delete/:id: {}
+  /client/api/v1/city/delete/{id}:
+    delete:
+      tags:
+      - City
+      summary: DELETE /client/api/v1/city/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/city/deleteMany:
+    post:
+      tags:
+      - City
+      summary: POST /client/api/v1/city/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/me:
+    get:
+      tags:
+      - User
+      summary: GET /client/api/v1/user/me
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/create:
+    post:
+      tags:
+      - User
+      summary: POST /client/api/v1/user/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/list:
+    post:
+      tags:
+      - User
+      summary: POST /client/api/v1/user/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/count:
+    post:
+      tags:
+      - User
+      summary: POST /client/api/v1/user/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/:id: {}
+  /client/api/v1/user/{id}:
+    get:
+      tags:
+      - User
+      summary: GET /client/api/v1/user/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/user/update/:id: {}
+  /client/api/v1/user/update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /client/api/v1/user/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/user/partial-update/:id: {}
+  /client/api/v1/user/partial-update/{id}:
+    put:
+      tags:
+      - User
+      summary: PUT /client/api/v1/user/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/user/addBulk:
+    post:
+      tags:
+      - User
+      summary: POST /client/api/v1/user/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/updateBulk:
+    put:
+      tags:
+      - User
+      summary: PUT /client/api/v1/user/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/change-password:
+    put:
+      tags:
+      - User
+      summary: PUT /client/api/v1/user/change-password
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/user/update-profile:
+    put:
+      tags:
+      - User
+      summary: PUT /client/api/v1/user/update-profile
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/upload:
+    post:
+      tags:
+      - Upload
+      summary: POST /client/api/v1/upload
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/create:
+    post:
+      tags:
+      - Country
+      summary: POST /client/api/v1/country/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/list:
+    post:
+      tags:
+      - Country
+      summary: POST /client/api/v1/country/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/count:
+    post:
+      tags:
+      - Country
+      summary: POST /client/api/v1/country/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/:id: {}
+  /client/api/v1/country/{id}:
+    get:
+      tags:
+      - Country
+      summary: GET /client/api/v1/country/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/country/update/:id: {}
+  /client/api/v1/country/update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /client/api/v1/country/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/country/partial-update/:id: {}
+  /client/api/v1/country/partial-update/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /client/api/v1/country/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/country/softDelete/:id: {}
+  /client/api/v1/country/softDelete/{id}:
+    put:
+      tags:
+      - Country
+      summary: PUT /client/api/v1/country/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/country/softDeleteMany:
+    put:
+      tags:
+      - Country
+      summary: PUT /client/api/v1/country/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/addBulk:
+    post:
+      tags:
+      - Country
+      summary: POST /client/api/v1/country/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/updateBulk:
+    put:
+      tags:
+      - Country
+      summary: PUT /client/api/v1/country/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/country/delete/:id: {}
+  /client/api/v1/country/delete/{id}:
+    delete:
+      tags:
+      - Country
+      summary: DELETE /client/api/v1/country/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/country/deleteMany:
+    post:
+      tags:
+      - Country
+      summary: POST /client/api/v1/country/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/create:
+    post:
+      tags:
+      - Pincode
+      summary: POST /client/api/v1/pincode/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/list:
+    post:
+      tags:
+      - Pincode
+      summary: POST /client/api/v1/pincode/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/count:
+    post:
+      tags:
+      - Pincode
+      summary: POST /client/api/v1/pincode/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/:id: {}
+  /client/api/v1/pincode/{id}:
+    get:
+      tags:
+      - Pincode
+      summary: GET /client/api/v1/pincode/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/pincode/update/:id: {}
+  /client/api/v1/pincode/update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /client/api/v1/pincode/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/pincode/partial-update/:id: {}
+  /client/api/v1/pincode/partial-update/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /client/api/v1/pincode/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/pincode/softDelete/:id: {}
+  /client/api/v1/pincode/softDelete/{id}:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /client/api/v1/pincode/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/pincode/softDeleteMany:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /client/api/v1/pincode/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/addBulk:
+    post:
+      tags:
+      - Pincode
+      summary: POST /client/api/v1/pincode/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/updateBulk:
+    put:
+      tags:
+      - Pincode
+      summary: PUT /client/api/v1/pincode/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/pincode/delete/:id: {}
+  /client/api/v1/pincode/delete/{id}:
+    delete:
+      tags:
+      - Pincode
+      summary: DELETE /client/api/v1/pincode/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/pincode/deleteMany:
+    post:
+      tags:
+      - Pincode
+      summary: POST /client/api/v1/pincode/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/create:
+    post:
+      tags:
+      - Banner
+      summary: POST /client/api/v1/banner/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/list:
+    post:
+      tags:
+      - Banner
+      summary: POST /client/api/v1/banner/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/count:
+    post:
+      tags:
+      - Banner
+      summary: POST /client/api/v1/banner/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/:id: {}
+  /client/api/v1/banner/{id}:
+    get:
+      tags:
+      - Banner
+      summary: GET /client/api/v1/banner/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/banner/update/:id: {}
+  /client/api/v1/banner/update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /client/api/v1/banner/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/banner/partial-update/:id: {}
+  /client/api/v1/banner/partial-update/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /client/api/v1/banner/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/banner/softDelete/:id: {}
+  /client/api/v1/banner/softDelete/{id}:
+    put:
+      tags:
+      - Banner
+      summary: PUT /client/api/v1/banner/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/banner/softDeleteMany:
+    put:
+      tags:
+      - Banner
+      summary: PUT /client/api/v1/banner/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/addBulk:
+    post:
+      tags:
+      - Banner
+      summary: POST /client/api/v1/banner/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/updateBulk:
+    put:
+      tags:
+      - Banner
+      summary: PUT /client/api/v1/banner/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/banner/delete/:id: {}
+  /client/api/v1/banner/delete/{id}:
+    delete:
+      tags:
+      - Banner
+      summary: DELETE /client/api/v1/banner/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/banner/deleteMany:
+    post:
+      tags:
+      - Banner
+      summary: POST /client/api/v1/banner/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/create:
+    post:
+      tags:
+      - State
+      summary: POST /client/api/v1/state/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/list:
+    post:
+      tags:
+      - State
+      summary: POST /client/api/v1/state/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/count:
+    post:
+      tags:
+      - State
+      summary: POST /client/api/v1/state/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/:id: {}
+  /client/api/v1/state/{id}:
+    get:
+      tags:
+      - State
+      summary: GET /client/api/v1/state/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/state/update/:id: {}
+  /client/api/v1/state/update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /client/api/v1/state/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/state/partial-update/:id: {}
+  /client/api/v1/state/partial-update/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /client/api/v1/state/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/state/softDelete/:id: {}
+  /client/api/v1/state/softDelete/{id}:
+    put:
+      tags:
+      - State
+      summary: PUT /client/api/v1/state/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/state/softDeleteMany:
+    put:
+      tags:
+      - State
+      summary: PUT /client/api/v1/state/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/addBulk:
+    post:
+      tags:
+      - State
+      summary: POST /client/api/v1/state/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/updateBulk:
+    put:
+      tags:
+      - State
+      summary: PUT /client/api/v1/state/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/state/delete/:id: {}
+  /client/api/v1/state/delete/{id}:
+    delete:
+      tags:
+      - State
+      summary: DELETE /client/api/v1/state/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/state/deleteMany:
+    post:
+      tags:
+      - State
+      summary: POST /client/api/v1/state/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/create:
+    post:
+      tags:
+      - Category
+      summary: POST /client/api/v1/category/create
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/list:
+    post:
+      tags:
+      - Category
+      summary: POST /client/api/v1/category/list
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/count:
+    post:
+      tags:
+      - Category
+      summary: POST /client/api/v1/category/count
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/:id: {}
+  /client/api/v1/category/{id}:
+    get:
+      tags:
+      - Category
+      summary: GET /client/api/v1/category/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/category/update/:id: {}
+  /client/api/v1/category/update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /client/api/v1/category/update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/category/partial-update/:id: {}
+  /client/api/v1/category/partial-update/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /client/api/v1/category/partial-update/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/category/softDelete/:id: {}
+  /client/api/v1/category/softDelete/{id}:
+    put:
+      tags:
+      - Category
+      summary: PUT /client/api/v1/category/softDelete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/category/softDeleteMany:
+    put:
+      tags:
+      - Category
+      summary: PUT /client/api/v1/category/softDeleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/addBulk:
+    post:
+      tags:
+      - Category
+      summary: POST /client/api/v1/category/addBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/updateBulk:
+    put:
+      tags:
+      - Category
+      summary: PUT /client/api/v1/category/updateBulk
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+  /client/api/v1/category/delete/:id: {}
+  /client/api/v1/category/delete/{id}:
+    delete:
+      tags:
+      - Category
+      summary: DELETE /client/api/v1/category/delete/{id}
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+  /client/api/v1/category/deleteMany:
+    post:
+      tags:
+      - Category
+      summary: POST /client/api/v1/category/deleteMany
+      responses:
+        '200':
+          description: OK
+      security:
+      - bearerAuth: []
