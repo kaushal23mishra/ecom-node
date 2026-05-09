@@ -2,9 +2,7 @@ export {};
 /**
  * Middleware to collect Prometheus metrics for each request
  */
-const {
-  httpRequestDurationMicroseconds, httpRequestsTotal 
-} = require('../utils/metrics');
+const { httpRequestDurationMicroseconds, httpRequestsTotal } = require('../utils/metrics');
 
 /**
  * Normalizes routes to prevent high cardinality

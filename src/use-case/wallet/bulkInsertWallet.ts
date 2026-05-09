@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertWallet =
   ({ walletDb }) =>
-    async (dataToCreate, req, res) => {
-      let walletEntities = dataToCreate.map((item) => walletEntity(item));
-      let createdWallet = await walletDb.create(walletEntities);
-      return response.success({ data: { count: createdWallet.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let walletEntities = dataToCreate.map((item) => walletEntity(item));
+    let createdWallet = await walletDb.create(walletEntities);
+    return response.success({ data: { count: createdWallet.length || 0 } });
+  };
 module.exports = bulkInsertWallet;

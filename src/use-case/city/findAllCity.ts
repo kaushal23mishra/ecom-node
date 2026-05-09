@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found City(s). {status, message, data}
  */
 const findAllCity =
-  ({
-    cityDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ cityDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await cityDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundCity = await cityDb.paginate(query, options);
+      if (!foundCity) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await cityDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundCity = await cityDb.paginate(query, options);
-        if (!foundCity) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundCity });
-      }
-    };
+      return response.success({ data: foundCity });
+    }
+  };
 module.exports = findAllCity;

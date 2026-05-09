@@ -9,7 +9,9 @@ const addRouteRoleUsecase = require('../../../use-case/routeRole/addRouteRole')(
   routeRoleDb,
   createValidation,
 });
-const bulkInsertRouteRoleUsecase = require('../../../use-case/routeRole/bulkInsertRouteRole')({ routeRoleDb, });
+const bulkInsertRouteRoleUsecase = require('../../../use-case/routeRole/bulkInsertRouteRole')({
+  routeRoleDb,
+});
 const findAllRouteRoleUsecase = require('../../../use-case/routeRole/findAllRouteRole')({
   routeRoleDb,
   filterValidation,
@@ -18,11 +20,17 @@ const getRouteRoleCountUsecase = require('../../../use-case/routeRole/getRouteRo
   routeRoleDb,
   filterValidation,
 });
-const bulkUpdateRouteRoleUsecase = require('../../../use-case/routeRole/bulkUpdateRouteRole')({ routeRoleDb, });
+const bulkUpdateRouteRoleUsecase = require('../../../use-case/routeRole/bulkUpdateRouteRole')({
+  routeRoleDb,
+});
 const softDeleteManyRouteRoleUsecase =
   require('../../../use-case/routeRole/softDeleteManyRouteRole')({ routeRoleDb });
-const deleteManyRouteRoleUsecase = require('../../../use-case/routeRole/deleteManyRouteRole')({ routeRoleDb, });
-const softDeleteRouteRoleUsecase = require('../../../use-case/routeRole/softDeleteRouteRole')({ routeRoleDb, });
+const deleteManyRouteRoleUsecase = require('../../../use-case/routeRole/deleteManyRouteRole')({
+  routeRoleDb,
+});
+const softDeleteRouteRoleUsecase = require('../../../use-case/routeRole/softDeleteRouteRole')({
+  routeRoleDb,
+});
 const partialUpdateRouteRoleUsecase = require('../../../use-case/routeRole/partialUpdateRouteRole')(
   { routeRoleDb }
 );
@@ -34,7 +42,9 @@ const getRouteRoleUsecase = require('../../../use-case/routeRole/getRouteRole')(
   routeRoleDb,
   filterValidation,
 });
-const deleteRouteRoleUsecase = require('../../../use-case/routeRole/deleteRouteRole')({ routeRoleDb, });
+const deleteRouteRoleUsecase = require('../../../use-case/routeRole/deleteRouteRole')({
+  routeRoleDb,
+});
 
 const routeRoleController = require('./routeRole');
 

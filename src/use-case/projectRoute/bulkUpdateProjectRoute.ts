@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateProjectRoute =
   ({ projectRouteDb }) =>
-    async (params, req, res) => {
-      const updatedProjectRoute = await projectRouteDb.updateMany(params.query, params.dataToUpdate);
-      return response.success({ data: { count: updatedProjectRoute } });
-    };
+  async (params, req, res) => {
+    const updatedProjectRoute = await projectRouteDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedProjectRoute } });
+  };
 module.exports = bulkUpdateProjectRoute;

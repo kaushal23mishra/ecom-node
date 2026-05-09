@@ -8,8 +8,8 @@
  */
 const checkUniqueFieldsInDatabase =
   (db: any) =>
-    async (fieldsToCheck: string[], data: any, operation: string, filter: any = {}) => {
-      switch (operation) {
+  async (fieldsToCheck: string[], data: any, operation: string, filter: any = {}) => {
+    switch (operation) {
       case 'INSERT':
         for (const field of fieldsToCheck) {
           // Add unique field and it's value in filter.
@@ -127,8 +127,8 @@ const checkUniqueFieldsInDatabase =
       default:
         return { isDuplicate: false };
         break;
-      }
-      return { isDuplicate: false };
-    };
+    }
+    return { isDuplicate: false };
+  };
 
 export = checkUniqueFieldsInDatabase;

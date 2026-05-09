@@ -15,28 +15,24 @@ const response = require('../../utils/response');
  * @return {Object} : no of documents deleted. {status, message, data}
  */
 const deleteManyCountry =
-  ({
-    countryDb, pincodeDb, stateDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, isWarning 
-      } = params;
-      let deletedCountry;
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          countryDb,
-          pincodeDb,
-          stateDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const deleteWithDependency = makeDeleteWithDependency({
-          countryDb,
-          pincodeDb,
-          stateDb,
-        });
-        return await deleteWithDependency(query);
-      }
-    };
+  ({ countryDb, pincodeDb, stateDb }) =>
+  async (params, req, res) => {
+    let { query, isWarning } = params;
+    let deletedCountry;
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        countryDb,
+        pincodeDb,
+        stateDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const deleteWithDependency = makeDeleteWithDependency({
+        countryDb,
+        pincodeDb,
+        stateDb,
+      });
+      return await deleteWithDependency(query);
+    }
+  };
 module.exports = deleteManyCountry;

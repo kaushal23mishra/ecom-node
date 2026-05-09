@@ -25,13 +25,25 @@ const updateShippingUsecase = require('../../../use-case/shipping/updateShipping
   shippingDb,
   updateValidation,
 });
-const partialUpdateShippingUsecase = require('../../../use-case/shipping/partialUpdateShipping')({ shippingDb, });
-const softDeleteShippingUsecase = require('../../../use-case/shipping/softDeleteShipping')({ shippingDb, });
-const softDeleteManyShippingUsecase = require('../../../use-case/shipping/softDeleteManyShipping')({ shippingDb, });
-const bulkInsertShippingUsecase = require('../../../use-case/shipping/bulkInsertShipping')({ shippingDb, });
-const bulkUpdateShippingUsecase = require('../../../use-case/shipping/bulkUpdateShipping')({ shippingDb, });
+const partialUpdateShippingUsecase = require('../../../use-case/shipping/partialUpdateShipping')({
+  shippingDb,
+});
+const softDeleteShippingUsecase = require('../../../use-case/shipping/softDeleteShipping')({
+  shippingDb,
+});
+const softDeleteManyShippingUsecase = require('../../../use-case/shipping/softDeleteManyShipping')({
+  shippingDb,
+});
+const bulkInsertShippingUsecase = require('../../../use-case/shipping/bulkInsertShipping')({
+  shippingDb,
+});
+const bulkUpdateShippingUsecase = require('../../../use-case/shipping/bulkUpdateShipping')({
+  shippingDb,
+});
 const deleteShippingUsecase = require('../../../use-case/shipping/deleteShipping')({ shippingDb });
-const deleteManyShippingUsecase = require('../../../use-case/shipping/deleteManyShipping')({ shippingDb, });
+const deleteManyShippingUsecase = require('../../../use-case/shipping/deleteManyShipping')({
+  shippingDb,
+});
 
 const shippingController = require('./shipping');
 

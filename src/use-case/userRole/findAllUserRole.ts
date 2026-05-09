@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found UserRole(s). {status, message, data}
  */
 const findAllUserRole =
-  ({
-    userRoleDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ userRoleDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await userRoleDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundUserRole = await userRoleDb.paginate(query, options);
+      if (!foundUserRole) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await userRoleDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundUserRole = await userRoleDb.paginate(query, options);
-        if (!foundUserRole) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundUserRole });
-      }
-    };
+      return response.success({ data: foundUserRole });
+    }
+  };
 module.exports = findAllUserRole;

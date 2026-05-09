@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteManyCart =
   ({ cartDb }) =>
-    async (params, req, res) => {
-      let updatedCart = await cartDb.updateMany(params.query, params.dataToUpdate);
-      if (!updatedCart) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: { count: updatedCart } });
-    };
+  async (params, req, res) => {
+    let updatedCart = await cartDb.updateMany(params.query, params.dataToUpdate);
+    if (!updatedCart) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: { count: updatedCart } });
+  };
 module.exports = softDeleteManyCart;

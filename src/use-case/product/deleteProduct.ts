@@ -14,12 +14,12 @@ const response = require('../../utils/response');
  */
 const deleteProduct =
   ({ productDb }) =>
-    async (query, req, res) => {
-      let deletedProduct = await productDb.deleteOne(query);
-      if (!deletedProduct) {
-        return response.recordNotFound({});
-      }
-      return response.success({ data: deletedProduct });
-    };
+  async (query, req, res) => {
+    let deletedProduct = await productDb.deleteOne(query);
+    if (!deletedProduct) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedProduct });
+  };
 
 module.exports = deleteProduct;

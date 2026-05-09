@@ -15,4 +15,4 @@ const makeDirectory = async (directoryPath) => {
   return true;
 };
 
-module.exports = makeDirectory;
+export default makeDirectory;

@@ -14,22 +14,20 @@ const response = require('../../utils/response');
  * @return {Object} : updated Wallet. {status, message, data}
  */
 const updateWallet =
-  ({
-    walletDb, updateValidation 
-  }) =>
-    async (params, req, res) => {
-      let {
-        dataToUpdate, query 
-      } = params;
-      const validateRequest = await updateValidation(dataToUpdate);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
-      }
-      let wallet = walletEntity(dataToUpdate);
-      wallet = await walletDb.updateOne(query, wallet);
-      if (!wallet) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: wallet });
-    };
+  ({ walletDb, updateValidation }) =>
+  async (params, req, res) => {
+    let { dataToUpdate, query } = params;
+    const validateRequest = await updateValidation(dataToUpdate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let wallet = walletEntity(dataToUpdate);
+    wallet = await walletDb.updateOne(query, wallet);
+    if (!wallet) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: wallet });
+  };
 module.exports = updateWallet;

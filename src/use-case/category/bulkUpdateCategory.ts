@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateCategory =
   ({ categoryDb }) =>
-    async (params, req, res) => {
-      const updatedCategory = await categoryDb.updateMany(params.query, params.dataToUpdate);
-      return response.success({ data: { count: updatedCategory } });
-    };
+  async (params, req, res) => {
+    const updatedCategory = await categoryDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedCategory } });
+  };
 module.exports = bulkUpdateCategory;

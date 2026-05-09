@@ -27,7 +27,9 @@ const updateCountryUsecase = require('../../../use-case/country/updateCountry')(
   countryDb,
   updateValidation,
 });
-const partialUpdateCountryUsecase = require('../../../use-case/country/partialUpdateCountry')({ countryDb, });
+const partialUpdateCountryUsecase = require('../../../use-case/country/partialUpdateCountry')({
+  countryDb,
+});
 const softDeleteCountryUsecase = require('../../../use-case/country/softDeleteCountry')({
   countryDb,
   pincodeDb,
@@ -38,8 +40,12 @@ const softDeleteManyCountryUsecase = require('../../../use-case/country/softDele
   pincodeDb,
   stateDb,
 });
-const bulkInsertCountryUsecase = require('../../../use-case/country/bulkInsertCountry')({ countryDb, });
-const bulkUpdateCountryUsecase = require('../../../use-case/country/bulkUpdateCountry')({ countryDb, });
+const bulkInsertCountryUsecase = require('../../../use-case/country/bulkInsertCountry')({
+  countryDb,
+});
+const bulkUpdateCountryUsecase = require('../../../use-case/country/bulkUpdateCountry')({
+  countryDb,
+});
 const deleteCountryUsecase = require('../../../use-case/country/deleteCountry')({
   countryDb,
   pincodeDb,

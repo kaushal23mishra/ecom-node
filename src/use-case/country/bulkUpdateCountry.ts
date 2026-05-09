@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateCountry =
   ({ countryDb }) =>
-    async (params, req, res) => {
-      const updatedCountry = await countryDb.updateMany(params.query, params.dataToUpdate);
-      return response.success({ data: { count: updatedCountry } });
-    };
+  async (params, req, res) => {
+    const updatedCountry = await countryDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedCountry } });
+  };
 module.exports = bulkUpdateCountry;

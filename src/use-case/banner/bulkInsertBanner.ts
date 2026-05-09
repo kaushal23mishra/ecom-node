@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertBanner =
   ({ bannerDb }) =>
-    async (dataToCreate, req, res) => {
-      let bannerEntities = dataToCreate.map((item) => bannerEntity(item));
-      let createdBanner = await bannerDb.create(bannerEntities);
-      return response.success({ data: { count: createdBanner.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let bannerEntities = dataToCreate.map((item) => bannerEntity(item));
+    let createdBanner = await bannerDb.create(bannerEntities);
+    return response.success({ data: { count: createdBanner.length || 0 } });
+  };
 module.exports = bulkInsertBanner;

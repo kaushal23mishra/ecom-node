@@ -7,8 +7,8 @@ export {};
  * @return {string} : replaced new string
  */
 
-function replaceAll (string, search, replace) {
+function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
 }
 
-module.exports = replaceAll;
+export default replaceAll;

@@ -16,29 +16,25 @@ const response = require('../../utils/response');
  * @return {Object} : deleted Role. {status, message, data}
  */
 const deleteRole =
-  ({
-    roleDb, routeRoleDb, userRoleDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, isWarning 
-      } = params;
-      let deletedRole = {};
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          roleDb,
-          routeRoleDb,
-          userRoleDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const deleteWithDependency = makeDeleteWithDependency({
-          roleDb,
-          routeRoleDb,
-          userRoleDb,
-        });
-        return await deleteWithDependency(query);
-      }
-    };
+  ({ roleDb, routeRoleDb, userRoleDb }) =>
+  async (params, req, res) => {
+    let { query, isWarning } = params;
+    let deletedRole = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        roleDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const deleteWithDependency = makeDeleteWithDependency({
+        roleDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await deleteWithDependency(query);
+    }
+  };
 
 module.exports = deleteRole;

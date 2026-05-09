@@ -25,13 +25,25 @@ const updatePincodeUsecase = require('../../../../use-case/pincode/updatePincode
   pincodeDb,
   updateValidation,
 });
-const partialUpdatePincodeUsecase = require('../../../../use-case/pincode/partialUpdatePincode')({ pincodeDb, });
-const softDeletePincodeUsecase = require('../../../../use-case/pincode/softDeletePincode')({ pincodeDb, });
-const softDeleteManyPincodeUsecase = require('../../../../use-case/pincode/softDeleteManyPincode')({ pincodeDb, });
-const bulkInsertPincodeUsecase = require('../../../../use-case/pincode/bulkInsertPincode')({ pincodeDb, });
-const bulkUpdatePincodeUsecase = require('../../../../use-case/pincode/bulkUpdatePincode')({ pincodeDb, });
+const partialUpdatePincodeUsecase = require('../../../../use-case/pincode/partialUpdatePincode')({
+  pincodeDb,
+});
+const softDeletePincodeUsecase = require('../../../../use-case/pincode/softDeletePincode')({
+  pincodeDb,
+});
+const softDeleteManyPincodeUsecase = require('../../../../use-case/pincode/softDeleteManyPincode')({
+  pincodeDb,
+});
+const bulkInsertPincodeUsecase = require('../../../../use-case/pincode/bulkInsertPincode')({
+  pincodeDb,
+});
+const bulkUpdatePincodeUsecase = require('../../../../use-case/pincode/bulkUpdatePincode')({
+  pincodeDb,
+});
 const deletePincodeUsecase = require('../../../../use-case/pincode/deletePincode')({ pincodeDb });
-const deleteManyPincodeUsecase = require('../../../../use-case/pincode/deleteManyPincode')({ pincodeDb, });
+const deleteManyPincodeUsecase = require('../../../../use-case/pincode/deleteManyPincode')({
+  pincodeDb,
+});
 
 const pincodeController = require('./pincode');
 

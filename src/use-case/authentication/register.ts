@@ -12,47 +12,47 @@ const makeCheckUniqueFieldsInDatabase = require('../../utils/checkUniqueFieldsIn
  * @return {Object} : response for register {status, message, data}
  */
 const register =
-  ({
-    userDb, createValidation 
-  }) =>
-    async (params: any) => {
-      let isEmptyPassword = false;
-      if (!params.password) {
-        isEmptyPassword = true;
-        params.password = Math.random().toString(36).slice(2);
-      }
+  ({ userDb, createValidation }) =>
+  async (params: any) => {
+    let isEmptyPassword = false;
+    if (!params.password) {
+      isEmptyPassword = true;
+      params.password = Math.random().toString(36).slice(2);
+    }
 
-      let validateSchema = await createValidation(params);
-      if (!validateSchema.isValid) {
-        return response.validationError({ message: validateSchema.message });
-      }
+    let validateSchema = await createValidation(params);
+    if (!validateSchema.isValid) {
+      return response.validationError({ message: validateSchema.message });
+    }
 
-      let newUser = userEntity(params);
+    let newUser = userEntity(params);
 
-      let checkUniqueFieldsInDatabase = makeCheckUniqueFieldsInDatabase(userDb);
-      let checkUniqueFields = await checkUniqueFieldsInDatabase(
-        ['username', 'email'],
-        newUser,
-        'REGISTER'
-      );
-      if (checkUniqueFields.isDuplicate) {
-        return response.validationError({ message: `${checkUniqueFields.value} already exists.Unique ${checkUniqueFields.field} are allowed.`, });
-      }
+    let checkUniqueFieldsInDatabase = makeCheckUniqueFieldsInDatabase(userDb);
+    let checkUniqueFields = await checkUniqueFieldsInDatabase(
+      ['username', 'email'],
+      newUser,
+      'REGISTER'
+    );
+    if (checkUniqueFields.isDuplicate) {
+      return response.validationError({
+        message: `${checkUniqueFields.value} already exists.Unique ${checkUniqueFields.field} are allowed.`,
+      });
+    }
 
-      const result = await userDb.create(newUser);
-      if (isEmptyPassword && params.mobileNo) {
-        await sendPasswordBySMS({
-          mobileNo: params.mobileNo,
-          password: params.password,
-        });
-      }
-      if (isEmptyPassword && params.email) {
-        await sendPasswordByEmail({
-          email: params.email,
-          password: params.password,
-        });
-      }
-      return response.success({ data: result });
-    };
+    const result = await userDb.create(newUser);
+    if (isEmptyPassword && params.mobileNo) {
+      await sendPasswordBySMS({
+        mobileNo: params.mobileNo,
+        password: params.password,
+      });
+    }
+    if (isEmptyPassword && params.email) {
+      await sendPasswordByEmail({
+        email: params.email,
+        password: params.password,
+      });
+    }
+    return response.success({ data: result });
+  };
 
 export = register;

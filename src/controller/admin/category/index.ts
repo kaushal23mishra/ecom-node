@@ -26,7 +26,9 @@ const updateCategoryUsecase = require('../../../use-case/category/updateCategory
   categoryDb,
   updateValidation,
 });
-const partialUpdateCategoryUsecase = require('../../../use-case/category/partialUpdateCategory')({ categoryDb, });
+const partialUpdateCategoryUsecase = require('../../../use-case/category/partialUpdateCategory')({
+  categoryDb,
+});
 const softDeleteCategoryUsecase = require('../../../use-case/category/softDeleteCategory')({
   categoryDb,
   productDb,
@@ -35,8 +37,12 @@ const softDeleteManyCategoryUsecase = require('../../../use-case/category/softDe
   categoryDb,
   productDb,
 });
-const bulkInsertCategoryUsecase = require('../../../use-case/category/bulkInsertCategory')({ categoryDb, });
-const bulkUpdateCategoryUsecase = require('../../../use-case/category/bulkUpdateCategory')({ categoryDb, });
+const bulkInsertCategoryUsecase = require('../../../use-case/category/bulkInsertCategory')({
+  categoryDb,
+});
+const bulkUpdateCategoryUsecase = require('../../../use-case/category/bulkUpdateCategory')({
+  categoryDb,
+});
 const deleteCategoryUsecase = require('../../../use-case/category/deleteCategory')({
   categoryDb,
   productDb,

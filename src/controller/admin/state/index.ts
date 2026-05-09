@@ -27,7 +27,9 @@ const updateStateUsecase = require('../../../use-case/state/updateState')({
   stateDb,
   updateValidation,
 });
-const partialUpdateStateUsecase = require('../../../use-case/state/partialUpdateState')({ stateDb, });
+const partialUpdateStateUsecase = require('../../../use-case/state/partialUpdateState')({
+  stateDb,
+});
 const softDeleteStateUsecase = require('../../../use-case/state/softDeleteState')({
   stateDb,
   cityDb,

@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertProjectRoute =
   ({ projectRouteDb }) =>
-    async (dataToCreate, req, res) => {
-      let projectrouteEntities = dataToCreate.map((item) => projectRouteEntity(item));
-      let createdProjectRoute = await projectRouteDb.create(projectrouteEntities);
-      return response.success({ data: { count: createdProjectRoute.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let projectrouteEntities = dataToCreate.map((item) => projectRouteEntity(item));
+    let createdProjectRoute = await projectRouteDb.create(projectrouteEntities);
+    return response.success({ data: { count: createdProjectRoute.length || 0 } });
+  };
 module.exports = bulkInsertProjectRoute;

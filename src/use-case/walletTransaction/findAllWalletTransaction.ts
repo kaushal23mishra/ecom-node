@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found WalletTransaction(s). {status, message, data}
  */
 const findAllWalletTransaction =
-  ({
-    walletTransactionDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ walletTransactionDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await walletTransactionDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundWalletTransaction = await walletTransactionDb.paginate(query, options);
+      if (!foundWalletTransaction) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await walletTransactionDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundWalletTransaction = await walletTransactionDb.paginate(query, options);
-        if (!foundWalletTransaction) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundWalletTransaction });
-      }
-    };
+      return response.success({ data: foundWalletTransaction });
+    }
+  };
 module.exports = findAllWalletTransaction;

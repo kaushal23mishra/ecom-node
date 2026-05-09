@@ -25,13 +25,25 @@ const updateProductUsecase = require('../../../use-case/product/updateProduct')(
   productDb,
   updateValidation,
 });
-const partialUpdateProductUsecase = require('../../../use-case/product/partialUpdateProduct')({ productDb, });
-const softDeleteProductUsecase = require('../../../use-case/product/softDeleteProduct')({ productDb, });
-const softDeleteManyProductUsecase = require('../../../use-case/product/softDeleteManyProduct')({ productDb, });
-const bulkInsertProductUsecase = require('../../../use-case/product/bulkInsertProduct')({ productDb, });
-const bulkUpdateProductUsecase = require('../../../use-case/product/bulkUpdateProduct')({ productDb, });
+const partialUpdateProductUsecase = require('../../../use-case/product/partialUpdateProduct')({
+  productDb,
+});
+const softDeleteProductUsecase = require('../../../use-case/product/softDeleteProduct')({
+  productDb,
+});
+const softDeleteManyProductUsecase = require('../../../use-case/product/softDeleteManyProduct')({
+  productDb,
+});
+const bulkInsertProductUsecase = require('../../../use-case/product/bulkInsertProduct')({
+  productDb,
+});
+const bulkUpdateProductUsecase = require('../../../use-case/product/bulkUpdateProduct')({
+  productDb,
+});
 const deleteProductUsecase = require('../../../use-case/product/deleteProduct')({ productDb });
-const deleteManyProductUsecase = require('../../../use-case/product/deleteManyProduct')({ productDb, });
+const deleteManyProductUsecase = require('../../../use-case/product/deleteManyProduct')({
+  productDb,
+});
 
 const productController = require('./product');
 

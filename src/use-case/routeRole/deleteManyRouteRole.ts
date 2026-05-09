@@ -13,8 +13,8 @@ const response = require('../../utils/response');
  */
 const deleteManyRouteRole =
   ({ routeRoleDb }) =>
-    async (query, req, res) => {
-      let deletedRouteRole = await routeRoleDb.deleteMany(query);
-      return response.success({ data: { count: deletedRouteRole } });
-    };
+  async (query, req, res) => {
+    let deletedRouteRole = await routeRoleDb.deleteMany(query);
+    return response.success({ data: { count: deletedRouteRole } });
+  };
 module.exports = deleteManyRouteRole;

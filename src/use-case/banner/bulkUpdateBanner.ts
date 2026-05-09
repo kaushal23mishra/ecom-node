@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateBanner =
   ({ bannerDb }) =>
-    async (params, req, res) => {
-      const updatedBanner = await bannerDb.updateMany(params.query, params.dataToUpdate);
-      return response.success({ data: { count: updatedBanner } });
-    };
+  async (params, req, res) => {
+    const updatedBanner = await bannerDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedBanner } });
+  };
 module.exports = bulkUpdateBanner;

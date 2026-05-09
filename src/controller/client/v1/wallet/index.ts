@@ -26,7 +26,9 @@ const updateWalletUsecase = require('../../../../use-case/wallet/updateWallet')(
   walletDb,
   updateValidation,
 });
-const partialUpdateWalletUsecase = require('../../../../use-case/wallet/partialUpdateWallet')({ walletDb, });
+const partialUpdateWalletUsecase = require('../../../../use-case/wallet/partialUpdateWallet')({
+  walletDb,
+});
 const softDeleteWalletUsecase = require('../../../../use-case/wallet/softDeleteWallet')({
   walletDb,
   walletTransactionDb,
@@ -35,8 +37,12 @@ const softDeleteManyWalletUsecase = require('../../../../use-case/wallet/softDel
   walletDb,
   walletTransactionDb,
 });
-const bulkInsertWalletUsecase = require('../../../../use-case/wallet/bulkInsertWallet')({ walletDb, });
-const bulkUpdateWalletUsecase = require('../../../../use-case/wallet/bulkUpdateWallet')({ walletDb, });
+const bulkInsertWalletUsecase = require('../../../../use-case/wallet/bulkInsertWallet')({
+  walletDb,
+});
+const bulkUpdateWalletUsecase = require('../../../../use-case/wallet/bulkUpdateWallet')({
+  walletDb,
+});
 const deleteWalletUsecase = require('../../../../use-case/wallet/deleteWallet')({
   walletDb,
   walletTransactionDb,

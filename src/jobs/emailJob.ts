@@ -6,9 +6,7 @@ const logger = require('../utils/logger');
  * Example Worker for Email Processing
  */
 const emailWorker = queueService.createWorker('email-queue', async (job) => {
-  const {
-    to, subject, body 
-  } = job.data;
+  const { to, subject, body } = job.data;
 
   logger.info(`Processing email to ${to}`, { subject });
 

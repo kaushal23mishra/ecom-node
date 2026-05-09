@@ -27,7 +27,9 @@ const updateCartUsecase = require('../../../../use-case/cart/updateCart')({
 });
 const partialUpdateCartUsecase = require('../../../../use-case/cart/partialUpdateCart')({ cartDb });
 const softDeleteCartUsecase = require('../../../../use-case/cart/softDeleteCart')({ cartDb });
-const softDeleteManyCartUsecase = require('../../../../use-case/cart/softDeleteManyCart')({ cartDb, });
+const softDeleteManyCartUsecase = require('../../../../use-case/cart/softDeleteManyCart')({
+  cartDb,
+});
 const bulkInsertCartUsecase = require('../../../../use-case/cart/bulkInsertCart')({ cartDb });
 const bulkUpdateCartUsecase = require('../../../../use-case/cart/bulkUpdateCart')({ cartDb });
 const deleteCartUsecase = require('../../../../use-case/cart/deleteCart')({ cartDb });

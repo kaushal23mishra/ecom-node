@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateCategory =
   ({ categoryDb }) =>
-    async (params, req, res) => {
-      const category = await categoryDb.updateOne(params.query, params.dataToUpdate);
-      if (!category) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: category });
-    };
+  async (params, req, res) => {
+    const category = await categoryDb.updateOne(params.query, params.dataToUpdate);
+    if (!category) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: category });
+  };
 module.exports = partialUpdateCategory;

@@ -14,12 +14,12 @@ const response = require('../../utils/response');
  */
 const deleteWalletTransaction =
   ({ walletTransactionDb }) =>
-    async (query, req, res) => {
-      let deletedWalletTransaction = await walletTransactionDb.deleteOne(query);
-      if (!deletedWalletTransaction) {
-        return response.recordNotFound({});
-      }
-      return response.success({ data: deletedWalletTransaction });
-    };
+  async (query, req, res) => {
+    let deletedWalletTransaction = await walletTransactionDb.deleteOne(query);
+    if (!deletedWalletTransaction) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedWalletTransaction });
+  };
 
 module.exports = deleteWalletTransaction;

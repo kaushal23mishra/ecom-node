@@ -4,9 +4,7 @@
  */
 import { v4 as uuidv4 } from 'uuid';
 import logger, { context } from '../utils/logger';
-import {
-  Request, Response, NextFunction 
-} from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 const requestLogger = (req: any, res: Response, next: NextFunction) => {
   // Generate correlation ID

@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertPincode =
   ({ pincodeDb }) =>
-    async (dataToCreate, req, res) => {
-      let pincodeEntities = dataToCreate.map((item) => pincodeEntity(item));
-      let createdPincode = await pincodeDb.create(pincodeEntities);
-      return response.success({ data: { count: createdPincode.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let pincodeEntities = dataToCreate.map((item) => pincodeEntity(item));
+    let createdPincode = await pincodeDb.create(pincodeEntities);
+    return response.success({ data: { count: createdPincode.length || 0 } });
+  };
 module.exports = bulkInsertPincode;

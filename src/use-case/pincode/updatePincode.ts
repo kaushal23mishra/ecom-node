@@ -14,22 +14,20 @@ const response = require('../../utils/response');
  * @return {Object} : updated Pincode. {status, message, data}
  */
 const updatePincode =
-  ({
-    pincodeDb, updateValidation 
-  }) =>
-    async (params, req, res) => {
-      let {
-        dataToUpdate, query 
-      } = params;
-      const validateRequest = await updateValidation(dataToUpdate);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
-      }
-      let pincode = pincodeEntity(dataToUpdate);
-      pincode = await pincodeDb.updateOne(query, pincode);
-      if (!pincode) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: pincode });
-    };
+  ({ pincodeDb, updateValidation }) =>
+  async (params, req, res) => {
+    let { dataToUpdate, query } = params;
+    const validateRequest = await updateValidation(dataToUpdate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let pincode = pincodeEntity(dataToUpdate);
+    pincode = await pincodeDb.updateOne(query, pincode);
+    if (!pincode) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: pincode });
+  };
 module.exports = updatePincode;

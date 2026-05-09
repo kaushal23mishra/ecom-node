@@ -27,8 +27,8 @@
     ]
   },
   "dependencies": {
-    "aws-sdk": "^2.1693.0",
-    "axios": "^0.21.4",
+    "aws-sdk": "^1.18.0",
+    "axios": "^1.16.0",
     "bcrypt": "^5.1.1",
     "bullmq": "^5.67.2",
     "compression": "^1.8.1",
@@ -54,7 +54,7 @@
     "mongoose-unique-validator": "^3.1.0",
     "morgan": "^1.10.1",
     "node-cache": "^5.1.2",
-    "nodemailer": "^6.9.16",
+    "nodemailer": "^8.0.7",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "postman-to-openapi": "^2.2.1",
@@ -100,6 +100,10 @@
     "ts-jest": "^29.4.9",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "tar": "^6.2.1",
+    "xml2js": "^0.5.0"
   },
   "description": "**Supported version of nodejs >= 12**, **Supported version of mongoose >= 6**",
   "main": ".eslintrc.js",

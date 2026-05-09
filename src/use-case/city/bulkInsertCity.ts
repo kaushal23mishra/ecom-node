@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertCity =
   ({ cityDb }) =>
-    async (dataToCreate, req, res) => {
-      let cityEntities = dataToCreate.map((item) => cityEntity(item));
-      let createdCity = await cityDb.create(cityEntities);
-      return response.success({ data: { count: createdCity.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let cityEntities = dataToCreate.map((item) => cityEntity(item));
+    let createdCity = await cityDb.create(cityEntities);
+    return response.success({ data: { count: createdCity.length || 0 } });
+  };
 module.exports = bulkInsertCity;

@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found Wallet(s). {status, message, data}
  */
 const findAllWallet =
-  ({
-    walletDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ walletDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await walletDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundWallet = await walletDb.paginate(query, options);
+      if (!foundWallet) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await walletDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundWallet = await walletDb.paginate(query, options);
-        if (!foundWallet) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundWallet });
-      }
-    };
+      return response.success({ data: foundWallet });
+    }
+  };
 module.exports = findAllWallet;

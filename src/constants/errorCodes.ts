@@ -2,7 +2,7 @@ export {};
 /**
  * Standardized error codes for the application
  */
-module.exports = {
+export default {
   // General Errors
   INTERNAL_SERVER_ERROR: 'INTERNAL_SERVER_ERROR',
   VALIDATION_ERROR: 'VALIDATION_ERROR',

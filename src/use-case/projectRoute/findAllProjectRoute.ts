@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found ProjectRoute(s). {status, message, data}
  */
 const findAllProjectRoute =
-  ({
-    projectRouteDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ projectRouteDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await projectRouteDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundProjectRoute = await projectRouteDb.paginate(query, options);
+      if (!foundProjectRoute) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await projectRouteDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundProjectRoute = await projectRouteDb.paginate(query, options);
-        if (!foundProjectRoute) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundProjectRoute });
-      }
-    };
+      return response.success({ data: foundProjectRoute });
+    }
+  };
 module.exports = findAllProjectRoute;

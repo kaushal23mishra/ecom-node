@@ -2,7 +2,7 @@ export {};
 const jwt = require('jsonwebtoken');
 const { JWT } = require('../constants/authConstant');
 
-async function generateToken (user, secret) {
+async function generateToken(user, secret) {
   return jwt.sign(
     {
       id: user.id,
@@ -13,4 +13,4 @@ async function generateToken (user, secret) {
   );
 }
 
-module.exports = generateToken;
+export default generateToken;

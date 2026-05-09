@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found State(s). {status, message, data}
  */
 const findAllState =
-  ({
-    stateDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ stateDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await stateDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundState = await stateDb.paginate(query, options);
+      if (!foundState) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await stateDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundState = await stateDb.paginate(query, options);
-        if (!foundState) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundState });
-      }
-    };
+      return response.success({ data: foundState });
+    }
+  };
 module.exports = findAllState;

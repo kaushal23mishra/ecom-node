@@ -14,12 +14,12 @@ const response = require('../../utils/response');
  */
 const deleteCart =
   ({ cartDb }) =>
-    async (query, req, res) => {
-      let deletedCart = await cartDb.deleteOne(query);
-      if (!deletedCart) {
-        return response.recordNotFound({});
-      }
-      return response.success({ data: deletedCart });
-    };
+  async (query, req, res) => {
+    let deletedCart = await cartDb.deleteOne(query);
+    if (!deletedCart) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedCart });
+  };
 
 module.exports = deleteCart;

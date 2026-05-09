@@ -15,27 +15,29 @@ const response = require('../../utils/response');
  */
 const changePassword =
   ({ userDb }) =>
-    async (params) => {
-      if (!params.newPassword || !params.userId || !params.oldPassword) {
-        return response.validationError({ message: 'Please Provide userId and new Password and Old password', });
-      }
+  async (params) => {
+    if (!params.newPassword || !params.userId || !params.oldPassword) {
+      return response.validationError({
+        message: 'Please Provide userId and new Password and Old password',
+      });
+    }
 
-      let password = params.newPassword;
-      let oldPassword = params.oldPassword;
-      let user = await userDb.findOne({ _id: params.userId });
-      if (!user) {
-        return response.badRequest({ message: 'User not found.' });
-      }
-      let isPasswordMatch = await user.isPasswordMatch(oldPassword);
-      if (!isPasswordMatch) {
-        return response.badRequest({ message: 'Incorrect old password.' });
-      }
-      password = await bcrypt.hash(password, 8);
-      let updatedUser = userDb.updateOne({ _id: user.id }, { password: password });
-      if (updatedUser) {
-        return response.success({ message: 'Password changed successfully.' });
-      }
-      return response.badRequest({ message: 'Password not updated.' });
-    };
+    let password = params.newPassword;
+    let oldPassword = params.oldPassword;
+    let user = await userDb.findOne({ _id: params.userId });
+    if (!user) {
+      return response.badRequest({ message: 'User not found.' });
+    }
+    let isPasswordMatch = await user.isPasswordMatch(oldPassword);
+    if (!isPasswordMatch) {
+      return response.badRequest({ message: 'Incorrect old password.' });
+    }
+    password = await bcrypt.hash(password, 8);
+    let updatedUser = userDb.updateOne({ _id: user.id }, { password: password });
+    if (updatedUser) {
+      return response.success({ message: 'Password changed successfully.' });
+    }
+    return response.badRequest({ message: 'Password not updated.' });
+  };
 
 module.exports = changePassword;

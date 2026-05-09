@@ -1,9 +1,7 @@
 import express from 'express';
 const router = express.Router();
 const countryController = require('../../controller/admin/country');
-const {
-  auth, checkRolePermission 
-} = require('../../middleware');
+const { auth, checkRolePermission } = require('../../middleware');
 const { PLATFORM } = require('../../constants/authConstant');
 
 router

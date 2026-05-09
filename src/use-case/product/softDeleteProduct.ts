@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteProduct =
   ({ productDb }) =>
-    async (params, req, res) => {
-      let updatedProduct = await productDb.updateOne(params.query, params.dataToUpdate);
-      if (!updatedProduct) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: updatedProduct });
-    };
+  async (params, req, res) => {
+    let updatedProduct = await productDb.updateOne(params.query, params.dataToUpdate);
+    if (!updatedProduct) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: updatedProduct });
+  };
 module.exports = softDeleteProduct;

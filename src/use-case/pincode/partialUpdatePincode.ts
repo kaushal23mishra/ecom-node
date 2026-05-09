@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdatePincode =
   ({ pincodeDb }) =>
-    async (params, req, res) => {
-      const pincode = await pincodeDb.updateOne(params.query, params.dataToUpdate);
-      if (!pincode) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: pincode });
-    };
+  async (params, req, res) => {
+    const pincode = await pincodeDb.updateOne(params.query, params.dataToUpdate);
+    if (!pincode) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: pincode });
+  };
 module.exports = partialUpdatePincode;

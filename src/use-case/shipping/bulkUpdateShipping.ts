@@ -14,8 +14,8 @@ const response = require('../../utils/response');
  */
 const bulkUpdateShipping =
   ({ shippingDb }) =>
-    async (params, req, res) => {
-      const updatedShipping = await shippingDb.updateMany(params.query, params.dataToUpdate);
-      return response.success({ data: { count: updatedShipping } });
-    };
+  async (params, req, res) => {
+    const updatedShipping = await shippingDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedShipping } });
+  };
 module.exports = bulkUpdateShipping;

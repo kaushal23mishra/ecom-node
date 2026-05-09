@@ -15,26 +15,22 @@ const response = require('../../utils/response');
  * @return {Object} : no of documents deleted. {status, message, data}
  */
 const deleteManyCategory =
-  ({
-    categoryDb, productDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, isWarning 
-      } = params;
-      let deletedCategory;
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          categoryDb,
-          productDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const deleteWithDependency = makeDeleteWithDependency({
-          categoryDb,
-          productDb,
-        });
-        return await deleteWithDependency(query);
-      }
-    };
+  ({ categoryDb, productDb }) =>
+  async (params, req, res) => {
+    let { query, isWarning } = params;
+    let deletedCategory;
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        categoryDb,
+        productDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const deleteWithDependency = makeDeleteWithDependency({
+        categoryDb,
+        productDb,
+      });
+      return await deleteWithDependency(query);
+    }
+  };
 module.exports = deleteManyCategory;

@@ -52,6 +52,10 @@ register.registerMetric(httpRequestDurationMicroseconds);
 register.registerMetric(httpRequestsTotal);
 register.registerMetric(httpErrorsTotal);
 
-export {
-  register, httpRequestDurationMicroseconds, httpRequestsTotal, httpErrorsTotal 
+export { register, httpRequestDurationMicroseconds, httpRequestsTotal, httpErrorsTotal };
+export default {
+  register,
+  httpRequestDurationMicroseconds,
+  httpRequestsTotal,
+  httpErrorsTotal,
 };

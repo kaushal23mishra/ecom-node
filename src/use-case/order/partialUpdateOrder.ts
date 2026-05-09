@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const partialUpdateOrder =
   ({ orderDb }) =>
-    async (params, req, res) => {
-      const order = await orderDb.updateOne(params.query, params.dataToUpdate);
-      if (!order) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: order });
-    };
+  async (params, req, res) => {
+    const order = await orderDb.updateOne(params.query, params.dataToUpdate);
+    if (!order) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: order });
+  };
 module.exports = partialUpdateOrder;

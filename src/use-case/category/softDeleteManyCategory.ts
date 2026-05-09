@@ -15,26 +15,22 @@ const response = require('../../utils/response');
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
 const softDeleteManyCategory =
-  ({
-    categoryDb, productDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, dataToUpdate, isWarning 
-      } = params;
-      let updatedCategory = {};
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          categoryDb,
-          productDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const softDeleteWithDependency = makeSoftDeleteWithDependency({
-          categoryDb,
-          productDb,
-        });
-        return await softDeleteWithDependency(query, dataToUpdate);
-      }
-    };
+  ({ categoryDb, productDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedCategory = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        categoryDb,
+        productDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        categoryDb,
+        productDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteManyCategory;

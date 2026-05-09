@@ -1,3 +1,4 @@
+// @ts-nocheck
 export {};
 const bcrypt = require('bcrypt');
 const authConstant = require('../constants/authConstant');
@@ -8,9 +9,9 @@ const routeRoleDb = require('../data-access/routeRoleDb');
 const userRoleDb = require('../data-access/userRoleDb');
 const replaceAll = require('../utils/replaceAll');
 
-async function seedUser () {
+async function seedUser() {
   try {
-    let userToBeInserted = {};
+    let userToBeInserted: any = {};
     userToBeInserted = {
       password: 'QpPCXqEiR8eGjOj',
       isDeleted: false,
@@ -42,10 +43,12 @@ async function seedUser () {
     console.log('User seeder failed due to ', error.message);
   }
 }
-async function seedRole () {
+async function seedRole() {
   try {
     const roles = ['Customer', 'Admin', 'Seller', 'System_User'];
-    const insertedRoles = await roleDb.findMany({ code: { $in: roles.map((role) => role.toUpperCase()) }, });
+    const insertedRoles = await roleDb.findMany({
+      code: { $in: roles.map((role) => role.toUpperCase()) },
+    });
     const rolesToInsert = [];
     roles.forEach((role) => {
       if (!insertedRoles.find((insertedRole) => insertedRole.code === role.toUpperCase())) {
@@ -68,13 +71,13 @@ async function seedRole () {
   }
 }
 
-async function seedProjectRoutes (routes) {
+async function seedProjectRoutes(routes) {
   try {
     if (routes && routes.length) {
       let routeName = '';
       const dbRoutes = await projectRouteDb.findMany({});
       let routeArr = [];
-      let routeObj = {};
+      let routeObj: any = {};
       routes.forEach((route) => {
         routeName = `${replaceAll(route.path.toLowerCase(), '/', '_')}`;
         route.methods.forEach((method) => {
@@ -103,7 +106,7 @@ async function seedProjectRoutes (routes) {
   }
 }
 
-async function seedRouteRole () {
+async function seedRouteRole() {
   try {
     const routeRoles = [
       {
@@ -7608,7 +7611,7 @@ async function seedRouteRole () {
       });
       createRouteRoles = createRouteRoles.filter(Boolean);
       const routeRolesToBeInserted = [];
-      let routeRoleObj = {};
+      let routeRoleObj: any = {};
 
       await Promise.all(
         createRouteRoles.map(async (routeRole) => {
@@ -7637,7 +7640,7 @@ async function seedRouteRole () {
   }
 }
 
-async function seedUserRole () {
+async function seedUserRole() {
   try {
     const userRoles = [
       {
@@ -7650,7 +7653,9 @@ async function seedUserRole () {
       },
     ];
     const defaultRoles = await roleDb.findMany();
-    const insertedUsers = await userDb.findMany({ username: { $in: userRoles.map((userRole) => userRole.username) }, });
+    const insertedUsers = await userDb.findMany({
+      username: { $in: userRoles.map((userRole) => userRole.username) },
+    });
     let user = {};
     const userRolesArr = [];
     userRoles.map((userRole) => {
@@ -7680,7 +7685,7 @@ async function seedUserRole () {
         }
       }
     });
-    let userRoleObj = {};
+    let userRoleObj: any = {};
     const userRolesToBeInserted = [];
     if (userRolesArr.length) {
       await Promise.all(

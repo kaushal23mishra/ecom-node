@@ -13,26 +13,24 @@ const response = require('../../utils/response');
  * @return {Object} : found Product(s). {status, message, data}
  */
 const findAllProduct =
-  ({
-    productDb, filterValidation 
-  }) =>
-    async (params, req, res) => {
-      const validateRequest = await filterValidation(params);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
+  ({ productDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await productDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundProduct = await productDb.paginate(query, options);
+      if (!foundProduct) {
+        return response.recordNotFound();
       }
-      let {
-        query, options, isCountOnly 
-      } = params;
-      if (isCountOnly) {
-        let totalRecords = await productDb.count(query);
-        return response.success({ data: { totalRecords } });
-      } else {
-        let foundProduct = await productDb.paginate(query, options);
-        if (!foundProduct) {
-          return response.recordNotFound();
-        }
-        return response.success({ data: foundProduct });
-      }
-    };
+      return response.success({ data: foundProduct });
+    }
+  };
 module.exports = findAllProduct;

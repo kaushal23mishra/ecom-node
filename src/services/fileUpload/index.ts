@@ -16,7 +16,7 @@ const makeDirectory = require('../../utils/makeDirectory');
  * @returns {object}    { status, message, data}
  *
  */
-async function uploadFilesOnLocalServer (
+async function uploadFilesOnLocalServer(
   file,
   fields,
   fileCount,
@@ -24,12 +24,13 @@ async function uploadFilesOnLocalServer (
   maxFileSize,
   defaultDirectory
 ) {
+  let fileName = '';
   let tempPath = file.filepath;
 
   let extension = path.extname(file.originalFilename);
   extension = extension.split('.').pop();
 
-  fileType = file.mimetype;
+  let fileType = file.mimetype;
 
   if (allowedFileTypes.length == 0 || !allowedFileTypes.includes(extension)) {
     return {

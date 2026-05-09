@@ -14,22 +14,20 @@ const response = require('../../utils/response');
  * @return {Object} : updated ProjectRoute. {status, message, data}
  */
 const updateProjectRoute =
-  ({
-    projectRouteDb, updateValidation 
-  }) =>
-    async (params, req, res) => {
-      let {
-        dataToUpdate, query 
-      } = params;
-      const validateRequest = await updateValidation(dataToUpdate);
-      if (!validateRequest.isValid) {
-        return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}`, });
-      }
-      let projectroute = projectRouteEntity(dataToUpdate);
-      projectroute = await projectRouteDb.updateOne(query, projectroute);
-      if (!projectroute) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: projectroute });
-    };
+  ({ projectRouteDb, updateValidation }) =>
+  async (params, req, res) => {
+    let { dataToUpdate, query } = params;
+    const validateRequest = await updateValidation(dataToUpdate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let projectroute = projectRouteEntity(dataToUpdate);
+    projectroute = await projectRouteDb.updateOne(query, projectroute);
+    if (!projectroute) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: projectroute });
+  };
 module.exports = updateProjectRoute;

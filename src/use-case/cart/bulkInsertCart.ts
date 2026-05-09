@@ -17,9 +17,9 @@ const response = require('../../utils/response');
 
 const bulkInsertCart =
   ({ cartDb }) =>
-    async (dataToCreate, req, res) => {
-      let cartEntities = dataToCreate.map((item) => cartEntity(item));
-      let createdCart = await cartDb.create(cartEntities);
-      return response.success({ data: { count: createdCart.length || 0 } });
-    };
+  async (dataToCreate, req, res) => {
+    let cartEntities = dataToCreate.map((item) => cartEntity(item));
+    let createdCart = await cartDb.create(cartEntities);
+    return response.success({ data: { count: createdCart.length || 0 } });
+  };
 module.exports = bulkInsertCart;

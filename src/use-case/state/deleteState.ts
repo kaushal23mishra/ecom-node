@@ -16,29 +16,25 @@ const response = require('../../utils/response');
  * @return {Object} : deleted State. {status, message, data}
  */
 const deleteState =
-  ({
-    stateDb, cityDb, pincodeDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, isWarning 
-      } = params;
-      let deletedState = {};
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          stateDb,
-          cityDb,
-          pincodeDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const deleteWithDependency = makeDeleteWithDependency({
-          stateDb,
-          cityDb,
-          pincodeDb,
-        });
-        return await deleteWithDependency(query);
-      }
-    };
+  ({ stateDb, cityDb, pincodeDb }) =>
+  async (params, req, res) => {
+    let { query, isWarning } = params;
+    let deletedState = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        stateDb,
+        cityDb,
+        pincodeDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const deleteWithDependency = makeDeleteWithDependency({
+        stateDb,
+        cityDb,
+        pincodeDb,
+      });
+      return await deleteWithDependency(query);
+    }
+  };
 
 module.exports = deleteState;

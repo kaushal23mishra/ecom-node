@@ -1,14 +1,10 @@
-import {
-  Request, Response, NextFunction 
-} from 'express';
-import {
-  AnyZodObject, ZodError 
-} from 'zod';
+import { Request, Response, NextFunction } from 'express';
+const { ZodError } = require('zod');
 import response from '../utils/response';
 const responseHandler = require('../utils/response/responseHandler');
 
 export const validate =
-  (schema: AnyZodObject) => async (req: Request, res: Response, next: NextFunction) => {
+  (schema: any) => async (req: Request, res: Response, next: NextFunction) => {
     try {
       await schema.parseAsync({
         body: req.body,

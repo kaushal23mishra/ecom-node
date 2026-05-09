@@ -9,7 +9,9 @@ const addUserRoleUsecase = require('../../../use-case/userRole/addUserRole')({
   userRoleDb,
   createValidation,
 });
-const bulkInsertUserRoleUsecase = require('../../../use-case/userRole/bulkInsertUserRole')({ userRoleDb, });
+const bulkInsertUserRoleUsecase = require('../../../use-case/userRole/bulkInsertUserRole')({
+  userRoleDb,
+});
 const findAllUserRoleUsecase = require('../../../use-case/userRole/findAllUserRole')({
   userRoleDb,
   filterValidation,
@@ -18,11 +20,21 @@ const getUserRoleCountUsecase = require('../../../use-case/userRole/getUserRoleC
   userRoleDb,
   filterValidation,
 });
-const bulkUpdateUserRoleUsecase = require('../../../use-case/userRole/bulkUpdateUserRole')({ userRoleDb, });
-const softDeleteManyUserRoleUsecase = require('../../../use-case/userRole/softDeleteManyUserRole')({ userRoleDb, });
-const deleteManyUserRoleUsecase = require('../../../use-case/userRole/deleteManyUserRole')({ userRoleDb, });
-const softDeleteUserRoleUsecase = require('../../../use-case/userRole/softDeleteUserRole')({ userRoleDb, });
-const partialUpdateUserRoleUsecase = require('../../../use-case/userRole/partialUpdateUserRole')({ userRoleDb, });
+const bulkUpdateUserRoleUsecase = require('../../../use-case/userRole/bulkUpdateUserRole')({
+  userRoleDb,
+});
+const softDeleteManyUserRoleUsecase = require('../../../use-case/userRole/softDeleteManyUserRole')({
+  userRoleDb,
+});
+const deleteManyUserRoleUsecase = require('../../../use-case/userRole/deleteManyUserRole')({
+  userRoleDb,
+});
+const softDeleteUserRoleUsecase = require('../../../use-case/userRole/softDeleteUserRole')({
+  userRoleDb,
+});
+const partialUpdateUserRoleUsecase = require('../../../use-case/userRole/partialUpdateUserRole')({
+  userRoleDb,
+});
 const updateUserRoleUsecase = require('../../../use-case/userRole/updateUserRole')({
   userRoleDb,
   updateValidation,

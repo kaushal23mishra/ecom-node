@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const softDeleteRouteRole =
   ({ routeRoleDb }) =>
-    async (params, req, res) => {
-      let updatedRouteRole = await routeRoleDb.updateOne(params.query, params.dataToUpdate);
-      if (!updatedRouteRole) {
-        return response.recordNotFound();
-      }
-      return response.success({ data: updatedRouteRole });
-    };
+  async (params, req, res) => {
+    let updatedRouteRole = await routeRoleDb.updateOne(params.query, params.dataToUpdate);
+    if (!updatedRouteRole) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: updatedRouteRole });
+  };
 module.exports = softDeleteRouteRole;

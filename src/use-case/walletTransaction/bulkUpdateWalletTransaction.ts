@@ -14,11 +14,11 @@ const response = require('../../utils/response');
  */
 const bulkUpdateWalletTransaction =
   ({ walletTransactionDb }) =>
-    async (params, req, res) => {
-      const updatedWalletTransaction = await walletTransactionDb.updateMany(
-        params.query,
-        params.dataToUpdate
-      );
-      return response.success({ data: { count: updatedWalletTransaction } });
-    };
+  async (params, req, res) => {
+    const updatedWalletTransaction = await walletTransactionDb.updateMany(
+      params.query,
+      params.dataToUpdate
+    );
+    return response.success({ data: { count: updatedWalletTransaction } });
+  };
 module.exports = bulkUpdateWalletTransaction;

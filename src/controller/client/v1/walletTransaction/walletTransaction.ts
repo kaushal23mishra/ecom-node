@@ -248,7 +248,9 @@ const softDeleteManyWalletTransaction =
       if (!req.body || !req.body.ids) {
         return responseHandler(
           res,
-          response.badRequest({ message: 'Insufficient request parameters! ids field is required.', })
+          response.badRequest({
+            message: 'Insufficient request parameters! ids field is required.',
+          })
         );
       }
       let ids = req.body.ids;

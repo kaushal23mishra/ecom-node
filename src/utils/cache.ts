@@ -11,7 +11,9 @@ const localCache = new NodeCache({
 });
 
 class CacheService {
-  constructor () {
+  public redis: any;
+  public useRedis: any;
+  constructor() {
     this.redis = null;
     this.useRedis = false;
 
@@ -19,7 +21,7 @@ class CacheService {
       try {
         this.redis = new Redis(config.redis.url, {
           maxRetriesPerRequest: 3,
-          retryStrategy (times) {
+          retryStrategy(times) {
             const delay = Math.min(times * 50, 2000);
             return delay;
           },
@@ -46,7 +48,7 @@ class CacheService {
    * Get value from cache
    * @param {string} key
    */
-  async get (key) {
+  async get(key) {
     try {
       if (this.useRedis && this.redis) {
         const val = await this.redis.get(key);
@@ -73,7 +75,7 @@ class CacheService {
    * @param {any} value
    * @param {number} ttl Seconds
    */
-  async set (key, value, ttl = 60) {
+  async set(key, value, ttl = 60) {
     try {
       if (this.useRedis && this.redis) {
         await this.redis.set(key, JSON.stringify(value), 'EX', ttl);
@@ -95,7 +97,7 @@ class CacheService {
    * Delete from cache
    * @param {string} key
    */
-  async del (key) {
+  async del(key) {
     try {
       if (this.useRedis && this.redis) {
         await this.redis.del(key);
@@ -109,7 +111,7 @@ class CacheService {
   /**
    * Helper to get or set
    */
-  async getOrSet (key, fetchFunction, ttl = 60) {
+  async getOrSet(key, fetchFunction, ttl = 60) {
     const cached = await this.get(key);
     if (cached !== undefined && cached !== null) return cached;
 
@@ -119,4 +121,4 @@ class CacheService {
   }
 }
 
-module.exports = new CacheService();
+export default new CacheService();

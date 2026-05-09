@@ -14,12 +14,12 @@ const response = require('../../utils/response');
  */
 const deleteBanner =
   ({ bannerDb }) =>
-    async (query, req, res) => {
-      let deletedBanner = await bannerDb.deleteOne(query);
-      if (!deletedBanner) {
-        return response.recordNotFound({});
-      }
-      return response.success({ data: deletedBanner });
-    };
+  async (query, req, res) => {
+    let deletedBanner = await bannerDb.deleteOne(query);
+    if (!deletedBanner) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedBanner });
+  };
 
 module.exports = deleteBanner;

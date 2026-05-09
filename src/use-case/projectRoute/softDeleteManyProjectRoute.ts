@@ -15,26 +15,22 @@ const response = require('../../utils/response');
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
 const softDeleteManyProjectRoute =
-  ({
-    projectRouteDb, routeRoleDb 
-  }) =>
-    async (params, req, res) => {
-      let {
-        query, dataToUpdate, isWarning 
-      } = params;
-      let updatedProjectRoute = {};
-      if (isWarning) {
-        const getDependencyCount = makeGetDependencyCount({
-          projectRouteDb,
-          routeRoleDb,
-        });
-        return await getDependencyCount(query);
-      } else {
-        const softDeleteWithDependency = makeSoftDeleteWithDependency({
-          projectRouteDb,
-          routeRoleDb,
-        });
-        return await softDeleteWithDependency(query, dataToUpdate);
-      }
-    };
+  ({ projectRouteDb, routeRoleDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedProjectRoute = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        projectRouteDb,
+        routeRoleDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        projectRouteDb,
+        routeRoleDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteManyProjectRoute;
