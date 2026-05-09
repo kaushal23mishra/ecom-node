@@ -27,7 +27,7 @@
     ]
   },
   "dependencies": {
-    "aws-sdk": "^1.18.0",
+    "aws-sdk": "^2.1693.0",
     "axios": "^1.16.0",
     "bcrypt": "^5.1.1",
     "bullmq": "^5.67.2",
@@ -102,7 +102,7 @@
     "typescript": "^6.0.3"
   },
   "overrides": {
-    "tar": "^6.2.1",
+    "tar": "^7.5.11",
     "xml2js": "^0.5.0"
   },
   "description": "**Supported version of nodejs >= 12**, **Supported version of mongoose >= 6**",
