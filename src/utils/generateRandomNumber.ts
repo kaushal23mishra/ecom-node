@@ -8,4 +8,4 @@ const generateRandomNumber = (length = 4) => {
   return result;
 };
 
-export default generateRandomNumber;
+module.exports = generateRandomNumber;

@@ -11,4 +11,4 @@ function replaceAll(string, search, replace) {
   return string.split(search).join(replace);
 }
 
-export default replaceAll;
+module.exports = replaceAll;

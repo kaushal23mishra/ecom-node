@@ -121,4 +121,4 @@ class CacheService {
   }
 }
 
-export default new CacheService();
+module.exports = new CacheService();

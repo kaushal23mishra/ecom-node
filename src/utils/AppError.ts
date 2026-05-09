@@ -64,3 +64,15 @@ export {
   ConflictError,
 };
 export default AppError;
+
+// For CommonJS compatibility
+if (typeof module !== 'undefined') {
+  const cjsExport = AppError as any;
+  cjsExport.AppError = AppError;
+  cjsExport.ValidationError = ValidationError;
+  cjsExport.UnauthorizedError = UnauthorizedError;
+  cjsExport.ForbiddenError = ForbiddenError;
+  cjsExport.NotFoundError = NotFoundError;
+  cjsExport.ConflictError = ConflictError;
+  module.exports = cjsExport;
+}

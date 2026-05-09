@@ -1,4 +1,6 @@
-const packageJson = require('../../package.json');
+const path = require('path');
+const packageJson = require(path.join(process.cwd(), 'package.json'));
+
 
 const options = {
   definition: {

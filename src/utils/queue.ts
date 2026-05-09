@@ -77,4 +77,4 @@ class QueueService {
   }
 }
 
-export default new QueueService();
+module.exports = new QueueService();

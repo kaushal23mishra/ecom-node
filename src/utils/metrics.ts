@@ -53,7 +53,7 @@ register.registerMetric(httpRequestsTotal);
 register.registerMetric(httpErrorsTotal);
 
 export { register, httpRequestDurationMicroseconds, httpRequestsTotal, httpErrorsTotal };
-export default {
+module.exports = {
   register,
   httpRequestDurationMicroseconds,
   httpRequestsTotal,

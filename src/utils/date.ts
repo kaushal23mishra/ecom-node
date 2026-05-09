@@ -12,4 +12,4 @@ const getDifferenceOfTwoDatesInTime = (currentDate, toDate) => {
   return `${minutes} minute and ${seconds} second`;
 };
 
-export default { getDifferenceOfTwoDatesInTime };
+module.exports = { getDifferenceOfTwoDatesInTime };

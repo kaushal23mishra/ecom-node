@@ -13,4 +13,4 @@ async function generateToken(user, secret) {
   );
 }
 
-export default generateToken;
+module.exports = generateToken;
