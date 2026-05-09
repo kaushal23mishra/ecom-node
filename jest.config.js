@@ -5,6 +5,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts', '!**/node_modules/**'],
   testMatch: ['**/__test__/**/*.test.ts', '**/__test__/**/*.test.js'],
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
   setupFilesAfterEnv: ['./__test__/setup.js'],
   verbose: true,
   testTimeout: 30000,
