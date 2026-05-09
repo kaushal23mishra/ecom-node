@@ -10,8 +10,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    semi: ['error', 'always'],
-    indent: 'off',
+    /* --- Logic rules (ESLint owns these) --- */
     'no-irregular-whitespace': [
       'error',
       {
@@ -22,43 +21,22 @@ module.exports = {
       },
     ],
     'multiline-comment-style': ['error', 'starred-block'],
-    'object-property-newline': 'off',
-    'object-curly-newline': 'off',
-    'no-multiple-empty-lines': [
-      'error',
-      {
-        max: 1,
-        maxEOF: 0,
-      },
-    ],
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
-    'max-len': [
-      2,
-      {
-        code: 1000,
-        ignorePattern: '^import .*',
-      },
-    ],
+    'max-len': [2, { code: 1000, ignorePattern: '^import .*' }],
     'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
     'space-infix-ops': ['error', { int32Hint: false }],
-    'space-before-function-paren': [
-      'error',
-      {
-        anonymous: 'always',
-        named: 'always',
-        asyncArrow: 'always',
-      },
-    ],
-    'keyword-spacing': [
-      'error',
-      {
-        before: true,
-        after: true,
-      },
-    ],
-    'object-curly-spacing': ['error', 'always'],
-    quotes: ['error', 'single', { allowTemplateLiterals: true }],
+    'keyword-spacing': ['error', { before: true, after: true }],
+
+    /* --- Formatting rules (Prettier owns these — all OFF) --- */
+    semi: 'off',
+    indent: 'off',
+    quotes: 'off',
+    'space-before-function-paren': 'off',
+    'object-curly-spacing': 'off',
+    'object-curly-newline': 'off',
+    'object-property-newline': 'off',
   },
 };
