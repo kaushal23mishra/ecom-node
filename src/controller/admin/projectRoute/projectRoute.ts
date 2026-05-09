@@ -29,205 +29,259 @@
  *       200: { description: Created }
  */
 
-const response = require('../../../utils/response'); 
-const responseHandler = require('../../../utils/response/responseHandler'); 
-const getSelectObject = require('../../../utils/getSelectObject'); 
+const response = require('../../../utils/response');
+const responseHandler = require('../../../utils/response/responseHandler');
+const getSelectObject = require('../../../utils/getSelectObject');
 
-const addProjectRoute = (addProjectRouteUsecase) => async (req,res) => {
+const addProjectRoute = (addProjectRouteUsecase) => async (req, res) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
-    let result = await addProjectRouteUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await addProjectRouteUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkInsertProjectRoute = (bulkInsertProjectRouteUsecase)=> async (req,res) => {
+const bulkInsertProjectRoute = (bulkInsertProjectRouteUsecase) => async (req, res) => {
   try {
     let dataToCreate = [...req.body.data];
-    for (let i = 0;i < dataToCreate.length;i++){
+    for (let i = 0; i < dataToCreate.length; i++) {
       dataToCreate[i] = {
         ...dataToCreate[i],
-        addedBy:req.user.id,
+        addedBy: req.user.id,
       };
     }
-    let result = await bulkInsertProjectRouteUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await bulkInsertProjectRouteUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const findAllProjectRoute = (findAllProjectRouteUsecase) => async (req,res) => {
+const findAllProjectRoute = (findAllProjectRouteUsecase) => async (req, res) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
-    let result = await findAllProjectRouteUsecase({
-      query,
-      options,
-      isCountOnly:req.body.isCountOnly || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
+    let result = await findAllProjectRouteUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getProjectRoute = (getProjectRouteUsecase) => async (req,res) =>{
+const getProjectRoute = (getProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest());
+    if (!req.params.id) {
+      return responseHandler(res, response.badRequest());
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getProjectRouteUsecase({
-      query,
-      options
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getProjectRouteUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getProjectRouteCount = (getProjectRouteCountUsecase) => async (req,res) => {
+const getProjectRouteCount = (getProjectRouteCountUsecase) => async (req, res) => {
   try {
-    let where = { ...req.body.where || {} };
-    let result = await getProjectRouteCountUsecase({ where },req,res);  
-    return responseHandler(res,result);
+    let where = { ...(req.body.where || {}) };
+    let result = await getProjectRouteCountUsecase({ where }, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const updateProjectRoute = (updateProjectRouteUsecase) => async (req,res) =>{
+const updateProjectRoute = (updateProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await updateProjectRouteUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await updateProjectRouteUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkUpdateProjectRoute = (bulkUpdateProjectRouteUsecase) => async (req,res) => {
+const bulkUpdateProjectRoute = (bulkUpdateProjectRouteUsecase) => async (req, res) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await bulkUpdateProjectRouteUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await bulkUpdateProjectRouteUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const partialUpdateProjectRoute = (partialUpdateProjectRouteUsecase) => async (req,res) => {
+const partialUpdateProjectRoute = (partialUpdateProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
-    let result = await partialUpdateProjectRouteUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await partialUpdateProjectRouteUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteProjectRoute = (softDeleteProjectRouteUsecase) => async (req,res) => {
+const softDeleteProjectRoute = (softDeleteProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteProjectRouteUsecase({
-      query,
-      dataToUpdate,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteProjectRouteUsecase(
+      {
+        query,
+        dataToUpdate,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteProjectRoute = (deleteProjectRouteUsecase) => async (req,res) => {
+const deleteProjectRoute = (deleteProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let result = await deleteProjectRouteUsecase({
-      query,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await deleteProjectRouteUsecase(
+      {
+        query,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteManyProjectRoute = (deleteManyProjectRouteUsecase) => async (req,res) => {
+const deleteManyProjectRoute = (deleteManyProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
-    let result = await deleteManyProjectRouteUsecase({
-      query,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { _id: { $in: ids } };
+    let result = await deleteManyProjectRouteUsecase(
+      {
+        query,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteManyProjectRoute = (softDeleteManyProjectRouteUsecase) => async (req,res) => {
+const softDeleteManyProjectRoute = (softDeleteManyProjectRouteUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
+    let query: any = { _id: { $in: ids } };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteManyProjectRouteUsecase({
-      query,
-      dataToUpdate,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteManyProjectRouteUsecase(
+      {
+        query,
+        dataToUpdate,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -243,5 +297,5 @@ export = {
   softDeleteProjectRoute,
   deleteProjectRoute,
   deleteManyProjectRoute,
-  softDeleteManyProjectRoute
+  softDeleteManyProjectRoute,
 };

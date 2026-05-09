@@ -11,8 +11,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : no of documents deleted. {status, message, data}
  */
-const deleteManyPincode = ({ pincodeDb }) => async (query,req,res) => {
-  let deletedPincode = await pincodeDb.deleteMany(query);
-  return response.success({ data: { count : deletedPincode } });
-};
+const deleteManyPincode =
+  ({ pincodeDb }) =>
+  async (query, req, res) => {
+    let deletedPincode = await pincodeDb.deleteMany(query);
+    return response.success({ data: { count: deletedPincode } });
+  };
 module.exports = deleteManyPincode;

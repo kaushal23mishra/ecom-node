@@ -3,7 +3,7 @@ export {};
 /**
  *deletePincode.js
  */
- 
+
 const response = require('../../utils/response');
 /**
  * @description : delete record from database.
@@ -12,12 +12,14 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : deleted Pincode. {status, message, data}
  */
-const deletePincode = ({ pincodeDb }) => async (query,req,res) => {
-  let deletedPincode = await pincodeDb.deleteOne(query);
-  if (!deletedPincode){
-    return response.recordNotFound({});
-  }
-  return response.success({ data: deletedPincode });
-};
+const deletePincode =
+  ({ pincodeDb }) =>
+  async (query, req, res) => {
+    let deletedPincode = await pincodeDb.deleteOne(query);
+    if (!deletedPincode) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedPincode });
+  };
 
 module.exports = deletePincode;

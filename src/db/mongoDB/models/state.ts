@@ -16,31 +16,32 @@ const modelCustomLabels = {
 };
 mongoosePaginate.paginate.options = { customLabels: modelCustomLabels };
 const Schema = mongoose.Schema;
-const schema = new Schema({
-  stateName: { type:String },
-  countryId: {
-    type:Schema.Types.ObjectId,
-    ref:'country'
+const schema = new Schema(
+  {
+    stateName: { type: String },
+    countryId: {
+      type: Schema.Types.ObjectId,
+      ref: 'country',
+    },
+    isActive: { type: Boolean },
+    createdAt: { type: Date },
+    updatedAt: { type: Date },
+    addedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
+    updatedBy: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
+    isDeleted: { type: Boolean },
   },
-  isActive: { type:Boolean },
-  createdAt: { type:Date },
-  updatedAt: { type:Date },
-  addedBy: {
-    type:Schema.Types.ObjectId,
-    ref:'user'
-  },
-  updatedBy: {
-    type:Schema.Types.ObjectId,
-    ref:'user'
-  },
-  isDeleted: { type:Boolean }
-}
-,{ 
-  timestamps: { 
-    createdAt: 'createdAt', 
-    updatedAt: 'updatedAt' 
-  } 
-}
+  {
+    timestamps: {
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt',
+    },
+  }
 );
 schema.pre('save', async function (next) {
   this.isDeleted = false;
@@ -48,7 +49,7 @@ schema.pre('save', async function (next) {
   next();
 });
 schema.pre('insertMany', async function (next, docs) {
-  if (docs && docs.length){
+  if (docs && docs.length) {
     for (let index = 0; index < docs.length; index++) {
       const element = docs[index];
       element.isDeleted = false;
@@ -59,14 +60,12 @@ schema.pre('insertMany', async function (next, docs) {
 });
 
 schema.method('toJSON', function () {
-  const {
-    _id, __v, ...object 
-  } = this.toObject({ virtuals: true });
+  const { _id, __v, ...object } = this.toObject({ virtuals: true });
   object.id = _id;
   return object;
 });
 schema.plugin(mongoosePaginate);
 schema.plugin(idValidator);
 
-const state = mongoose.model('state',schema);
+const state = mongoose.model('state', schema);
 module.exports = state;

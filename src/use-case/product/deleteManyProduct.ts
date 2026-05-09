@@ -11,8 +11,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : no of documents deleted. {status, message, data}
  */
-const deleteManyProduct = ({ productDb }) => async (query,req,res) => {
-  let deletedProduct = await productDb.deleteMany(query);
-  return response.success({ data: { count : deletedProduct } });
-};
+const deleteManyProduct =
+  ({ productDb }) =>
+  async (query, req, res) => {
+    let deletedProduct = await productDb.deleteMany(query);
+    return response.success({ data: { count: deletedProduct } });
+  };
 module.exports = deleteManyProduct;

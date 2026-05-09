@@ -14,25 +14,23 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response..
  * @return {Object} : deactivated Category. {status, message, data}
  */
-const softDeleteCategory = ({
-  categoryDb,productDb
-}) => async (params,req,res) => {
-  let {
-    query, dataToUpdate,isWarning 
-  } = params;
-  let updatedCategory = {};
-  if (isWarning) {
-    const getDependencyCount = makeGetDependencyCount({
-      categoryDb,
-      productDb
-    });
-    return await getDependencyCount(query);
-  } else {
-    const softDeleteWithDependency = makeSoftDeleteWithDependency({
-      categoryDb,
-      productDb
-    });
-    return await softDeleteWithDependency(query, dataToUpdate);
-  }
-};
+const softDeleteCategory =
+  ({ categoryDb, productDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedCategory = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        categoryDb,
+        productDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        categoryDb,
+        productDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteCategory;

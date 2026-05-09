@@ -14,25 +14,23 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response..
  * @return {Object} : deactivated ProjectRoute. {status, message, data}
  */
-const softDeleteProjectRoute = ({
-  projectRouteDb,routeRoleDb
-}) => async (params,req,res) => {
-  let {
-    query, dataToUpdate,isWarning 
-  } = params;
-  let updatedProjectRoute = {};
-  if (isWarning) {
-    const getDependencyCount = makeGetDependencyCount({
-      projectRouteDb,
-      routeRoleDb
-    });
-    return await getDependencyCount(query);
-  } else {
-    const softDeleteWithDependency = makeSoftDeleteWithDependency({
-      projectRouteDb,
-      routeRoleDb
-    });
-    return await softDeleteWithDependency(query, dataToUpdate);
-  }
-};
+const softDeleteProjectRoute =
+  ({ projectRouteDb, routeRoleDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedProjectRoute = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        projectRouteDb,
+        routeRoleDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        projectRouteDb,
+        routeRoleDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteProjectRoute;

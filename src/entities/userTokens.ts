@@ -1,7 +1,6 @@
 export {};
 module.exports = (userTokens) => {
-
-  let newUserTokens = { 
+  let newUserTokens = {
     userId: userTokens.userId,
     token: userTokens.token,
     tokenExpiredTime: userTokens.tokenExpiredTime,
@@ -15,7 +14,9 @@ module.exports = (userTokens) => {
   };
 
   // remove undefined values
-  Object.keys(newUserTokens).forEach(key => newUserTokens[key] === undefined && delete newUserTokens[key]);
+  Object.keys(newUserTokens).forEach(
+    (key) => newUserTokens[key] === undefined && delete newUserTokens[key]
+  );
 
   // To validate Entity uncomment this block
   /*
@@ -24,7 +25,7 @@ module.exports = (userTokens) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newUserTokens) 
+   * validate(newUserTokens)
    */
 
   return Object.freeze(newUserTokens);

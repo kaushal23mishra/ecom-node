@@ -1,19 +1,16 @@
 export {};
-const {
-  Queue, Worker 
-} = require('bullmq');
+const { Queue, Worker } = require('bullmq');
 const Redis = require('ioredis');
 const logger = require('./logger');
 const config = require('../config');
 
 class QueueService {
-  constructor () {
+  constructor() {
     this.queues = {};
     this.connection = null;
 
     if (config.redis && config.redis.url) {
-      this.connection = new Redis(config.redis.url, { maxRetriesPerRequest: null, // Required for BullMQ
-      });
+      this.connection = new Redis(config.redis.url, { maxRetriesPerRequest: null }); // Required for BullMQ
       logger.info('Queue Service initialized with Redis');
     } else {
       logger.warn('Redis not configured. Queue Service will not work.');
@@ -22,9 +19,9 @@ class QueueService {
 
   /**
    * Get or create a queue
-   * @param {string} name 
+   * @param {string} name
    */
-  getQueue (name) {
+  getQueue(name) {
     if (!this.connection) return null;
     if (!this.queues[name]) {
       this.queues[name] = new Queue(name, { connection: this.connection });
@@ -34,12 +31,12 @@ class QueueService {
 
   /**
    * Add a job to a queue
-   * @param {string} queueName 
-   * @param {string} jobName 
-   * @param {object} data 
-   * @param {object} options 
+   * @param {string} queueName
+   * @param {string} jobName
+   * @param {object} data
+   * @param {object} options
    */
-  async addJob (queueName, jobName, data, options = {}) {
+  async addJob(queueName, jobName, data, options = {}) {
     const queue = this.getQueue(queueName);
     if (!queue) {
       logger.error(`Cannot add job: Queue ${queueName} not available`);
@@ -59,10 +56,10 @@ class QueueService {
 
   /**
    * Create a worker for a queue
-   * @param {string} queueName 
-   * @param {function} processor 
+   * @param {string} queueName
+   * @param {function} processor
    */
-  createWorker (queueName, processor) {
+  createWorker(queueName, processor) {
     if (!this.connection) return null;
     const worker = new Worker(queueName, processor, { connection: this.connection });
 

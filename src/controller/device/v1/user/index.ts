@@ -24,23 +24,23 @@ const updateValidation = require('../../../../validation')(userSchema.updateSche
 const filterValidation = require('../../../../validation')(userSchema.filterValidationSchema);
 const addUserUsecase = require('../../../../use-case/user/addUser')({
   userDb,
-  createValidation 
+  createValidation,
 });
 const findAllUserUsecase = require('../../../../use-case/user/findAllUser')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const getUserCountUsecase = require('../../../../use-case/user/getUserCount')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const getUserUsecase = require('../../../../use-case/user/getUser')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const updateUserUsecase = require('../../../../use-case/user/updateUser')({
   userDb,
-  updateValidation 
+  updateValidation,
 });
 const partialUpdateUserUsecase = require('../../../../use-case/user/partialUpdateUser')({ userDb });
 const bulkInsertUserUsecase = require('../../../../use-case/user/bulkInsertUser')({ userDb });
@@ -48,7 +48,7 @@ const bulkUpdateUserUsecase = require('../../../../use-case/user/bulkUpdateUser'
 const changePasswordUsecase = require('../../../../use-case/user/changePassword')({ userDb });
 const updateProfileUsecase = require('../../../../use-case/user/updateProfile')({
   userDb,
-  updateValidation
+  updateValidation,
 });
 
 const userController = require('./user');

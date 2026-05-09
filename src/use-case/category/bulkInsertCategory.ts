@@ -4,7 +4,7 @@ export {};
  *bulkInsertCategory.js
  */
 
-const  categoryEntity = require('../../entities/category');
+const categoryEntity = require('../../entities/category');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created Categorys. {status, message, data}
  */
 
-const bulkInsertCategory = ({ categoryDb }) => async (dataToCreate,req,res) => {
-  let categoryEntities = dataToCreate.map(item => categoryEntity(item));
-  let createdCategory = await categoryDb.create(categoryEntities);
-  return response.success({ data:{ count:createdCategory.length || 0 } });
-};
+const bulkInsertCategory =
+  ({ categoryDb }) =>
+  async (dataToCreate, req, res) => {
+    let categoryEntities = dataToCreate.map((item) => categoryEntity(item));
+    let createdCategory = await categoryDb.create(categoryEntities);
+    return response.success({ data: { count: createdCategory.length || 0 } });
+  };
 module.exports = bulkInsertCategory;

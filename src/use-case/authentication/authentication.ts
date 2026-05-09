@@ -1,5 +1,5 @@
 const response = require('../../utils/response');
-const makeLoginUser = require('../common/loginUser'); 
+const makeLoginUser = require('../common/loginUser');
 
 /**
  * @description : login with username and password
@@ -7,26 +7,26 @@ const makeLoginUser = require('../common/loginUser');
  * @param {Number} platform : platform identification.
  * @return {Object} : response for authentication {status, message, data}
  */
-const authentication = ({
-  userDb,userTokensDb,userRoleDb,routeRoleDb
-}: any) => async (params: any, platform: any) => {
-  let {
-    username,password
-  } = params;
-  if (!username || !password){
-    return response.badRequest({ message : 'Insufficient request parameters! username and password is required.' });
-  }
-  let roleAccess = null;
-  if (params.includeRoleAccess){
-    roleAccess = params.includeRoleAccess;
-  }
-  const loginUser = makeLoginUser({
-    userDb,
-    userTokensDb,
-    userRoleDb,
-    routeRoleDb
-  });
-  return await loginUser(username, platform, password, roleAccess);
-};
+const authentication =
+  ({ userDb, userTokensDb, userRoleDb, routeRoleDb }: any) =>
+  async (params: any, platform: any) => {
+    let { username, password } = params;
+    if (!username || !password) {
+      return response.badRequest({
+        message: 'Insufficient request parameters! username and password is required.',
+      });
+    }
+    let roleAccess = null;
+    if (params.includeRoleAccess) {
+      roleAccess = params.includeRoleAccess;
+    }
+    const loginUser = makeLoginUser({
+      userDb,
+      userTokensDb,
+      userRoleDb,
+      routeRoleDb,
+    });
+    return await loginUser(username, platform, password, roleAccess);
+  };
 
 export = authentication;

@@ -1,7 +1,6 @@
 export {};
 module.exports = (userRole) => {
-
-  let newUserRole = { 
+  let newUserRole = {
     userId: userRole.userId,
     roleId: userRole.roleId,
     isActive: userRole.isActive,
@@ -13,7 +12,9 @@ module.exports = (userRole) => {
   };
 
   // remove undefined values
-  Object.keys(newUserRole).forEach(key => newUserRole[key] === undefined && delete newUserRole[key]);
+  Object.keys(newUserRole).forEach(
+    (key) => newUserRole[key] === undefined && delete newUserRole[key]
+  );
 
   // To validate Entity uncomment this block
   /*
@@ -22,7 +23,7 @@ module.exports = (userRole) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newUserRole) 
+   * validate(newUserRole)
    */
 
   return Object.freeze(newUserRole);

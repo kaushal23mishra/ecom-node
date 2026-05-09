@@ -4,7 +4,7 @@ export {};
  *bulkInsertBanner.js
  */
 
-const  bannerEntity = require('../../entities/banner');
+const bannerEntity = require('../../entities/banner');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created Banners. {status, message, data}
  */
 
-const bulkInsertBanner = ({ bannerDb }) => async (dataToCreate,req,res) => {
-  let bannerEntities = dataToCreate.map(item => bannerEntity(item));
-  let createdBanner = await bannerDb.create(bannerEntities);
-  return response.success({ data:{ count:createdBanner.length || 0 } });
-};
+const bulkInsertBanner =
+  ({ bannerDb }) =>
+  async (dataToCreate, req, res) => {
+    let bannerEntities = dataToCreate.map((item) => bannerEntity(item));
+    let createdBanner = await bannerDb.create(bannerEntities);
+    return response.success({ data: { count: createdBanner.length || 0 } });
+  };
 module.exports = bulkInsertBanner;

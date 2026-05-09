@@ -7,27 +7,31 @@ const updateValidation = require('../../../../validation')(orderSchema.updateSch
 const filterValidation = require('../../../../validation')(orderSchema.filterValidationSchema);
 const addOrderUsecase = require('../../../../use-case/order/addOrder')({
   orderDb,
-  createValidation 
+  createValidation,
 });
 const findAllOrderUsecase = require('../../../../use-case/order/findAllOrder')({
   orderDb,
-  filterValidation
+  filterValidation,
 });
 const getOrderCountUsecase = require('../../../../use-case/order/getOrderCount')({
   orderDb,
-  filterValidation
+  filterValidation,
 });
 const getOrderUsecase = require('../../../../use-case/order/getOrder')({
   orderDb,
-  filterValidation
+  filterValidation,
 });
 const updateOrderUsecase = require('../../../../use-case/order/updateOrder')({
   orderDb,
-  updateValidation 
+  updateValidation,
 });
-const partialUpdateOrderUsecase = require('../../../../use-case/order/partialUpdateOrder')({ orderDb });
+const partialUpdateOrderUsecase = require('../../../../use-case/order/partialUpdateOrder')({
+  orderDb,
+});
 const softDeleteOrderUsecase = require('../../../../use-case/order/softDeleteOrder')({ orderDb });
-const softDeleteManyOrderUsecase = require('../../../../use-case/order/softDeleteManyOrder')({ orderDb });
+const softDeleteManyOrderUsecase = require('../../../../use-case/order/softDeleteManyOrder')({
+  orderDb,
+});
 const bulkInsertOrderUsecase = require('../../../../use-case/order/bulkInsertOrder')({ orderDb });
 const bulkUpdateOrderUsecase = require('../../../../use-case/order/bulkUpdateOrder')({ orderDb });
 const deleteOrderUsecase = require('../../../../use-case/order/deleteOrder')({ orderDb });

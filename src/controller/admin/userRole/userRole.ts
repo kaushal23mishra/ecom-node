@@ -29,197 +29,243 @@
  *       200: { description: Created }
  */
 
-const response = require('../../../utils/response'); 
-const responseHandler = require('../../../utils/response/responseHandler'); 
-const getSelectObject = require('../../../utils/getSelectObject'); 
+const response = require('../../../utils/response');
+const responseHandler = require('../../../utils/response/responseHandler');
+const getSelectObject = require('../../../utils/getSelectObject');
 
-const addUserRole = (addUserRoleUsecase) => async (req,res) => {
+const addUserRole = (addUserRoleUsecase) => async (req, res) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
-    let result = await addUserRoleUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await addUserRoleUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkInsertUserRole = (bulkInsertUserRoleUsecase)=> async (req,res) => {
+const bulkInsertUserRole = (bulkInsertUserRoleUsecase) => async (req, res) => {
   try {
     let dataToCreate = [...req.body.data];
-    for (let i = 0;i < dataToCreate.length;i++){
+    for (let i = 0; i < dataToCreate.length; i++) {
       dataToCreate[i] = {
         ...dataToCreate[i],
-        addedBy:req.user.id,
+        addedBy: req.user.id,
       };
     }
-    let result = await bulkInsertUserRoleUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await bulkInsertUserRoleUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const findAllUserRole = (findAllUserRoleUsecase) => async (req,res) => {
+const findAllUserRole = (findAllUserRoleUsecase) => async (req, res) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
-    let result = await findAllUserRoleUsecase({
-      query,
-      options,
-      isCountOnly:req.body.isCountOnly || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
+    let result = await findAllUserRoleUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getUserRole = (getUserRoleUsecase) => async (req,res) =>{
+const getUserRole = (getUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest());
+    if (!req.params.id) {
+      return responseHandler(res, response.badRequest());
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getUserRoleUsecase({
-      query,
-      options
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getUserRoleUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getUserRoleCount = (getUserRoleCountUsecase) => async (req,res) => {
+const getUserRoleCount = (getUserRoleCountUsecase) => async (req, res) => {
   try {
-    let where = { ...req.body.where || {} };
-    let result = await getUserRoleCountUsecase({ where },req,res);  
-    return responseHandler(res,result);
+    let where = { ...(req.body.where || {}) };
+    let result = await getUserRoleCountUsecase({ where }, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const updateUserRole = (updateUserRoleUsecase) => async (req,res) =>{
+const updateUserRole = (updateUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await updateUserRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await updateUserRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkUpdateUserRole = (bulkUpdateUserRoleUsecase) => async (req,res) => {
+const bulkUpdateUserRole = (bulkUpdateUserRoleUsecase) => async (req, res) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await bulkUpdateUserRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await bulkUpdateUserRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const partialUpdateUserRole = (partialUpdateUserRoleUsecase) => async (req,res) => {
+const partialUpdateUserRole = (partialUpdateUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
-    let result = await partialUpdateUserRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await partialUpdateUserRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteUserRole = (softDeleteUserRoleUsecase) => async (req,res)=>{
+const softDeleteUserRole = (softDeleteUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteUserRoleUsecase({
-      query,
-      dataToUpdate
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteUserRoleUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteUserRole = (deleteUserRoleUsecase) => async (req,res) => {
+const deleteUserRole = (deleteUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let result = await deleteUserRoleUsecase(query,req,res);
-    return responseHandler(res,result);
+    let result = await deleteUserRoleUsecase(query, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteManyUserRole = (deleteManyUserRoleUsecase) => async (req,res) => {
+const deleteManyUserRole = (deleteManyUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
-    let result = await deleteManyUserRoleUsecase(query,req,res);
-    return responseHandler(res,result);
+    let query: any = { _id: { $in: ids } };
+    let result = await deleteManyUserRoleUsecase(query, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteManyUserRole = (softDeleteManyUserRoleUsecase) => async (req,res) => {
+const softDeleteManyUserRole = (softDeleteManyUserRoleUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
+    let query: any = { _id: { $in: ids } };
     const dataToUpdate = {
       isDeleted: true,
-      updatedBy: req.user.id
+      updatedBy: req.user.id,
     };
-    let result = await softDeleteManyUserRoleUsecase({
-      query,
-      dataToUpdate
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteManyUserRoleUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -235,5 +281,5 @@ export = {
   softDeleteUserRole,
   deleteUserRole,
   deleteManyUserRole,
-  softDeleteManyUserRole
+  softDeleteManyUserRole,
 };

@@ -9,46 +9,48 @@ const updateValidation = require('../../../validation')(stateSchema.updateSchema
 const filterValidation = require('../../../validation')(stateSchema.filterValidationSchema);
 const addStateUsecase = require('../../../use-case/state/addState')({
   stateDb,
-  createValidation 
+  createValidation,
 });
 const findAllStateUsecase = require('../../../use-case/state/findAllState')({
   stateDb,
-  filterValidation
+  filterValidation,
 });
 const getStateCountUsecase = require('../../../use-case/state/getStateCount')({
   stateDb,
-  filterValidation
+  filterValidation,
 });
 const getStateUsecase = require('../../../use-case/state/getState')({
   stateDb,
-  filterValidation
+  filterValidation,
 });
 const updateStateUsecase = require('../../../use-case/state/updateState')({
   stateDb,
-  updateValidation 
+  updateValidation,
 });
-const partialUpdateStateUsecase = require('../../../use-case/state/partialUpdateState')({ stateDb });
+const partialUpdateStateUsecase = require('../../../use-case/state/partialUpdateState')({
+  stateDb,
+});
 const softDeleteStateUsecase = require('../../../use-case/state/softDeleteState')({
   stateDb,
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const softDeleteManyStateUsecase = require('../../../use-case/state/softDeleteManyState')({
   stateDb,
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const bulkInsertStateUsecase = require('../../../use-case/state/bulkInsertState')({ stateDb });
 const bulkUpdateStateUsecase = require('../../../use-case/state/bulkUpdateState')({ stateDb });
 const deleteStateUsecase = require('../../../use-case/state/deleteState')({
   stateDb,
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const deleteManyStateUsecase = require('../../../use-case/state/deleteManyState')({
   stateDb,
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 
 const stateController = require('./state');

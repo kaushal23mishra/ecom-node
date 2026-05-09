@@ -1,61 +1,61 @@
 const authConstant = require('../../../../constants/authConstant');
-const response = require('../../../../utils/response');  
-const responseHandler = require('../../../../utils/response/responseHandler'); 
+const response = require('../../../../utils/response');
+const responseHandler = require('../../../../utils/response/responseHandler');
 
-const register = (registerUsecase) => async (req,res) => {
+const register = (registerUsecase) => async (req, res) => {
   try {
     req.body.userType = authConstant.USER_TYPES.User;
     let result = await registerUsecase(req.body);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const forgotPassword = (forgotPasswordUsecase) => async (req,res) => {
+const forgotPassword = (forgotPasswordUsecase) => async (req, res) => {
   try {
     let result = await forgotPasswordUsecase(req.body);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const validateResetPasswordOtp = (validateResetPasswordOtpUsecase) => async (req,res) => {
+const validateResetPasswordOtp = (validateResetPasswordOtpUsecase) => async (req, res) => {
   try {
     let result = await validateResetPasswordOtpUsecase(req.body);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const resetPassword = (resetPasswordUsecase) => async (req,res) => {
+const resetPassword = (resetPasswordUsecase) => async (req, res) => {
   try {
     let result = await resetPasswordUsecase(req.body);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const authentication = (authenticationUsecase) => async (req,res)=>{
+const authentication = (authenticationUsecase) => async (req, res) => {
   try {
     let result = await authenticationUsecase(req.body, authConstant.PLATFORM.CLIENT);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const logout = (logoutUsecase) => async (req,res) => {
+const logout = (logoutUsecase) => async (req, res) => {
   try {
     let user = req.user;
     let token = req.headers.authorization.replace('Bearer ', '');
-    let result = await logoutUsecase(user, token,req,res);
-    return responseHandler(res,result);
+    let result = await logoutUsecase(user, token, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -65,5 +65,5 @@ export = {
   validateResetPasswordOtp,
   resetPassword,
   authentication,
-  logout
+  logout,
 };

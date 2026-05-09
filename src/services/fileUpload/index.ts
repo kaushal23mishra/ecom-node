@@ -4,9 +4,9 @@ const path = require('path');
 const makeDirectory = require('../../utils/makeDirectory');
 
 /**
- * 
+ *
  * Function used to upload file in local storage.
- * 
+ *
  * @param   {object}    file
  * @param   {object}    fields
  * @param   {integer}   fileCount
@@ -14,10 +14,16 @@ const makeDirectory = require('../../utils/makeDirectory');
  * @param   {integer}   maxFileSize
  * @param   {string}    defaultDirectory
  * @returns {object}    { status, message, data}
- * 
+ *
  */
-async function uploadFilesOnLocalServer (file, fields, fileCount, allowedFileTypes, maxFileSize, defaultDirectory) {
-
+async function uploadFilesOnLocalServer(
+  file,
+  fields,
+  fileCount,
+  allowedFileTypes,
+  maxFileSize,
+  defaultDirectory
+) {
   let tempPath = file.filepath;
 
   let extension = path.extname(file.originalFilename);
@@ -28,16 +34,16 @@ async function uploadFilesOnLocalServer (file, fields, fileCount, allowedFileTyp
   if (allowedFileTypes.length == 0 || !allowedFileTypes.includes(extension)) {
     return {
       status: false,
-      message: 'Filetype not allowed.'
+      message: 'Filetype not allowed.',
     };
   }
 
   //Check File Size
-  const fileSize = ((file.size / 1024) / 1024);
+  const fileSize = file.size / 1024 / 1024;
   if (maxFileSize < fileSize) {
     return {
       status: false,
-      message: `Allow file size upto ${maxFileSize} MB.`
+      message: `Allow file size upto ${maxFileSize} MB.`,
     };
   }
 
@@ -54,11 +60,18 @@ async function uploadFilesOnLocalServer (file, fields, fileCount, allowedFileTyp
     await makeDirectory(newDir);
 
     if (fields.fileName) {
-      newPath = newDir + '/' + fields.fileName + '-' + fileCount + path.extname(file.originalFilename);
+      newPath =
+        newDir + '/' + fields.fileName + '-' + fileCount + path.extname(file.originalFilename);
       fileName = fields.fileName;
     }
   } else if (fields && fields.fileName) {
-    newPath = defaultDirectory + '/' + fields.fileName + '-' + fileCount + path.extname(file.originalFilename);
+    newPath =
+      defaultDirectory +
+      '/' +
+      fields.fileName +
+      '-' +
+      fileCount +
+      path.extname(file.originalFilename);
     fileName = fields.fileName;
   }
 
@@ -69,8 +82,8 @@ async function uploadFilesOnLocalServer (file, fields, fileCount, allowedFileTyp
   return {
     status: true,
     message: 'File upload successfully.',
-    data: '/' + newPath
+    data: '/' + newPath,
   };
 }
 
-module.exports = { uploadFilesOnLocalServer, };
+module.exports = { uploadFilesOnLocalServer };

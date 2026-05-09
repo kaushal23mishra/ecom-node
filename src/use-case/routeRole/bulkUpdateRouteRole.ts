@@ -12,8 +12,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of bulkUpdate. {status, message, data}
  */
-const bulkUpdateRouteRole = ({ routeRoleDb }) => async (params,req,res) => {
-  const updatedRouteRole = await routeRoleDb.updateMany(params.query,params.dataToUpdate);
-  return response.success({ data:{ count:updatedRouteRole } });
-};
+const bulkUpdateRouteRole =
+  ({ routeRoleDb }) =>
+  async (params, req, res) => {
+    const updatedRouteRole = await routeRoleDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedRouteRole } });
+  };
 module.exports = bulkUpdateRouteRole;

@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {obj} : updated Category. {status, message, data}
  */
-const partialUpdateCategory = ({ categoryDb }) => async (params,req,res) => {
-  const category = await categoryDb.updateOne(params.query,params.dataToUpdate);
-  if (!category){
-    return response.recordNotFound();
-  }
-  return response.success({ data:category });
-};
+const partialUpdateCategory =
+  ({ categoryDb }) =>
+  async (params, req, res) => {
+    const category = await categoryDb.updateOne(params.query, params.dataToUpdate);
+    if (!category) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: category });
+  };
 module.exports = partialUpdateCategory;

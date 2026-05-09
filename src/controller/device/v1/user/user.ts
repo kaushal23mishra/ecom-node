@@ -29,182 +29,212 @@
  *       200: { description: Created }
  */
 
-const response = require('../../../../utils/response'); 
-const responseHandler = require('../../../../utils/response/responseHandler'); 
-const getSelectObject = require('../../../../utils/getSelectObject'); 
+const response = require('../../../../utils/response');
+const responseHandler = require('../../../../utils/response/responseHandler');
+const getSelectObject = require('../../../../utils/getSelectObject');
 
-const addUser = (addUserUsecase) => async (req,res) => {
+const addUser = (addUserUsecase) => async (req, res) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
-    let result = await addUserUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await addUserUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkInsertUser = (bulkInsertUserUsecase)=> async (req,res) => {
+const bulkInsertUser = (bulkInsertUserUsecase) => async (req, res) => {
   try {
     let dataToCreate = [...req.body.data];
-    for (let i = 0;i < dataToCreate.length;i++){
+    for (let i = 0; i < dataToCreate.length; i++) {
       dataToCreate[i] = {
         ...dataToCreate[i],
-        addedBy:req.user.id,
+        addedBy: req.user.id,
       };
     }
-    let result = await bulkInsertUserUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await bulkInsertUserUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const findAllUser = (findAllUserUsecase) => async (req,res) => {
+const findAllUser = (findAllUserUsecase) => async (req, res) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
     query._id = { $ne: req.user.id };
     if (req.body && req.body.query && req.body.query._id) {
       query._id.$in = [req.body.query._id];
     }
-    let result = await findAllUserUsecase({
-      query,
-      options,
-      isCountOnly:req.body.isCountOnly || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await findAllUserUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getUser = (getUserUsecase) => async (req,res) =>{
+const getUser = (getUserUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest());
+    if (!req.params.id) {
+      return responseHandler(res, response.badRequest());
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getUserUsecase({
-      query,
-      options
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getUserUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getUserCount = (getUserCountUsecase) => async (req,res) => {
+const getUserCount = (getUserCountUsecase) => async (req, res) => {
   try {
-    let where = { ...req.body.where || {} };
-    let result = await getUserCountUsecase({ where },req,res);  
-    return responseHandler(res,result);
+    let where = { ...(req.body.where || {}) };
+    let result = await getUserCountUsecase({ where }, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const updateUser = (updateUserUsecase) => async (req,res) =>{
+const updateUser = (updateUserUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
     query._id.$ne = req.user.id;
-    let result = await updateUserUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await updateUserUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkUpdateUser = (bulkUpdateUserUsecase) => async (req,res) => {
+const bulkUpdateUser = (bulkUpdateUserUsecase) => async (req, res) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
     query._id = { $ne: req.user.id };
-    if (req.body.filter && req.body.filter._id){
+    if (req.body.filter && req.body.filter._id) {
       query._id.$in = [req.body.filter._id];
     }
-    let result = await bulkUpdateUserUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await bulkUpdateUserUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const partialUpdateUser = (partialUpdateUserUsecase) => async (req,res) => {
+const partialUpdateUser = (partialUpdateUserUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
     query._id.$ne = req.user.id;
-    let result = await partialUpdateUserUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await partialUpdateUserUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const changePassword = (changePasswordUsecase) => async (req,res) => {
+const changePassword = (changePasswordUsecase) => async (req, res) => {
   try {
     let params = {
       ...req.body,
-      userId: req.user.id
+      userId: req.user.id,
     };
     let result = await changePasswordUsecase(params);
-    return responseHandler(res,result);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
-  }
-};  
-
-const updateProfile = (updateProfileUsecase) => async (req,res) => {
-  try {
-    let result = await updateProfileUsecase({
-      id:req.user.id,
-      profileData:req.body
-    });
-    return responseHandler(res,result);
-  } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getLoggedInUserInfo = (getUserUsecase) => async (req,res) =>{
+const updateProfile = (updateProfileUsecase) => async (req, res) => {
+  try {
+    let result = await updateProfileUsecase({
+      id: req.user.id,
+      profileData: req.body,
+    });
+    return responseHandler(res, result);
+  } catch (error: any) {
+    return responseHandler(res, response.internalServerError({ message: error.message }));
+  }
+};
+
+const getLoggedInUserInfo = (getUserUsecase) => async (req, res) => {
   try {
     const options = {};
     const query = {
-      _id : req.user.id,
+      _id: req.user.id,
       isDeleted: false,
-      isActive: true
+      isActive: true,
     };
-    let result = await getUserUsecase({
-      query,
-      options 
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getUserUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -219,5 +249,5 @@ export = {
   partialUpdateUser,
   changePassword,
   updateProfile,
-  getLoggedInUserInfo
+  getLoggedInUserInfo,
 };

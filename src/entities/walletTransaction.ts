@@ -1,7 +1,6 @@
 export {};
 module.exports = (walletTransaction) => {
-
-  let newWalletTransaction = { 
+  let newWalletTransaction = {
     walletId: walletTransaction.walletId,
     userId: walletTransaction.userId,
     forOrder: walletTransaction.forOrder,
@@ -16,7 +15,9 @@ module.exports = (walletTransaction) => {
   };
 
   // remove undefined values
-  Object.keys(newWalletTransaction).forEach(key => newWalletTransaction[key] === undefined && delete newWalletTransaction[key]);
+  Object.keys(newWalletTransaction).forEach(
+    (key) => newWalletTransaction[key] === undefined && delete newWalletTransaction[key]
+  );
 
   // To validate Entity uncomment this block
   /*
@@ -25,7 +26,7 @@ module.exports = (walletTransaction) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newWalletTransaction) 
+   * validate(newWalletTransaction)
    */
 
   return Object.freeze(newWalletTransaction);

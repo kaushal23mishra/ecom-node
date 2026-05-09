@@ -4,7 +4,7 @@ export {};
  *bulkInsertOrder.js
  */
 
-const  orderEntity = require('../../entities/order');
+const orderEntity = require('../../entities/order');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created Orders. {status, message, data}
  */
 
-const bulkInsertOrder = ({ orderDb }) => async (dataToCreate,req,res) => {
-  let orderEntities = dataToCreate.map(item => orderEntity(item));
-  let createdOrder = await orderDb.create(orderEntities);
-  return response.success({ data:{ count:createdOrder.length || 0 } });
-};
+const bulkInsertOrder =
+  ({ orderDb }) =>
+  async (dataToCreate, req, res) => {
+    let orderEntities = dataToCreate.map((item) => orderEntity(item));
+    let createdOrder = await orderDb.create(orderEntities);
+    return response.success({ data: { count: createdOrder.length || 0 } });
+  };
 module.exports = bulkInsertOrder;

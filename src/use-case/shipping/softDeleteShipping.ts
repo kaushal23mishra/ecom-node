@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response..
  * @return {Object} : deactivated Shipping. {status, message, data}
  */
-const softDeleteShipping = ({ shippingDb }) => async (params,req,res) => {
-  let updatedShipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
-  if (!updatedShipping){
-    return response.recordNotFound();   
-  }
-  return response.success({ data:updatedShipping });
-};
+const softDeleteShipping =
+  ({ shippingDb }) =>
+  async (params, req, res) => {
+    let updatedShipping = await shippingDb.updateOne(params.query, params.dataToUpdate);
+    if (!updatedShipping) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: updatedShipping });
+  };
 module.exports = softDeleteShipping;

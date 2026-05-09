@@ -8,42 +8,42 @@ const updateValidation = require('../../../validation')(citySchema.updateSchema)
 const filterValidation = require('../../../validation')(citySchema.filterValidationSchema);
 const addCityUsecase = require('../../../use-case/city/addCity')({
   cityDb,
-  createValidation 
+  createValidation,
 });
 const findAllCityUsecase = require('../../../use-case/city/findAllCity')({
   cityDb,
-  filterValidation
+  filterValidation,
 });
 const getCityCountUsecase = require('../../../use-case/city/getCityCount')({
   cityDb,
-  filterValidation
+  filterValidation,
 });
 const getCityUsecase = require('../../../use-case/city/getCity')({
   cityDb,
-  filterValidation
+  filterValidation,
 });
 const updateCityUsecase = require('../../../use-case/city/updateCity')({
   cityDb,
-  updateValidation 
+  updateValidation,
 });
 const partialUpdateCityUsecase = require('../../../use-case/city/partialUpdateCity')({ cityDb });
 const softDeleteCityUsecase = require('../../../use-case/city/softDeleteCity')({
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const softDeleteManyCityUsecase = require('../../../use-case/city/softDeleteManyCity')({
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const bulkInsertCityUsecase = require('../../../use-case/city/bulkInsertCity')({ cityDb });
 const bulkUpdateCityUsecase = require('../../../use-case/city/bulkUpdateCity')({ cityDb });
 const deleteCityUsecase = require('../../../use-case/city/deleteCity')({
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 const deleteManyCityUsecase = require('../../../use-case/city/deleteManyCity')({
   cityDb,
-  pincodeDb
+  pincodeDb,
 });
 
 const cityController = require('./city');

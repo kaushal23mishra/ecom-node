@@ -7,31 +7,43 @@ const updateValidation = require('../../../../validation')(productSchema.updateS
 const filterValidation = require('../../../../validation')(productSchema.filterValidationSchema);
 const addProductUsecase = require('../../../../use-case/product/addProduct')({
   productDb,
-  createValidation 
+  createValidation,
 });
 const findAllProductUsecase = require('../../../../use-case/product/findAllProduct')({
   productDb,
-  filterValidation
+  filterValidation,
 });
 const getProductCountUsecase = require('../../../../use-case/product/getProductCount')({
   productDb,
-  filterValidation
+  filterValidation,
 });
 const getProductUsecase = require('../../../../use-case/product/getProduct')({
   productDb,
-  filterValidation
+  filterValidation,
 });
 const updateProductUsecase = require('../../../../use-case/product/updateProduct')({
   productDb,
-  updateValidation 
+  updateValidation,
 });
-const partialUpdateProductUsecase = require('../../../../use-case/product/partialUpdateProduct')({ productDb });
-const softDeleteProductUsecase = require('../../../../use-case/product/softDeleteProduct')({ productDb });
-const softDeleteManyProductUsecase = require('../../../../use-case/product/softDeleteManyProduct')({ productDb });
-const bulkInsertProductUsecase = require('../../../../use-case/product/bulkInsertProduct')({ productDb });
-const bulkUpdateProductUsecase = require('../../../../use-case/product/bulkUpdateProduct')({ productDb });
+const partialUpdateProductUsecase = require('../../../../use-case/product/partialUpdateProduct')({
+  productDb,
+});
+const softDeleteProductUsecase = require('../../../../use-case/product/softDeleteProduct')({
+  productDb,
+});
+const softDeleteManyProductUsecase = require('../../../../use-case/product/softDeleteManyProduct')({
+  productDb,
+});
+const bulkInsertProductUsecase = require('../../../../use-case/product/bulkInsertProduct')({
+  productDb,
+});
+const bulkUpdateProductUsecase = require('../../../../use-case/product/bulkUpdateProduct')({
+  productDb,
+});
 const deleteProductUsecase = require('../../../../use-case/product/deleteProduct')({ productDb });
-const deleteManyProductUsecase = require('../../../../use-case/product/deleteManyProduct')({ productDb });
+const deleteManyProductUsecase = require('../../../../use-case/product/deleteManyProduct')({
+  productDb,
+});
 
 const productController = require('./product');
 

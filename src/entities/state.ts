@@ -1,7 +1,6 @@
 export {};
 module.exports = (state) => {
-
-  let newState = { 
+  let newState = {
     stateName: state.stateName,
     countryId: state.countryId,
     isActive: state.isActive,
@@ -13,7 +12,7 @@ module.exports = (state) => {
   };
 
   // remove undefined values
-  Object.keys(newState).forEach(key => newState[key] === undefined && delete newState[key]);
+  Object.keys(newState).forEach((key) => newState[key] === undefined && delete newState[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -22,7 +21,7 @@ module.exports = (state) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newState) 
+   * validate(newState)
    */
 
   return Object.freeze(newState);

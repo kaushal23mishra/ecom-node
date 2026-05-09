@@ -1,7 +1,6 @@
 export {};
 module.exports = (category) => {
-
-  let newCategory = { 
+  let newCategory = {
     name: category.name,
     isActive: category.isActive,
     createdAt: category.createdAt,
@@ -13,7 +12,9 @@ module.exports = (category) => {
   };
 
   // remove undefined values
-  Object.keys(newCategory).forEach(key => newCategory[key] === undefined && delete newCategory[key]);
+  Object.keys(newCategory).forEach(
+    (key) => newCategory[key] === undefined && delete newCategory[key]
+  );
 
   // To validate Entity uncomment this block
   /*
@@ -22,7 +23,7 @@ module.exports = (category) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newCategory) 
+   * validate(newCategory)
    */
 
   return Object.freeze(newCategory);

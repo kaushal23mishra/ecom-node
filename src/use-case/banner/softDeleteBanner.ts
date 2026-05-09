@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response..
  * @return {Object} : deactivated Banner. {status, message, data}
  */
-const softDeleteBanner = ({ bannerDb }) => async (params,req,res) => {
-  let updatedBanner = await bannerDb.updateOne(params.query, params.dataToUpdate);
-  if (!updatedBanner){
-    return response.recordNotFound();   
-  }
-  return response.success({ data:updatedBanner });
-};
+const softDeleteBanner =
+  ({ bannerDb }) =>
+  async (params, req, res) => {
+    let updatedBanner = await bannerDb.updateOne(params.query, params.dataToUpdate);
+    if (!updatedBanner) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: updatedBanner });
+  };
 module.exports = softDeleteBanner;

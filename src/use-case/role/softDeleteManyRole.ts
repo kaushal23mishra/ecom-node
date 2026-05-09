@@ -14,27 +14,25 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
-const softDeleteManyRole = ({
-  roleDb,routeRoleDb,userRoleDb
-}) => async (params,req,res) => {
-  let {
-    query, dataToUpdate,isWarning 
-  } = params;
-  let updatedRole = {};
-  if (isWarning) {
-    const getDependencyCount = makeGetDependencyCount({
-      roleDb,
-      routeRoleDb,
-      userRoleDb
-    });
-    return await getDependencyCount(query);
-  } else {
-    const softDeleteWithDependency = makeSoftDeleteWithDependency({
-      roleDb,
-      routeRoleDb,
-      userRoleDb
-    });
-    return await softDeleteWithDependency(query, dataToUpdate);
-  }
-};
+const softDeleteManyRole =
+  ({ roleDb, routeRoleDb, userRoleDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedRole = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        roleDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        roleDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteManyRole;

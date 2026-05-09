@@ -16,8 +16,7 @@ const sendSMS = async (obj) => {
       return tmpNo[1] ? tmpNo[1] : tmpNo[0];
     });
     mobiles = obj.mobiles.join(',');
-  }
-  else {
+  } else {
     let tmpNo = obj.mobiles.split('+');
     mobiles = tmpNo[1] ? tmpNo[1] : tmpNo[0];
   }
@@ -34,7 +33,7 @@ const sendSMS = async (obj) => {
     logger.warn('SMS service requested but credentials missing in config');
     return {
       status: 'FAILURE',
-      message: 'SMS credentials missing' 
+      message: 'SMS credentials missing',
     };
   }
 
@@ -55,7 +54,7 @@ const sendSMS = async (obj) => {
   } catch (error: any) {
     logger.error('SMS sending failed', {
       error: error.message,
-      to: mobiles 
+      to: mobiles,
     });
     throw error;
   }

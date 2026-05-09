@@ -3,7 +3,7 @@ export {};
 /**
  *deleteUserRole.js
  */
- 
+
 const response = require('../../utils/response');
 /**
  * @description : delete record from database.
@@ -12,12 +12,14 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : deleted UserRole. {status, message, data}
  */
-const deleteUserRole = ({ userRoleDb }) => async (query,req,res) => {
-  let deletedUserRole = await userRoleDb.deleteOne(query);
-  if (!deletedUserRole){
-    return response.recordNotFound({});
-  }
-  return response.success({ data: deletedUserRole });
-};
+const deleteUserRole =
+  ({ userRoleDb }) =>
+  async (query, req, res) => {
+    let deletedUserRole = await userRoleDb.deleteOne(query);
+    if (!deletedUserRole) {
+      return response.recordNotFound({});
+    }
+    return response.success({ data: deletedUserRole });
+  };
 
 module.exports = deleteUserRole;

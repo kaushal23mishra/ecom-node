@@ -4,7 +4,7 @@ export {};
  *bulkInsertRouteRole.js
  */
 
-const  routeRoleEntity = require('../../entities/routeRole');
+const routeRoleEntity = require('../../entities/routeRole');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created RouteRoles. {status, message, data}
  */
 
-const bulkInsertRouteRole = ({ routeRoleDb }) => async (dataToCreate,req,res) => {
-  let routeroleEntities = dataToCreate.map(item => routeRoleEntity(item));
-  let createdRouteRole = await routeRoleDb.create(routeroleEntities);
-  return response.success({ data:{ count:createdRouteRole.length || 0 } });
-};
+const bulkInsertRouteRole =
+  ({ routeRoleDb }) =>
+  async (dataToCreate, req, res) => {
+    let routeroleEntities = dataToCreate.map((item) => routeRoleEntity(item));
+    let createdRouteRole = await routeRoleDb.create(routeroleEntities);
+    return response.success({ data: { count: createdRouteRole.length || 0 } });
+  };
 module.exports = bulkInsertRouteRole;

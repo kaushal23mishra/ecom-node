@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {obj} : updated User. {status, message, data}
  */
-const partialUpdateUser = ({ userDb }) => async (params,req,res) => {
-  const user = await userDb.updateOne(params.query,params.dataToUpdate);
-  if (!user){
-    return response.recordNotFound();
-  }
-  return response.success({ data:user });
-};
+const partialUpdateUser =
+  ({ userDb }) =>
+  async (params, req, res) => {
+    const user = await userDb.updateOne(params.query, params.dataToUpdate);
+    if (!user) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: user });
+  };
 module.exports = partialUpdateUser;

@@ -16,13 +16,13 @@ import apiVersion from './apiVersion';
 
 const auth = authMiddleware({
   passport,
-  userTokensDb
+  userTokensDb,
 });
 
 const checkRolePermission = checkRolePermissionMiddleware({
   userRoleDb,
   routeRoleDb,
-  projectRouteDb
+  projectRouteDb,
 });
 
 const adminPassportStrategy = adminPassportStrategyFactory({ userDb });

@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
-const softDeleteManyOrder = ({ orderDb }) => async (params, req, res) => {
-  let updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
-  if (!updatedOrder){
-    return response.recordNotFound();
-  }
-  return response.success({ data:{ count : updatedOrder } });
-};
+const softDeleteManyOrder =
+  ({ orderDb }) =>
+  async (params, req, res) => {
+    let updatedOrder = await orderDb.updateMany(params.query, params.dataToUpdate);
+    if (!updatedOrder) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: { count: updatedOrder } });
+  };
 module.exports = softDeleteManyOrder;

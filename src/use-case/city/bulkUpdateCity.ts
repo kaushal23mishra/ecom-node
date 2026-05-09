@@ -12,8 +12,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of bulkUpdate. {status, message, data}
  */
-const bulkUpdateCity = ({ cityDb }) => async (params,req,res) => {
-  const updatedCity = await cityDb.updateMany(params.query,params.dataToUpdate);
-  return response.success({ data:{ count:updatedCity } });
-};
+const bulkUpdateCity =
+  ({ cityDb }) =>
+  async (params, req, res) => {
+    const updatedCity = await cityDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedCity } });
+  };
 module.exports = bulkUpdateCity;

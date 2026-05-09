@@ -1,7 +1,6 @@
 export {};
 module.exports = (shipping) => {
-
-  let newShipping = { 
+  let newShipping = {
     orderId: shipping.orderId,
     courierCompany: shipping.courierCompany,
     deliveryStartDate: shipping.deliveryStartDate,
@@ -24,7 +23,9 @@ module.exports = (shipping) => {
   };
 
   // remove undefined values
-  Object.keys(newShipping).forEach(key => newShipping[key] === undefined && delete newShipping[key]);
+  Object.keys(newShipping).forEach(
+    (key) => newShipping[key] === undefined && delete newShipping[key]
+  );
 
   // To validate Entity uncomment this block
   /*
@@ -33,7 +34,7 @@ module.exports = (shipping) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newShipping) 
+   * validate(newShipping)
    */
 
   return Object.freeze(newShipping);

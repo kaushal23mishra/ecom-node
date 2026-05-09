@@ -24,7 +24,7 @@ const httpRequestDurationMicroseconds = new client.Histogram({
   name: 'http_request_duration_seconds',
   help: 'Duration of HTTP requests in seconds',
   labelNames: ['method', 'route', 'code'],
-  buckets: [0.1, 0.3, 0.5, 0.7, 1, 3, 5, 7, 10]
+  buckets: [0.1, 0.3, 0.5, 0.7, 1, 3, 5, 7, 10],
 });
 
 /**
@@ -34,7 +34,7 @@ const httpRequestDurationMicroseconds = new client.Histogram({
 const httpRequestsTotal = new client.Counter({
   name: 'http_requests_total',
   help: 'Total number of HTTP requests',
-  labelNames: ['method', 'route', 'code']
+  labelNames: ['method', 'route', 'code'],
 });
 
 /**
@@ -44,7 +44,7 @@ const httpRequestsTotal = new client.Counter({
 const httpErrorsTotal = new client.Counter({
   name: 'http_errors_total',
   help: 'Total number of HTTP errors',
-  labelNames: ['method', 'route', 'error_code']
+  labelNames: ['method', 'route', 'error_code'],
 });
 
 // Register custom metrics
@@ -52,9 +52,4 @@ register.registerMetric(httpRequestDurationMicroseconds);
 register.registerMetric(httpRequestsTotal);
 register.registerMetric(httpErrorsTotal);
 
-export {
-  register,
-  httpRequestDurationMicroseconds,
-  httpRequestsTotal,
-  httpErrorsTotal
-};
+export { register, httpRequestDurationMicroseconds, httpRequestsTotal, httpErrorsTotal };

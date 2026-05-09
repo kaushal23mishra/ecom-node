@@ -1,7 +1,6 @@
 export {};
 module.exports = (banner) => {
-
-  let newBanner = { 
+  let newBanner = {
     bannerTitle: banner.bannerTitle,
     alternateTitle: banner.alternateTitle,
     startDate: banner.startDate,
@@ -18,7 +17,7 @@ module.exports = (banner) => {
   };
 
   // remove undefined values
-  Object.keys(newBanner).forEach(key => newBanner[key] === undefined && delete newBanner[key]);
+  Object.keys(newBanner).forEach((key) => newBanner[key] === undefined && delete newBanner[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -27,7 +26,7 @@ module.exports = (banner) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newBanner) 
+   * validate(newBanner)
    */
 
   return Object.freeze(newBanner);

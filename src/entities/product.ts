@@ -1,7 +1,6 @@
 export {};
 module.exports = (product) => {
-
-  let newProduct = { 
+  let newProduct = {
     name: product.name,
     price: product.price,
     sellerId: product.sellerId,
@@ -17,7 +16,7 @@ module.exports = (product) => {
   };
 
   // remove undefined values
-  Object.keys(newProduct).forEach(key => newProduct[key] === undefined && delete newProduct[key]);
+  Object.keys(newProduct).forEach((key) => newProduct[key] === undefined && delete newProduct[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -26,7 +25,7 @@ module.exports = (product) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newProduct) 
+   * validate(newProduct)
    */
 
   return Object.freeze(newProduct);

@@ -1,6 +1,4 @@
-import {
-  Request, Response, NextFunction 
-} from 'express';
+import { Request, Response, NextFunction } from 'express';
 import logger from '../utils/logger';
 import { AppError } from '../utils/AppError';
 import ERROR_CODES from '../constants/errorCodes';
@@ -45,7 +43,11 @@ export const errorHandler = (err: any, req: Request, res: Response, next: NextFu
   }
 
   if (err.name === 'TokenExpiredError') {
-    error = new AppError('Your token has expired! Please log in again.', 401, ERROR_CODES.TOKEN_EXPIRED);
+    error = new AppError(
+      'Your token has expired! Please log in again.',
+      401,
+      ERROR_CODES.TOKEN_EXPIRED
+    );
   }
 
   // Send Error Response
@@ -61,7 +63,7 @@ const sendError = (err: any, req: any, res: Response) => {
       message: err.message,
       requestId: req.id, // Traceable error ID
       ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
-      ...(err.errors && { errors: err.errors })
+      ...(err.errors && { errors: err.errors }),
     });
   }
 
@@ -69,14 +71,14 @@ const sendError = (err: any, req: any, res: Response) => {
   logger.error('Unhandled Programming Error', {
     error: err.message,
     stack: err.stack,
-    url: req.originalUrl
+    url: req.originalUrl,
   });
 
   return res.status(500).json({
     status: 'ERROR',
     code: ERROR_CODES.INTERNAL_SERVER_ERROR,
     message: process.env.NODE_ENV === 'development' ? err.message : 'Something went wrong!',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+    ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
   });
 };
 

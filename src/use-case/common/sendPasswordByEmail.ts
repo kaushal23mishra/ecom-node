@@ -8,13 +8,13 @@ const sendPasswordByEmail = async (user) => {
     subject: 'Your Password!',
     to: user.email,
     template: '/views/email/InitialPassword',
-    data: { message:msg }
+    data: { message: msg },
   };
   try {
     let info = await sendMail(mailObj);
-    return response.success({ data :info });
+    return response.success({ data: info });
   } catch (error: any) {
-    return response.failure({ data :error });
+    return response.failure({ data: error });
   }
 };
 module.exports = sendPasswordByEmail;

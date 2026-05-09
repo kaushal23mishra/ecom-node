@@ -7,27 +7,31 @@ const updateValidation = require('../../../validation')(bannerSchema.updateSchem
 const filterValidation = require('../../../validation')(bannerSchema.filterValidationSchema);
 const addBannerUsecase = require('../../../use-case/banner/addBanner')({
   bannerDb,
-  createValidation 
+  createValidation,
 });
 const findAllBannerUsecase = require('../../../use-case/banner/findAllBanner')({
   bannerDb,
-  filterValidation
+  filterValidation,
 });
 const getBannerCountUsecase = require('../../../use-case/banner/getBannerCount')({
   bannerDb,
-  filterValidation
+  filterValidation,
 });
 const getBannerUsecase = require('../../../use-case/banner/getBanner')({
   bannerDb,
-  filterValidation
+  filterValidation,
 });
 const updateBannerUsecase = require('../../../use-case/banner/updateBanner')({
   bannerDb,
-  updateValidation 
+  updateValidation,
 });
-const partialUpdateBannerUsecase = require('../../../use-case/banner/partialUpdateBanner')({ bannerDb });
+const partialUpdateBannerUsecase = require('../../../use-case/banner/partialUpdateBanner')({
+  bannerDb,
+});
 const softDeleteBannerUsecase = require('../../../use-case/banner/softDeleteBanner')({ bannerDb });
-const softDeleteManyBannerUsecase = require('../../../use-case/banner/softDeleteManyBanner')({ bannerDb });
+const softDeleteManyBannerUsecase = require('../../../use-case/banner/softDeleteManyBanner')({
+  bannerDb,
+});
 const bulkInsertBannerUsecase = require('../../../use-case/banner/bulkInsertBanner')({ bannerDb });
 const bulkUpdateBannerUsecase = require('../../../use-case/banner/bulkUpdateBanner')({ bannerDb });
 const deleteBannerUsecase = require('../../../use-case/banner/deleteBanner')({ bannerDb });

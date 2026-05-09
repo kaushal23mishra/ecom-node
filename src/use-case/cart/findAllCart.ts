@@ -12,27 +12,25 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : found Cart(s). {status, message, data}
  */
-const findAllCart = ({
-  cartDb,filterValidation 
-}) => async (params,req,res) => {
-  const validateRequest = await filterValidation(params);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let {
-    query, options, isCountOnly 
-  } = params;
-  if (isCountOnly){
-    let totalRecords = await cartDb.count(query);
-    return response.success({ data: { totalRecords } });  
-  }
-  else {
-    let foundCart = await cartDb.paginate(query,options);
-    if (!foundCart){
-      return response.recordNotFound();
+const findAllCart =
+  ({ cartDb, filterValidation }) =>
+  async (params, req, res) => {
+    const validateRequest = await filterValidation(params);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
     }
-    return response.success({ data:foundCart });  
-  }
-        
-};
+    let { query, options, isCountOnly } = params;
+    if (isCountOnly) {
+      let totalRecords = await cartDb.count(query);
+      return response.success({ data: { totalRecords } });
+    } else {
+      let foundCart = await cartDb.paginate(query, options);
+      if (!foundCart) {
+        return response.recordNotFound();
+      }
+      return response.success({ data: foundCart });
+    }
+  };
 module.exports = findAllCart;

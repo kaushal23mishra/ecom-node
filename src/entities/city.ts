@@ -1,7 +1,6 @@
 export {};
 module.exports = (city) => {
-
-  let newCity = { 
+  let newCity = {
     cityName: city.cityName,
     stateId: city.stateId,
     isActive: city.isActive,
@@ -13,7 +12,7 @@ module.exports = (city) => {
   };
 
   // remove undefined values
-  Object.keys(newCity).forEach(key => newCity[key] === undefined && delete newCity[key]);
+  Object.keys(newCity).forEach((key) => newCity[key] === undefined && delete newCity[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -22,7 +21,7 @@ module.exports = (city) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newCity) 
+   * validate(newCity)
    */
 
   return Object.freeze(newCity);

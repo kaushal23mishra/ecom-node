@@ -29,205 +29,259 @@
  *       200: { description: Created }
  */
 
-const response = require('../../../../utils/response'); 
-const responseHandler = require('../../../../utils/response/responseHandler'); 
-const getSelectObject = require('../../../../utils/getSelectObject'); 
+const response = require('../../../../utils/response');
+const responseHandler = require('../../../../utils/response/responseHandler');
+const getSelectObject = require('../../../../utils/getSelectObject');
 
-const addWallet = (addWalletUsecase) => async (req,res) => {
+const addWallet = (addWalletUsecase) => async (req, res) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
-    let result = await addWalletUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await addWalletUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkInsertWallet = (bulkInsertWalletUsecase)=> async (req,res) => {
+const bulkInsertWallet = (bulkInsertWalletUsecase) => async (req, res) => {
   try {
     let dataToCreate = [...req.body.data];
-    for (let i = 0;i < dataToCreate.length;i++){
+    for (let i = 0; i < dataToCreate.length; i++) {
       dataToCreate[i] = {
         ...dataToCreate[i],
-        addedBy:req.user.id,
+        addedBy: req.user.id,
       };
     }
-    let result = await bulkInsertWalletUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await bulkInsertWalletUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const findAllWallet = (findAllWalletUsecase) => async (req,res) => {
+const findAllWallet = (findAllWalletUsecase) => async (req, res) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
-    let result = await findAllWalletUsecase({
-      query,
-      options,
-      isCountOnly:req.body.isCountOnly || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
+    let result = await findAllWalletUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getWallet = (getWalletUsecase) => async (req,res) =>{
+const getWallet = (getWalletUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest());
+    if (!req.params.id) {
+      return responseHandler(res, response.badRequest());
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getWalletUsecase({
-      query,
-      options
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getWalletUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getWalletCount = (getWalletCountUsecase) => async (req,res) => {
+const getWalletCount = (getWalletCountUsecase) => async (req, res) => {
   try {
-    let where = { ...req.body.where || {} };
-    let result = await getWalletCountUsecase({ where },req,res);  
-    return responseHandler(res,result);
+    let where = { ...(req.body.where || {}) };
+    let result = await getWalletCountUsecase({ where }, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const updateWallet = (updateWalletUsecase) => async (req,res) =>{
+const updateWallet = (updateWalletUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await updateWalletUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await updateWalletUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkUpdateWallet = (bulkUpdateWalletUsecase) => async (req,res) => {
+const bulkUpdateWallet = (bulkUpdateWalletUsecase) => async (req, res) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await bulkUpdateWalletUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await bulkUpdateWalletUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const partialUpdateWallet = (partialUpdateWalletUsecase) => async (req,res) => {
+const partialUpdateWallet = (partialUpdateWalletUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
-    let result = await partialUpdateWalletUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await partialUpdateWalletUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteWallet = (softDeleteWalletUsecase) => async (req,res) => {
+const softDeleteWallet = (softDeleteWalletUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteWalletUsecase({
-      query,
-      dataToUpdate,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteWalletUsecase(
+      {
+        query,
+        dataToUpdate,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteWallet = (deleteWalletUsecase) => async (req,res) => {
+const deleteWallet = (deleteWalletUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let result = await deleteWalletUsecase({
-      query,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await deleteWalletUsecase(
+      {
+        query,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteManyWallet = (deleteManyWalletUsecase) => async (req,res) => {
+const deleteManyWallet = (deleteManyWalletUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
-    let result = await deleteManyWalletUsecase({
-      query,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { _id: { $in: ids } };
+    let result = await deleteManyWalletUsecase(
+      {
+        query,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteManyWallet = (softDeleteManyWalletUsecase) => async (req,res) => {
+const softDeleteManyWallet = (softDeleteManyWalletUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
+    let query: any = { _id: { $in: ids } };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteManyWalletUsecase({
-      query,
-      dataToUpdate,
-      isWarning:req.body.isWarning || false
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteManyWalletUsecase(
+      {
+        query,
+        dataToUpdate,
+        isWarning: req.body.isWarning || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -243,5 +297,5 @@ export = {
   softDeleteWallet,
   deleteWallet,
   deleteManyWallet,
-  softDeleteManyWallet
+  softDeleteManyWallet,
 };

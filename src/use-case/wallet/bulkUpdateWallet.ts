@@ -12,8 +12,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of bulkUpdate. {status, message, data}
  */
-const bulkUpdateWallet = ({ walletDb }) => async (params,req,res) => {
-  const updatedWallet = await walletDb.updateMany(params.query,params.dataToUpdate);
-  return response.success({ data:{ count:updatedWallet } });
-};
+const bulkUpdateWallet =
+  ({ walletDb }) =>
+  async (params, req, res) => {
+    const updatedWallet = await walletDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedWallet } });
+  };
 module.exports = bulkUpdateWallet;

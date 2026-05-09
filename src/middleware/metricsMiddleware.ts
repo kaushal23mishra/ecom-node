@@ -2,9 +2,7 @@ export {};
 /**
  * Middleware to collect Prometheus metrics for each request
  */
-const {
-  httpRequestDurationMicroseconds, httpRequestsTotal 
-} = require('../utils/metrics');
+const { httpRequestDurationMicroseconds, httpRequestsTotal } = require('../utils/metrics');
 
 /**
  * Normalizes routes to prevent high cardinality
@@ -26,14 +24,10 @@ const metricsMiddleware = (req, res, next) => {
     const code = res.statusCode;
 
     // Observe duration
-    httpRequestDurationMicroseconds
-      .labels(method, route, code)
-      .observe(durationInSeconds);
+    httpRequestDurationMicroseconds.labels(method, route, code).observe(durationInSeconds);
 
     // Increment request counter
-    httpRequestsTotal
-      .labels(method, route, code)
-      .inc();
+    httpRequestsTotal.labels(method, route, code).inc();
   });
 
   next();

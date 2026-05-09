@@ -49,9 +49,7 @@
  *       500: { description: Server Error }
  */
 import * as authConstant from '../../../constants/authConstant';
-import {
-  response, responseHandler, logger 
-} from '../../../utils';
+import { response, responseHandler, logger } from '../../../utils';
 
 const register = (registerUsecase) => async (req: any, res: any) => {
   try {
@@ -60,7 +58,7 @@ const register = (registerUsecase) => async (req: any, res: any) => {
     if (result.status === 'SUCCESS') {
       logger.info('User registered successfully', {
         username: req.body.username,
-        userType: 'Admin' 
+        userType: 'Admin',
       });
     }
     return responseHandler(res, result);
@@ -68,7 +66,7 @@ const register = (registerUsecase) => async (req: any, res: any) => {
     logger.error('Registration error', {
       error: error.message,
       stack: error.stack,
-      body: req.body 
+      body: req.body,
     });
     return responseHandler(res, response.internalServerError({ message: error.message }));
   }
@@ -82,24 +80,25 @@ const forgotPassword = (forgotPasswordUsecase) => async (req: any, res: any) => 
   } catch (error: any) {
     logger.error('Forgot password error', {
       error: error.message,
-      email: req.body.email 
+      email: req.body.email,
     });
     return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const validateResetPasswordOtp = (validateResetPasswordOtpUsecase) => async (req: any, res: any) => {
-  try {
-    let result = await validateResetPasswordOtpUsecase(req.body);
-    return responseHandler(res, result);
-  } catch (error: any) {
-    logger.error('OTP validation error', {
-      error: error.message,
-      email: req.body.email 
-    });
-    return responseHandler(res, response.internalServerError({ message: error.message }));
-  }
-};
+const validateResetPasswordOtp =
+  (validateResetPasswordOtpUsecase) => async (req: any, res: any) => {
+    try {
+      let result = await validateResetPasswordOtpUsecase(req.body);
+      return responseHandler(res, result);
+    } catch (error: any) {
+      logger.error('OTP validation error', {
+        error: error.message,
+        email: req.body.email,
+      });
+      return responseHandler(res, response.internalServerError({ message: error.message }));
+    }
+  };
 
 const resetPassword = (resetPasswordUsecase) => async (req: any, res: any) => {
   try {
@@ -109,7 +108,7 @@ const resetPassword = (resetPasswordUsecase) => async (req: any, res: any) => {
   } catch (error: any) {
     logger.error('Password reset error', {
       error: error.message,
-      email: req.body.email 
+      email: req.body.email,
     });
     return responseHandler(res, response.internalServerError({ message: error.message }));
   }
@@ -123,7 +122,7 @@ const authentication = (authenticationUsecase) => async (req: any, res: any) => 
     } else {
       logger.warn('Login failed', {
         username: req.body.username,
-        reason: result.message 
+        reason: result.message,
       });
     }
     return responseHandler(res, result);
@@ -131,7 +130,7 @@ const authentication = (authenticationUsecase) => async (req: any, res: any) => 
     logger.error('Authentication error', {
       error: error.message,
       stack: error.stack,
-      username: req.body.username 
+      username: req.body.username,
     });
     return responseHandler(res, response.internalServerError({ message: error.message }));
   }
@@ -147,7 +146,7 @@ const logout = (logoutUsecase) => async (req: any, res: any) => {
   } catch (error: any) {
     logger.error('Logout error', {
       error: error.message,
-      userId: req.user ? req.user.id : 'unknown' 
+      userId: req.user ? req.user.id : 'unknown',
     });
     return responseHandler(res, response.internalServerError({ message: error.message }));
   }
@@ -159,5 +158,5 @@ export {
   validateResetPasswordOtp,
   resetPassword,
   authentication,
-  logout
+  logout,
 };

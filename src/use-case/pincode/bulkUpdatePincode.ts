@@ -12,8 +12,10 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of bulkUpdate. {status, message, data}
  */
-const bulkUpdatePincode = ({ pincodeDb }) => async (params,req,res) => {
-  const updatedPincode = await pincodeDb.updateMany(params.query,params.dataToUpdate);
-  return response.success({ data:{ count:updatedPincode } });
-};
+const bulkUpdatePincode =
+  ({ pincodeDb }) =>
+  async (params, req, res) => {
+    const updatedPincode = await pincodeDb.updateMany(params.query, params.dataToUpdate);
+    return response.success({ data: { count: updatedPincode } });
+  };
 module.exports = bulkUpdatePincode;

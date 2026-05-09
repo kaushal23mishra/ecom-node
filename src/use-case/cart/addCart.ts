@@ -3,7 +3,7 @@ export {};
  *addCart.js
  */
 
-const  cartEntity = require('../../entities/cart');
+const cartEntity = require('../../entities/cart');
 const response = require('../../utils/response');
 /**
  * @description : create new record of cart in database.
@@ -12,15 +12,17 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of create. {status, message, data}
  */
-const addCart = ({
-  cartDb,createValidation 
-}) => async (dataToCreate,req,res) => {
-  const validateRequest = await createValidation(dataToCreate);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message : `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let cart = cartEntity(dataToCreate);
-  cart = await cartDb.create(cart);
-  return response.success({ data:cart });
-};
+const addCart =
+  ({ cartDb, createValidation }) =>
+  async (dataToCreate, req, res) => {
+    const validateRequest = await createValidation(dataToCreate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let cart = cartEntity(dataToCreate);
+    cart = await cartDb.create(cart);
+    return response.success({ data: cart });
+  };
 module.exports = addCart;

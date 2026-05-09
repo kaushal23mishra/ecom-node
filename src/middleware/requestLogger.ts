@@ -4,9 +4,7 @@
  */
 import { v4 as uuidv4 } from 'uuid';
 import logger, { context } from '../utils/logger';
-import {
-  Request, Response, NextFunction 
-} from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 const requestLogger = (req: any, res: Response, next: NextFunction) => {
   // Generate correlation ID
@@ -29,7 +27,7 @@ const requestLogger = (req: any, res: Response, next: NextFunction) => {
     logger.info(`Incoming ${req.method} ${req.originalUrl}`, {
       ip: req.ip,
       userAgent: req.get('user-agent'),
-      contentLength: req.get('content-length')
+      contentLength: req.get('content-length'),
     });
 
     // Log response on finish
@@ -38,7 +36,7 @@ const requestLogger = (req: any, res: Response, next: NextFunction) => {
       logger.info(`Completed ${req.method} ${req.originalUrl} ${res.statusCode} ${duration}ms`, {
         statusCode: res.statusCode,
         duration,
-        contentLength: res.get('content-length')
+        contentLength: res.get('content-length'),
       });
     });
 

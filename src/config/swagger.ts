@@ -31,13 +31,11 @@ const options = {
         },
       },
       responses: {
-        UnauthorizedError: { description: 'Access token is missing or invalid', },
-        NotFoundError: { description: 'The requested resource was not found', },
+        UnauthorizedError: { description: 'Access token is missing or invalid' },
+        NotFoundError: { description: 'The requested resource was not found' },
       },
     },
-    security: [
-      { bearerAuth: [], },
-    ],
+    security: [{ bearerAuth: [] }],
   },
   /*
    * Paths to files containing OpenAPI definitions

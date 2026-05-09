@@ -1,7 +1,6 @@
 export {};
 module.exports = (order) => {
-
-  let newOrder = { 
+  let newOrder = {
     customerId: order.customerId,
     sellerId: order.sellerId,
     orderItems: order.orderItems,
@@ -16,7 +15,7 @@ module.exports = (order) => {
   };
 
   // remove undefined values
-  Object.keys(newOrder).forEach(key => newOrder[key] === undefined && delete newOrder[key]);
+  Object.keys(newOrder).forEach((key) => newOrder[key] === undefined && delete newOrder[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -25,7 +24,7 @@ module.exports = (order) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newOrder) 
+   * validate(newOrder)
    */
 
   return Object.freeze(newOrder);

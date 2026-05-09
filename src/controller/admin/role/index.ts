@@ -9,46 +9,46 @@ const updateValidation = require('../../../validation')(roleSchema.updateSchema)
 const filterValidation = require('../../../validation')(roleSchema.filterValidationSchema);
 const addRoleUsecase = require('../../../use-case/role/addRole')({
   roleDb,
-  createValidation 
+  createValidation,
 });
 const bulkInsertRoleUsecase = require('../../../use-case/role/bulkInsertRole')({ roleDb });
 const findAllRoleUsecase = require('../../../use-case/role/findAllRole')({
   roleDb,
-  filterValidation
+  filterValidation,
 });
 const getRoleCountUsecase = require('../../../use-case/role/getRoleCount')({
   roleDb,
-  filterValidation
+  filterValidation,
 });
 const bulkUpdateRoleUsecase = require('../../../use-case/role/bulkUpdateRole')({ roleDb });
 const softDeleteManyRoleUsecase = require('../../../use-case/role/softDeleteManyRole')({
   roleDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const deleteManyRoleUsecase = require('../../../use-case/role/deleteManyRole')({
   roleDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const softDeleteRoleUsecase = require('../../../use-case/role/softDeleteRole')({
   roleDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const partialUpdateRoleUsecase = require('../../../use-case/role/partialUpdateRole')({ roleDb });
 const updateRoleUsecase = require('../../../use-case/role/updateRole')({
   roleDb,
-  updateValidation 
+  updateValidation,
 });
 const getRoleUsecase = require('../../../use-case/role/getRole')({
   roleDb,
-  filterValidation
+  filterValidation,
 });
 const deleteRoleUsecase = require('../../../use-case/role/deleteRole')({
   roleDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 
 const roleController = require('./role');

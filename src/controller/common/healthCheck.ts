@@ -83,7 +83,7 @@ const detailedHealthCheck = asyncHandler(async (req: any, res: any) => {
       database: {
         status: dbStatus,
         type: 'MongoDB',
-        responseTime: `${dbLatency}ms`
+        responseTime: `${dbLatency}ms`,
       },
       memory: {
         rss: `${Math.round(memoryUsage.rss / 1024 / 1024)}MB`,
@@ -93,7 +93,7 @@ const detailedHealthCheck = asyncHandler(async (req: any, res: any) => {
       },
       cpu: {
         user: cpuUsage.user,
-        system: cpuUsage.system
+        system: cpuUsage.system,
       },
       system: {
         platform: os.platform(),
@@ -101,15 +101,19 @@ const detailedHealthCheck = asyncHandler(async (req: any, res: any) => {
         totalMemory: `${Math.round(os.totalmem() / 1024 / 1024)}MB`,
         freeMemory: `${Math.round(os.freemem() / 1024 / 1024)}MB`,
         loadAverage: os.loadavg(),
-        uptime: `${Math.floor(systemUptime)}s`
-      }
+        uptime: `${Math.floor(systemUptime)}s`,
+      },
     },
     environment: process.env.NODE_ENV || 'development',
-    version: require('../../../package.json').version
+    version: require('../../../package.json').version,
   };
 
   if (dbStatus !== 'connected') {
-    throw new AppError('Detailed health check failed: Database not reachable', 503, ERROR_CODES.DB_CONNECTION_ERROR);
+    throw new AppError(
+      'Detailed health check failed: Database not reachable',
+      503,
+      ERROR_CODES.DB_CONNECTION_ERROR
+    );
   }
 
   res.status(200).json(healthData);
@@ -128,7 +132,7 @@ const readinessCheck = asyncHandler(async (req: any, res: any) => {
 
   res.status(200).json({
     status: 'READY',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 });
 
@@ -139,7 +143,7 @@ const readinessCheck = asyncHandler(async (req: any, res: any) => {
 const livenessCheck = (req, res) => {
   res.status(200).json({
     status: 'ALIVE',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   });
 };
 
@@ -147,5 +151,5 @@ export = {
   healthCheck,
   detailedHealthCheck,
   readinessCheck,
-  livenessCheck
+  livenessCheck,
 };

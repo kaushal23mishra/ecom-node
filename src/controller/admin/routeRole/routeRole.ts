@@ -29,197 +29,243 @@
  *       200: { description: Created }
  */
 
-const response = require('../../../utils/response'); 
-const responseHandler = require('../../../utils/response/responseHandler'); 
-const getSelectObject = require('../../../utils/getSelectObject'); 
+const response = require('../../../utils/response');
+const responseHandler = require('../../../utils/response/responseHandler');
+const getSelectObject = require('../../../utils/getSelectObject');
 
-const addRouteRole = (addRouteRoleUsecase) => async (req,res) => {
+const addRouteRole = (addRouteRoleUsecase) => async (req, res) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
-    let result = await addRouteRoleUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await addRouteRoleUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkInsertRouteRole = (bulkInsertRouteRoleUsecase)=> async (req,res) => {
+const bulkInsertRouteRole = (bulkInsertRouteRoleUsecase) => async (req, res) => {
   try {
     let dataToCreate = [...req.body.data];
-    for (let i = 0;i < dataToCreate.length;i++){
+    for (let i = 0; i < dataToCreate.length; i++) {
       dataToCreate[i] = {
         ...dataToCreate[i],
-        addedBy:req.user.id,
+        addedBy: req.user.id,
       };
     }
-    let result = await bulkInsertRouteRoleUsecase(dataToCreate,req,res);
-    return responseHandler(res,result);
+    let result = await bulkInsertRouteRoleUsecase(dataToCreate, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const findAllRouteRole = (findAllRouteRoleUsecase) => async (req,res) => {
+const findAllRouteRole = (findAllRouteRoleUsecase) => async (req, res) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
-    let result = await findAllRouteRoleUsecase({
-      query,
-      options,
-      isCountOnly:req.body.isCountOnly || false
-    },req,res);
-    return responseHandler(res,result);
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
+    let result = await findAllRouteRoleUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getRouteRole = (getRouteRoleUsecase) => async (req,res) =>{
+const getRouteRole = (getRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest());
+    if (!req.params.id) {
+      return responseHandler(res, response.badRequest());
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getRouteRoleUsecase({
-      query,
-      options
-    },req,res);
-    return responseHandler(res,result);
+    let result = await getRouteRoleUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const getRouteRoleCount = (getRouteRoleCountUsecase) => async (req,res) => {
+const getRouteRoleCount = (getRouteRoleCountUsecase) => async (req, res) => {
   try {
-    let where = { ...req.body.where || {} };
-    let result = await getRouteRoleCountUsecase({ where },req,res);  
-    return responseHandler(res,result);
+    let where = { ...(req.body.where || {}) };
+    let result = await getRouteRoleCountUsecase({ where }, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const updateRouteRole = (updateRouteRoleUsecase) => async (req,res) =>{
+const updateRouteRole = (updateRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await updateRouteRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await updateRouteRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const bulkUpdateRouteRole = (bulkUpdateRouteRoleUsecase) => async (req,res) => {
+const bulkUpdateRouteRole = (bulkUpdateRouteRoleUsecase) => async (req, res) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await bulkUpdateRouteRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await bulkUpdateRouteRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const partialUpdateRouteRole = (partialUpdateRouteRoleUsecase) => async (req,res) => {
+const partialUpdateRouteRole = (partialUpdateRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
-    let result = await partialUpdateRouteRoleUsecase({
-      dataToUpdate,
-      query
-    },req,res);
-    return responseHandler(res,result);
+    let result = await partialUpdateRouteRoleUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteRouteRole = (softDeleteRouteRoleUsecase) => async (req,res)=>{
+const softDeleteRouteRole = (softDeleteRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteRouteRoleUsecase({
-      query,
-      dataToUpdate
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteRouteRoleUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteRouteRole = (deleteRouteRoleUsecase) => async (req,res) => {
+const deleteRouteRole = (deleteRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.params.id){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! id is required.' }));
+    if (!req.params.id) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let result = await deleteRouteRoleUsecase(query,req,res);
-    return responseHandler(res,result);
+    let result = await deleteRouteRoleUsecase(query, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const deleteManyRouteRole = (deleteManyRouteRoleUsecase) => async (req,res) => {
+const deleteManyRouteRole = (deleteManyRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
-    let result = await deleteManyRouteRoleUsecase(query,req,res);
-    return responseHandler(res,result);
+    let query: any = { _id: { $in: ids } };
+    let result = await deleteManyRouteRoleUsecase(query, req, res);
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
-const softDeleteManyRouteRole = (softDeleteManyRouteRoleUsecase) => async (req,res) => {
+const softDeleteManyRouteRole = (softDeleteManyRouteRoleUsecase) => async (req, res) => {
   try {
-    if (!req.body || !req.body.ids){
-      return responseHandler(res,response.badRequest({ message : 'Insufficient request parameters! ids field is required.' }));
+    if (!req.body || !req.body.ids) {
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
-    let query: any = { _id : { $in:ids } };
+    let query: any = { _id: { $in: ids } };
     const dataToUpdate = {
       isDeleted: true,
-      updatedBy: req.user.id
+      updatedBy: req.user.id,
     };
-    let result = await softDeleteManyRouteRoleUsecase({
-      query,
-      dataToUpdate
-    },req,res);
-    return responseHandler(res,result);
+    let result = await softDeleteManyRouteRoleUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
+    return responseHandler(res, result);
   } catch (error: any) {
-    return responseHandler(res,response.internalServerError({ message:error.message }));
+    return responseHandler(res, response.internalServerError({ message: error.message }));
   }
 };
 
@@ -235,5 +281,5 @@ export = {
   softDeleteRouteRole,
   deleteRouteRole,
   deleteManyRouteRole,
-  softDeleteManyRouteRole
+  softDeleteManyRouteRole,
 };

@@ -3,7 +3,7 @@ export {};
  *addRouteRole.js
  */
 
-const  routeRoleEntity = require('../../entities/routeRole');
+const routeRoleEntity = require('../../entities/routeRole');
 const response = require('../../utils/response');
 /**
  * @description : create new record of routeRole in database.
@@ -12,15 +12,17 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of create. {status, message, data}
  */
-const addRouteRole = ({
-  routeRoleDb,createValidation 
-}) => async (dataToCreate,req,res) => {
-  const validateRequest = await createValidation(dataToCreate);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message : `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let routeRole = routeRoleEntity(dataToCreate);
-  routeRole = await routeRoleDb.create(routeRole);
-  return response.success({ data:routeRole });
-};
+const addRouteRole =
+  ({ routeRoleDb, createValidation }) =>
+  async (dataToCreate, req, res) => {
+    const validateRequest = await createValidation(dataToCreate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let routeRole = routeRoleEntity(dataToCreate);
+    routeRole = await routeRoleDb.create(routeRole);
+    return response.success({ data: routeRole });
+  };
 module.exports = addRouteRole;

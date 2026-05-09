@@ -1,7 +1,6 @@
 export {};
 module.exports = (user) => {
-
-  let newUser = { 
+  let newUser = {
     username: user.username,
     password: user.password,
     email: user.email,
@@ -22,7 +21,7 @@ module.exports = (user) => {
   };
 
   // remove undefined values
-  Object.keys(newUser).forEach(key => newUser[key] === undefined && delete newUser[key]);
+  Object.keys(newUser).forEach((key) => newUser[key] === undefined && delete newUser[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -31,7 +30,7 @@ module.exports = (user) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newUser) 
+   * validate(newUser)
    */
 
   return Object.freeze(newUser);

@@ -4,7 +4,7 @@ export {};
  *bulkInsertWalletTransaction.js
  */
 
-const  walletTransactionEntity = require('../../entities/walletTransaction');
+const walletTransactionEntity = require('../../entities/walletTransaction');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created WalletTransactions. {status, message, data}
  */
 
-const bulkInsertWalletTransaction = ({ walletTransactionDb }) => async (dataToCreate,req,res) => {
-  let wallettransactionEntities = dataToCreate.map(item => walletTransactionEntity(item));
-  let createdWalletTransaction = await walletTransactionDb.create(wallettransactionEntities);
-  return response.success({ data:{ count:createdWalletTransaction.length || 0 } });
-};
+const bulkInsertWalletTransaction =
+  ({ walletTransactionDb }) =>
+  async (dataToCreate, req, res) => {
+    let wallettransactionEntities = dataToCreate.map((item) => walletTransactionEntity(item));
+    let createdWalletTransaction = await walletTransactionDb.create(wallettransactionEntities);
+    return response.success({ data: { count: createdWalletTransaction.length || 0 } });
+  };
 module.exports = bulkInsertWalletTransaction;

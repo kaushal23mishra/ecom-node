@@ -6,6 +6,6 @@ export {};
 module.exports = {
   FILTER_KEYS: {
     _ID: '_id',
-    ID: 'id' 
-  } 
+    ID: 'id',
+  },
 };

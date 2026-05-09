@@ -14,57 +14,74 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : number of deactivated documents. {status, message, data}
  */
-const softDeleteManyUser = ({
-  userDb,productDb,categoryDb,orderDb,bannerDb,cartDb,countryDb,cityDb,pincodeDb,stateDb,walletDb,walletTransactionDb,shippingDb,userTokensDb,roleDb,projectRouteDb,routeRoleDb,userRoleDb
-}) => async (params,req,res) => {
-  let {
-    query, dataToUpdate,isWarning 
-  } = params;
-  let updatedUser = {};
-  if (isWarning) {
-    const getDependencyCount = makeGetDependencyCount({
-      userDb,
-      productDb,
-      categoryDb,
-      orderDb,
-      bannerDb,
-      cartDb,
-      countryDb,
-      cityDb,
-      pincodeDb,
-      stateDb,
-      walletDb,
-      walletTransactionDb,
-      shippingDb,
-      userTokensDb,
-      roleDb,
-      projectRouteDb,
-      routeRoleDb,
-      userRoleDb
-    });
-    return await getDependencyCount(query);
-  } else {
-    const softDeleteWithDependency = makeSoftDeleteWithDependency({
-      userDb,
-      productDb,
-      categoryDb,
-      orderDb,
-      bannerDb,
-      cartDb,
-      countryDb,
-      cityDb,
-      pincodeDb,
-      stateDb,
-      walletDb,
-      walletTransactionDb,
-      shippingDb,
-      userTokensDb,
-      roleDb,
-      projectRouteDb,
-      routeRoleDb,
-      userRoleDb
-    });
-    return await softDeleteWithDependency(query, dataToUpdate);
-  }
-};
+const softDeleteManyUser =
+  ({
+    userDb,
+    productDb,
+    categoryDb,
+    orderDb,
+    bannerDb,
+    cartDb,
+    countryDb,
+    cityDb,
+    pincodeDb,
+    stateDb,
+    walletDb,
+    walletTransactionDb,
+    shippingDb,
+    userTokensDb,
+    roleDb,
+    projectRouteDb,
+    routeRoleDb,
+    userRoleDb,
+  }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedUser = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        userDb,
+        productDb,
+        categoryDb,
+        orderDb,
+        bannerDb,
+        cartDb,
+        countryDb,
+        cityDb,
+        pincodeDb,
+        stateDb,
+        walletDb,
+        walletTransactionDb,
+        shippingDb,
+        userTokensDb,
+        roleDb,
+        projectRouteDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        userDb,
+        productDb,
+        categoryDb,
+        orderDb,
+        bannerDb,
+        cartDb,
+        countryDb,
+        cityDb,
+        pincodeDb,
+        stateDb,
+        walletDb,
+        walletTransactionDb,
+        shippingDb,
+        userTokensDb,
+        roleDb,
+        projectRouteDb,
+        routeRoleDb,
+        userRoleDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteManyUser;

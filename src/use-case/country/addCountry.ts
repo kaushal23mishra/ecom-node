@@ -3,7 +3,7 @@ export {};
  *addCountry.js
  */
 
-const  countryEntity = require('../../entities/country');
+const countryEntity = require('../../entities/country');
 const response = require('../../utils/response');
 /**
  * @description : create new record of country in database.
@@ -12,15 +12,17 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of create. {status, message, data}
  */
-const addCountry = ({
-  countryDb,createValidation 
-}) => async (dataToCreate,req,res) => {
-  const validateRequest = await createValidation(dataToCreate);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message : `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let country = countryEntity(dataToCreate);
-  country = await countryDb.create(country);
-  return response.success({ data:country });
-};
+const addCountry =
+  ({ countryDb, createValidation }) =>
+  async (dataToCreate, req, res) => {
+    const validateRequest = await createValidation(dataToCreate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let country = countryEntity(dataToCreate);
+    country = await countryDb.create(country);
+    return response.success({ data: country });
+  };
 module.exports = addCountry;

@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {obj} : updated Order. {status, message, data}
  */
-const partialUpdateOrder = ({ orderDb }) => async (params,req,res) => {
-  const order = await orderDb.updateOne(params.query,params.dataToUpdate);
-  if (!order){
-    return response.recordNotFound();
-  }
-  return response.success({ data:order });
-};
+const partialUpdateOrder =
+  ({ orderDb }) =>
+  async (params, req, res) => {
+    const order = await orderDb.updateOne(params.query, params.dataToUpdate);
+    if (!order) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: order });
+  };
 module.exports = partialUpdateOrder;

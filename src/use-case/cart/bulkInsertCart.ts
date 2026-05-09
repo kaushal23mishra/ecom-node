@@ -4,7 +4,7 @@ export {};
  *bulkInsertCart.js
  */
 
-const  cartEntity = require('../../entities/cart');
+const cartEntity = require('../../entities/cart');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created Carts. {status, message, data}
  */
 
-const bulkInsertCart = ({ cartDb }) => async (dataToCreate,req,res) => {
-  let cartEntities = dataToCreate.map(item => cartEntity(item));
-  let createdCart = await cartDb.create(cartEntities);
-  return response.success({ data:{ count:createdCart.length || 0 } });
-};
+const bulkInsertCart =
+  ({ cartDb }) =>
+  async (dataToCreate, req, res) => {
+    let cartEntities = dataToCreate.map((item) => cartEntity(item));
+    let createdCart = await cartDb.create(cartEntities);
+    return response.success({ data: { count: createdCart.length || 0 } });
+  };
 module.exports = bulkInsertCart;

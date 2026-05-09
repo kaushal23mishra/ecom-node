@@ -53,7 +53,7 @@ const getSelectObject = require('../../../utils/getSelectObject');
 
 const addProduct = (addProductUsecase) => async (req: any, res: any) => {
   try {
-    let dataToCreate = { ...req.body || {} };
+    let dataToCreate = { ...(req.body || {}) };
     dataToCreate.addedBy = req.user.id;
     let result = await addProductUsecase(dataToCreate, req, res);
     return responseHandler(res, result);
@@ -80,13 +80,17 @@ const bulkInsertProduct = (bulkInsertProductUsecase) => async (req: any, res: an
 
 const findAllProduct = (findAllProductUsecase) => async (req: any, res: any) => {
   try {
-    let query: any = { ...req.body.query || {} };
-    let options: any = { ...req.body.options || {} };
-    let result = await findAllProductUsecase({
-      query,
-      options,
-      isCountOnly: req.body.isCountOnly || false
-    }, req, res);
+    let query: any = { ...(req.body.query || {}) };
+    let options: any = { ...(req.body.options || {}) };
+    let result = await findAllProductUsecase(
+      {
+        query,
+        options,
+        isCountOnly: req.body.isCountOnly || false,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -100,10 +104,14 @@ const getProduct = (getProductUsecase) => async (req: any, res: any) => {
     }
     let query: any = { _id: req.params.id };
     let options: any = {};
-    let result = await getProductUsecase({
-      query,
-      options
-    }, req, res);
+    let result = await getProductUsecase(
+      {
+        query,
+        options,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -112,7 +120,7 @@ const getProduct = (getProductUsecase) => async (req: any, res: any) => {
 
 const getProductCount = (getProductCountUsecase) => async (req: any, res: any) => {
   try {
-    let where = { ...req.body.where || {} };
+    let where = { ...(req.body.where || {}) };
     let result = await getProductCountUsecase({ where }, req, res);
     return responseHandler(res, result);
   } catch (error: any) {
@@ -123,16 +131,23 @@ const getProductCount = (getProductCountUsecase) => async (req: any, res: any) =
 const updateProduct = (updateProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.params.id) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! id is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     let query: any = { _id: req.params.id };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await updateProductUsecase({
-      dataToUpdate,
-      query
-    }, req, res);
+    let result = await updateProductUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -141,14 +156,18 @@ const updateProduct = (updateProductUsecase) => async (req: any, res: any) => {
 
 const bulkUpdateProduct = (bulkUpdateProductUsecase) => async (req: any, res: any) => {
   try {
-    let dataToUpdate = { ...req.body.data || {} };
-    let query: any = { ...req.body.filter || {} };
+    let dataToUpdate = { ...(req.body.data || {}) };
+    let query: any = { ...(req.body.filter || {}) };
     delete dataToUpdate.addedBy;
     dataToUpdate.updatedBy = req.user.id;
-    let result = await bulkUpdateProductUsecase({
-      dataToUpdate,
-      query
-    }, req, res);
+    let result = await bulkUpdateProductUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -158,15 +177,22 @@ const bulkUpdateProduct = (bulkUpdateProductUsecase) => async (req: any, res: an
 const partialUpdateProduct = (partialUpdateProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.params.id) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! id is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
-    let dataToUpdate = { ...req.body || {} };
+    let dataToUpdate = { ...(req.body || {}) };
     dataToUpdate.updatedBy = req.user.id;
-    let result = await partialUpdateProductUsecase({
-      dataToUpdate,
-      query
-    }, req, res);
+    let result = await partialUpdateProductUsecase(
+      {
+        dataToUpdate,
+        query,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -176,17 +202,24 @@ const partialUpdateProduct = (partialUpdateProductUsecase) => async (req: any, r
 const softDeleteProduct = (softDeleteProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.params.id) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! id is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     const dataToUpdate = {
       isDeleted: true,
       updatedBy: req.user.id,
     };
-    let result = await softDeleteProductUsecase({
-      query,
-      dataToUpdate
-    }, req, res);
+    let result = await softDeleteProductUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -196,7 +229,10 @@ const softDeleteProduct = (softDeleteProductUsecase) => async (req: any, res: an
 const deleteProduct = (deleteProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.params.id) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! id is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! id is required.' })
+      );
     }
     let query: any = { _id: req.params.id };
     let result = await deleteProductUsecase(query, req, res);
@@ -209,7 +245,10 @@ const deleteProduct = (deleteProductUsecase) => async (req: any, res: any) => {
 const deleteManyProduct = (deleteManyProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.body || !req.body.ids) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! ids field is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
     let query: any = { _id: { $in: ids } };
@@ -223,18 +262,25 @@ const deleteManyProduct = (deleteManyProductUsecase) => async (req: any, res: an
 const softDeleteManyProduct = (softDeleteManyProductUsecase) => async (req: any, res: any) => {
   try {
     if (!req.body || !req.body.ids) {
-      return responseHandler(res, response.badRequest({ message: 'Insufficient request parameters! ids field is required.' }));
+      return responseHandler(
+        res,
+        response.badRequest({ message: 'Insufficient request parameters! ids field is required.' })
+      );
     }
     let ids = req.body.ids;
     let query: any = { _id: { $in: ids } };
     const dataToUpdate = {
       isDeleted: true,
-      updatedBy: req.user.id
+      updatedBy: req.user.id,
     };
-    let result = await softDeleteManyProductUsecase({
-      query,
-      dataToUpdate
-    }, req, res);
+    let result = await softDeleteManyProductUsecase(
+      {
+        query,
+        dataToUpdate,
+      },
+      req,
+      res
+    );
     return responseHandler(res, result);
   } catch (error: any) {
     return responseHandler(res, response.internalServerError({ message: error.message }));
@@ -253,5 +299,5 @@ export = {
   softDeleteProduct,
   deleteProduct,
   deleteManyProduct,
-  softDeleteManyProduct
+  softDeleteManyProduct,
 };

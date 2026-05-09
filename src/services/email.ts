@@ -1,5 +1,5 @@
 export {};
-/** 
+/**
  * emailService.js
  * @description :: exports function used in sending mails using mailgun provider
  */
@@ -12,12 +12,11 @@ let transporter = nodemailer.createTransport({
   service: 'Mailgun',
   auth: {
     user: config.email.user,
-    pass: config.email.password
-  }
+    pass: config.email.password,
+  },
 });
 
 const sendMail = async (obj) => {
-
   if (!Array.isArray(obj.to)) {
     obj.to = [obj.to];
   }
@@ -34,7 +33,7 @@ const sendMail = async (obj) => {
     cc: obj.cc || [],
     bcc: obj.bcc || [],
     html: htmlText,
-    attachments: obj.attachments || []
+    attachments: obj.attachments || [],
   };
   return transporter.sendMail(mailOpts);
 };

@@ -24,23 +24,23 @@ const updateValidation = require('../../../validation')(userSchema.updateSchema)
 const filterValidation = require('../../../validation')(userSchema.filterValidationSchema);
 const addUserUsecase = require('../../../use-case/user/addUser')({
   userDb,
-  createValidation 
+  createValidation,
 });
 const findAllUserUsecase = require('../../../use-case/user/findAllUser')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const getUserCountUsecase = require('../../../use-case/user/getUserCount')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const getUserUsecase = require('../../../use-case/user/getUser')({
   userDb,
-  filterValidation
+  filterValidation,
 });
 const updateUserUsecase = require('../../../use-case/user/updateUser')({
   userDb,
-  updateValidation 
+  updateValidation,
 });
 const partialUpdateUserUsecase = require('../../../use-case/user/partialUpdateUser')({ userDb });
 const softDeleteUserUsecase = require('../../../use-case/user/softDeleteUser')({
@@ -61,7 +61,7 @@ const softDeleteUserUsecase = require('../../../use-case/user/softDeleteUser')({
   roleDb,
   projectRouteDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const softDeleteManyUserUsecase = require('../../../use-case/user/softDeleteManyUser')({
   userDb,
@@ -81,7 +81,7 @@ const softDeleteManyUserUsecase = require('../../../use-case/user/softDeleteMany
   roleDb,
   projectRouteDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const bulkInsertUserUsecase = require('../../../use-case/user/bulkInsertUser')({ userDb });
 const bulkUpdateUserUsecase = require('../../../use-case/user/bulkUpdateUser')({ userDb });
@@ -103,7 +103,7 @@ const deleteUserUsecase = require('../../../use-case/user/deleteUser')({
   roleDb,
   projectRouteDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const deleteManyUserUsecase = require('../../../use-case/user/deleteManyUser')({
   userDb,
@@ -123,12 +123,12 @@ const deleteManyUserUsecase = require('../../../use-case/user/deleteManyUser')({
   roleDb,
   projectRouteDb,
   routeRoleDb,
-  userRoleDb
+  userRoleDb,
 });
 const changePasswordUsecase = require('../../../use-case/user/changePassword')({ userDb });
 const updateProfileUsecase = require('../../../use-case/user/updateProfile')({
   userDb,
-  updateValidation
+  updateValidation,
 });
 
 const userController = require('./user');

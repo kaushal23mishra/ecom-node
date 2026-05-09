@@ -14,25 +14,23 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response..
  * @return {Object} : deactivated Wallet. {status, message, data}
  */
-const softDeleteWallet = ({
-  walletDb,walletTransactionDb
-}) => async (params,req,res) => {
-  let {
-    query, dataToUpdate,isWarning 
-  } = params;
-  let updatedWallet = {};
-  if (isWarning) {
-    const getDependencyCount = makeGetDependencyCount({
-      walletDb,
-      walletTransactionDb
-    });
-    return await getDependencyCount(query);
-  } else {
-    const softDeleteWithDependency = makeSoftDeleteWithDependency({
-      walletDb,
-      walletTransactionDb
-    });
-    return await softDeleteWithDependency(query, dataToUpdate);
-  }
-};
+const softDeleteWallet =
+  ({ walletDb, walletTransactionDb }) =>
+  async (params, req, res) => {
+    let { query, dataToUpdate, isWarning } = params;
+    let updatedWallet = {};
+    if (isWarning) {
+      const getDependencyCount = makeGetDependencyCount({
+        walletDb,
+        walletTransactionDb,
+      });
+      return await getDependencyCount(query);
+    } else {
+      const softDeleteWithDependency = makeSoftDeleteWithDependency({
+        walletDb,
+        walletTransactionDb,
+      });
+      return await softDeleteWithDependency(query, dataToUpdate);
+    }
+  };
 module.exports = softDeleteWallet;

@@ -3,7 +3,7 @@ export {};
  *updateState.js
  */
 
-const  stateEntity = require('../../entities/state');
+const stateEntity = require('../../entities/state');
 const response = require('../../utils/response');
 
 /**
@@ -13,21 +13,21 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : updated State. {status, message, data}
  */
-const updateState = ({
-  stateDb, updateValidation
-}) => async (params,req,res) => {
-  let {
-    dataToUpdate, query 
-  } = params;
-  const validateRequest = await updateValidation(dataToUpdate);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message : `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let state = stateEntity(dataToUpdate);
-  state = await stateDb.updateOne(query,state);
-  if (!state){
-    return response.recordNotFound();
-  }
-  return response.success({ data:state });
-};
+const updateState =
+  ({ stateDb, updateValidation }) =>
+  async (params, req, res) => {
+    let { dataToUpdate, query } = params;
+    const validateRequest = await updateValidation(dataToUpdate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let state = stateEntity(dataToUpdate);
+    state = await stateDb.updateOne(query, state);
+    if (!state) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: state });
+  };
 module.exports = updateState;

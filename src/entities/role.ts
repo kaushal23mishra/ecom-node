@@ -1,7 +1,6 @@
 export {};
 module.exports = (role) => {
-
-  let newRole = { 
+  let newRole = {
     name: role.name,
     code: role.code,
     weight: role.weight,
@@ -14,7 +13,7 @@ module.exports = (role) => {
   };
 
   // remove undefined values
-  Object.keys(newRole).forEach(key => newRole[key] === undefined && delete newRole[key]);
+  Object.keys(newRole).forEach((key) => newRole[key] === undefined && delete newRole[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -23,7 +22,7 @@ module.exports = (role) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newRole) 
+   * validate(newRole)
    */
 
   return Object.freeze(newRole);

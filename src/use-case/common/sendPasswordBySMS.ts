@@ -4,12 +4,14 @@ const sendSMS = require('../../services/sms');
 const ejs = require('ejs');
 
 const sendPasswordBySMS = async (user) => {
-  const msg = await ejs.renderFile(`${process.cwd()}/views/sms/InitialPassword/html.ejs`, { password: user.password });
+  const msg = await ejs.renderFile(`${process.cwd()}/views/sms/InitialPassword/html.ejs`, {
+    password: user.password,
+  });
   let smsObj = {
     to: user.mobileNo,
-    message: msg
+    message: msg,
   };
   let result = await sendSMS(smsObj);
-  return response.success({ data :result });
+  return response.success({ data: result });
 };
 module.exports = sendPasswordBySMS;

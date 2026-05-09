@@ -3,7 +3,7 @@ export {};
  *updateProduct.js
  */
 
-const  productEntity = require('../../entities/product');
+const productEntity = require('../../entities/product');
 const response = require('../../utils/response');
 
 /**
@@ -13,21 +13,21 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : updated Product. {status, message, data}
  */
-const updateProduct = ({
-  productDb, updateValidation
-}) => async (params,req,res) => {
-  let {
-    dataToUpdate, query 
-  } = params;
-  const validateRequest = await updateValidation(dataToUpdate);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message : `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let product = productEntity(dataToUpdate);
-  product = await productDb.updateOne(query,product);
-  if (!product){
-    return response.recordNotFound();
-  }
-  return response.success({ data:product });
-};
+const updateProduct =
+  ({ productDb, updateValidation }) =>
+  async (params, req, res) => {
+    let { dataToUpdate, query } = params;
+    const validateRequest = await updateValidation(dataToUpdate);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let product = productEntity(dataToUpdate);
+    product = await productDb.updateOne(query, product);
+    if (!product) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: product });
+  };
 module.exports = updateProduct;

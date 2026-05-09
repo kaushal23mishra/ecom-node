@@ -4,7 +4,7 @@ export {};
  *bulkInsertShipping.js
  */
 
-const  shippingEntity = require('../../entities/shipping');
+const shippingEntity = require('../../entities/shipping');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created Shippings. {status, message, data}
  */
 
-const bulkInsertShipping = ({ shippingDb }) => async (dataToCreate,req,res) => {
-  let shippingEntities = dataToCreate.map(item => shippingEntity(item));
-  let createdShipping = await shippingDb.create(shippingEntities);
-  return response.success({ data:{ count:createdShipping.length || 0 } });
-};
+const bulkInsertShipping =
+  ({ shippingDb }) =>
+  async (dataToCreate, req, res) => {
+    let shippingEntities = dataToCreate.map((item) => shippingEntity(item));
+    let createdShipping = await shippingDb.create(shippingEntities);
+    return response.success({ data: { count: createdShipping.length || 0 } });
+  };
 module.exports = bulkInsertShipping;

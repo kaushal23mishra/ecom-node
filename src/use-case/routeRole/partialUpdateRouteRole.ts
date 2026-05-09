@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {obj} : updated RouteRole. {status, message, data}
  */
-const partialUpdateRouteRole = ({ routeRoleDb }) => async (params,req,res) => {
-  const routerole = await routeRoleDb.updateOne(params.query,params.dataToUpdate);
-  if (!routerole){
-    return response.recordNotFound();
-  }
-  return response.success({ data:routerole });
-};
+const partialUpdateRouteRole =
+  ({ routeRoleDb }) =>
+  async (params, req, res) => {
+    const routerole = await routeRoleDb.updateOne(params.query, params.dataToUpdate);
+    if (!routerole) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: routerole });
+  };
 module.exports = partialUpdateRouteRole;

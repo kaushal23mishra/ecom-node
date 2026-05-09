@@ -1,7 +1,6 @@
 export {};
 module.exports = (pincode) => {
-
-  let newPincode = { 
+  let newPincode = {
     pincode: pincode.pincode,
     cityId: pincode.cityId,
     stateId: pincode.stateId,
@@ -15,7 +14,7 @@ module.exports = (pincode) => {
   };
 
   // remove undefined values
-  Object.keys(newPincode).forEach(key => newPincode[key] === undefined && delete newPincode[key]);
+  Object.keys(newPincode).forEach((key) => newPincode[key] === undefined && delete newPincode[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -24,7 +23,7 @@ module.exports = (pincode) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newPincode) 
+   * validate(newPincode)
    */
 
   return Object.freeze(newPincode);

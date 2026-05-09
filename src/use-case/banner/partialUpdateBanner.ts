@@ -12,11 +12,13 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {obj} : updated Banner. {status, message, data}
  */
-const partialUpdateBanner = ({ bannerDb }) => async (params,req,res) => {
-  const banner = await bannerDb.updateOne(params.query,params.dataToUpdate);
-  if (!banner){
-    return response.recordNotFound();
-  }
-  return response.success({ data:banner });
-};
+const partialUpdateBanner =
+  ({ bannerDb }) =>
+  async (params, req, res) => {
+    const banner = await bannerDb.updateOne(params.query, params.dataToUpdate);
+    if (!banner) {
+      return response.recordNotFound();
+    }
+    return response.success({ data: banner });
+  };
 module.exports = partialUpdateBanner;

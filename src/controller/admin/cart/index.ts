@@ -7,23 +7,23 @@ const updateValidation = require('../../../validation')(cartSchema.updateSchema)
 const filterValidation = require('../../../validation')(cartSchema.filterValidationSchema);
 const addCartUsecase = require('../../../use-case/cart/addCart')({
   cartDb,
-  createValidation 
+  createValidation,
 });
 const findAllCartUsecase = require('../../../use-case/cart/findAllCart')({
   cartDb,
-  filterValidation
+  filterValidation,
 });
 const getCartCountUsecase = require('../../../use-case/cart/getCartCount')({
   cartDb,
-  filterValidation
+  filterValidation,
 });
 const getCartUsecase = require('../../../use-case/cart/getCart')({
   cartDb,
-  filterValidation
+  filterValidation,
 });
 const updateCartUsecase = require('../../../use-case/cart/updateCart')({
   cartDb,
-  updateValidation 
+  updateValidation,
 });
 const partialUpdateCartUsecase = require('../../../use-case/cart/partialUpdateCart')({ cartDb });
 const softDeleteCartUsecase = require('../../../use-case/cart/softDeleteCart')({ cartDb });

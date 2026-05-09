@@ -11,15 +11,17 @@ const response = require('../../utils/response');
  * @param {Object} res : The res object represents HTTP response.
  * @return {Object} : response of count. {status, message, data}
  */
-const getProjectRouteCount = ({
-  projectRouteDb,filterValidation 
-}) => async (params,req,res) => {
-  let { where } = params;
-  const validateRequest = await filterValidation(where);
-  if (!validateRequest.isValid) {
-    return response.validationError({ message: `Invalid values in parameters, ${validateRequest.message}` });
-  }
-  let count = await projectRouteDb.count(where);
-  return response.success({ data: { count } });
-};
+const getProjectRouteCount =
+  ({ projectRouteDb, filterValidation }) =>
+  async (params, req, res) => {
+    let { where } = params;
+    const validateRequest = await filterValidation(where);
+    if (!validateRequest.isValid) {
+      return response.validationError({
+        message: `Invalid values in parameters, ${validateRequest.message}`,
+      });
+    }
+    let count = await projectRouteDb.count(where);
+    return response.success({ data: { count } });
+  };
 module.exports = getProjectRouteCount;

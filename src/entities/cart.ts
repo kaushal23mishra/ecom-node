@@ -1,7 +1,6 @@
 export {};
 module.exports = (cart) => {
-
-  let newCart = { 
+  let newCart = {
     customerId: cart.customerId,
     isVisible: cart.isVisible,
     cartItems: cart.cartItems,
@@ -14,7 +13,7 @@ module.exports = (cart) => {
   };
 
   // remove undefined values
-  Object.keys(newCart).forEach(key => newCart[key] === undefined && delete newCart[key]);
+  Object.keys(newCart).forEach((key) => newCart[key] === undefined && delete newCart[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -23,7 +22,7 @@ module.exports = (cart) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newCart) 
+   * validate(newCart)
    */
 
   return Object.freeze(newCart);

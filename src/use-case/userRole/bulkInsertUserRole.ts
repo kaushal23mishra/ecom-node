@@ -4,7 +4,7 @@ export {};
  *bulkInsertUserRole.js
  */
 
-const  userRoleEntity = require('../../entities/userRole');
+const userRoleEntity = require('../../entities/userRole');
 const response = require('../../utils/response');
 
 /**
@@ -15,9 +15,11 @@ const response = require('../../utils/response');
  * @return {Object} : created UserRoles. {status, message, data}
  */
 
-const bulkInsertUserRole = ({ userRoleDb }) => async (dataToCreate,req,res) => {
-  let userroleEntities = dataToCreate.map(item => userRoleEntity(item));
-  let createdUserRole = await userRoleDb.create(userroleEntities);
-  return response.success({ data:{ count:createdUserRole.length || 0 } });
-};
+const bulkInsertUserRole =
+  ({ userRoleDb }) =>
+  async (dataToCreate, req, res) => {
+    let userroleEntities = dataToCreate.map((item) => userRoleEntity(item));
+    let createdUserRole = await userRoleDb.create(userroleEntities);
+    return response.success({ data: { count: createdUserRole.length || 0 } });
+  };
 module.exports = bulkInsertUserRole;

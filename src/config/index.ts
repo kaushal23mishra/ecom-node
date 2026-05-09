@@ -22,9 +22,7 @@ const envSchema = Joi.object({
   SMS_PASSWORD: Joi.string(),
 }).unknown();
 
-const {
-  error, value: envVars 
-} = envSchema.validate(process.env);
+const { error, value: envVars } = envSchema.validate(process.env);
 if (error) {
   logger.error(`Environment validation error: ${error.message}`);
 }
@@ -32,13 +30,13 @@ if (error) {
 const config = {
   env: envVars.NODE_ENV,
   port: envVars.PORT,
-  mongoose: { url: envVars.NODE_ENV === 'test' ? envVars.DB_TEST_URL : envVars.DB_URL, },
+  mongoose: { url: envVars.NODE_ENV === 'test' ? envVars.DB_TEST_URL : envVars.DB_URL },
   jwt: {
     secret: envVars.JWT_SECRET,
     accessExpirationMinutes: envVars.JWT_EXPIRES_IN,
   },
-  cors: { origin: envVars.ALLOW_ORIGIN, },
-  redis: { url: envVars.REDIS_URL, },
+  cors: { origin: envVars.ALLOW_ORIGIN },
+  redis: { url: envVars.REDIS_URL },
   email: {
     user: envVars.MAILGUN_USER,
     password: envVars.MAILGUN_PASSWORD,
@@ -46,7 +44,7 @@ const config = {
   sms: {
     userId: envVars.SMS_USER_ID,
     password: envVars.SMS_PASSWORD,
-  }
+  },
 };
 
 export default config;

@@ -1,7 +1,6 @@
 export {};
 module.exports = (country) => {
-
-  let newCountry = { 
+  let newCountry = {
     countryName: country.countryName,
     phoneCode: country.phoneCode,
     isActive: country.isActive,
@@ -13,7 +12,7 @@ module.exports = (country) => {
   };
 
   // remove undefined values
-  Object.keys(newCountry).forEach(key => newCountry[key] === undefined && delete newCountry[key]);
+  Object.keys(newCountry).forEach((key) => newCountry[key] === undefined && delete newCountry[key]);
 
   // To validate Entity uncomment this block
   /*
@@ -22,7 +21,7 @@ module.exports = (country) => {
    *       throw new Error("this field is required");
    *   }
    * }
-   * validate(newCountry) 
+   * validate(newCountry)
    */
 
   return Object.freeze(newCountry);
