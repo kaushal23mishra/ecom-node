@@ -1,0 +1,10 @@
+const { RESPONSE_STATUS } = require('./index');
+module.exports = {
+  success: RESPONSE_STATUS.SUCCESS,
+  failure: RESPONSE_STATUS.FAILURE,
+  serverError: RESPONSE_STATUS.SERVER_ERROR,
+  badRequest: RESPONSE_STATUS.BAD_REQUEST,
+  recordNotFound: RESPONSE_STATUS.RECORD_NOT_FOUND,
+  validationError: RESPONSE_STATUS.VALIDATION_ERROR,
+  unauthorized: RESPONSE_STATUS.UNAUTHORIZED,
+};

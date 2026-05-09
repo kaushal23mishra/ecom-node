@@ -1,0 +1,46 @@
+import express from 'express';
+const router = express.Router();
+
+import authRoutes from './auth';
+import userRoutes from './userRoutes';
+import productRoutes from './productRoutes';
+import categoryRoutes from './categoryRoutes';
+import orderRoutes from './orderRoutes';
+import bannerRoutes from './bannerRoutes';
+import cartRoutes from './cartRoutes';
+import countryRoutes from './countryRoutes';
+import cityRoutes from './cityRoutes';
+import pincodeRoutes from './pincodeRoutes';
+import stateRoutes from './stateRoutes';
+import walletRoutes from './walletRoutes';
+import walletTransactionRoutes from './walletTransactionRoutes';
+import shippingRoutes from './shippingRoutes';
+import roleRoutes from './roleRoutes';
+import projectRouteRoutes from './projectRouteRoutes';
+import routeRoleRoutes from './routeRoleRoutes';
+import userRoleRoutes from './userRoleRoutes';
+import uploadRoutes from './uploadRoutes';
+import systemRoutes from './systemRoutes';
+
+router.use('/admin/auth', authRoutes);
+router.use(userRoutes);
+router.use(productRoutes);
+router.use(categoryRoutes);
+router.use(orderRoutes);
+router.use(bannerRoutes);
+router.use(cartRoutes);
+router.use(countryRoutes);
+router.use(cityRoutes);
+router.use(pincodeRoutes);
+router.use(stateRoutes);
+router.use(walletRoutes);
+router.use(walletTransactionRoutes);
+router.use(shippingRoutes);
+router.use(roleRoutes);
+router.use(projectRouteRoutes);
+router.use(routeRoleRoutes);
+router.use(userRoleRoutes);
+router.use(uploadRoutes);
+router.use('/system', systemRoutes);
+
+export default router;
